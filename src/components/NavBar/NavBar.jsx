@@ -20,9 +20,12 @@ const NavBar = () => {
 export default NavBar;
 
 const Conateiner = styled.div`
+  position: fixed;
+  width: 100%;
   height: 7rem;
   background-color: #283149;
   display: flex;
+  z-index: 999;
 `;
 
 const Content = styled.div`
@@ -61,7 +64,7 @@ const NavBarItem = styled.div`
   position: relative;
   overflow: hidden;
   margin: 0 1rem;
-  color: #0ee3b5;
+  color: #8fa3cd;
   font-family: 'Ubuntu Condensed', sans-serif;
   font-size: 1.5rem;
   font-weight: 600;
