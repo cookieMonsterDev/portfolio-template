@@ -3,23 +3,60 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import AlternateEmailOutlinedIcon from '@mui/icons-material/AlternateEmailOutlined';
 import LocalPhoneOutlinedIcon from '@mui/icons-material/LocalPhoneOutlined';
+import Tooltip from '@mui/material/Tooltip';
+import Zoom from '@mui/material/Zoom';
 import styled from 'styled-components';
+
+const ToolTip = (props) => {
+  return (
+    <Tooltip
+      title={props.title}
+      placement="left"
+      arrow
+      TransitionComponent={Zoom}
+      enterDelay={500}
+      leaveDelay={200}
+    >
+      {props.children}
+    </Tooltip>
+  );
+};
 
 const Social = () => {
   return (
     <Container>
       <List>
-        <ListItem> 
-          <GitHubIcon />
+        <ListItem>
+          <a
+            href="https://github.com/cookieMonsterDev"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <ToolTip title="GitHub">
+              <GitHubIcon />
+            </ToolTip>
+          </a>
         </ListItem>
         <ListItem>
-          <LinkedInIcon />
+          <a
+            href="https://www.linkedin.com/in/mykhailo-toporkov/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <ToolTip title="Linkedin">
+              <LinkedInIcon />
+            </ToolTip>
+          </a>
         </ListItem>
         <ListItem>
-          <AlternateEmailOutlinedIcon />
+          <ToolTip title="mykhailo.toporkov@gmail.com">
+            <AlternateEmailOutlinedIcon />
+          </ToolTip>
         </ListItem>
         <ListItem>
-          <LocalPhoneOutlinedIcon></LocalPhoneOutlinedIcon>
+          <ToolTip title="+380 096 050 33 48">
+            <LocalPhoneOutlinedIcon />
+          </ToolTip>
         </ListItem>
       </List>
       <Stripe />
@@ -40,19 +77,21 @@ const List = styled.ul`
 
 const ListItem = styled.li`
   display: list-item;
+  justify-content: center;
+  align-items: center;
   margin: 0.2rem 0;
   transition: all 700ms;
 
-  > svg {
+  svg {
     width: 2.5rem;
     height: 2.5rem;
     fill: #8fa3cd;
   }
 
- > svg:hover {
-  fill: #0ee3b5;
-  transition: all 700ms;
- }
+  svg:hover {
+    fill: #0ee3b5;
+    transition: all 700ms;
+  }
 `;
 
 const Stripe = styled.div`
@@ -90,7 +129,7 @@ const Container = styled.div`
   &:hover {
     ${Stripe} {
       &::after {
-      transform: none;
+        transform: none;
       }
     }
   }
