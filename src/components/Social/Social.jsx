@@ -14,7 +14,7 @@ const ToolTip = (props) => {
       placement="left"
       arrow
       TransitionComponent={Zoom}
-      enterDelay={500}
+      enterDelay={props.enterDelay ? props.enterDelay : 500}
       leaveDelay={200}
     >
       {props.children}
@@ -32,7 +32,7 @@ const Social = () => {
             target="_blank"
             rel="noreferrer"
           >
-            <ToolTip title="GitHub">
+            <ToolTip title="GitHub" enterDelay={800}>
               <GitHubIcon />
             </ToolTip>
           </a>
@@ -43,7 +43,7 @@ const Social = () => {
             target="_blank"
             rel="noreferrer"
           >
-            <ToolTip title="Linkedin">
+            <ToolTip title="Linkedin" enterDelay={800}>
               <LinkedInIcon />
             </ToolTip>
           </a>

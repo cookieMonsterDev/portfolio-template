@@ -1,9 +1,26 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 const NavBar = () => {
+  let prevScrollpos = window.scrollY;
+  const [show, setShow] = useState(true);
+
+  const handleNavBar = () => {
+    const currentScrollPos = window.scrollY;
+    prevScrollpos < currentScrollPos ? setShow(false) : setShow(true);
+    prevScrollpos = currentScrollPos;
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleNavBar);
+
+    return () => {
+      window.removeEventListener('scroll', handleNavBar);
+    };
+  }, []);
+
   return (
-    <Conateiner>
+    <Conateiner show={show}>
       <Content>
         <LogoName>Mykhailo Toporkov</LogoName>
         <RightSide>
@@ -26,6 +43,8 @@ const Conateiner = styled.div`
   background-color: #283149;
   display: flex;
   z-index: 999;
+  opacity: ${(props) => (props.show ? '1' : '0')};
+  transition: all 700ms;
 `;
 
 const Content = styled.div`
@@ -72,11 +91,11 @@ const NavBarItem = styled.div`
   cursor: pointer;
   transition: all 600ms ease;
 
-  &:hover{
+  &:hover {
     color: #e7e6e1;
   }
 
-  &::before{
+  &::before {
     content: '';
     width: 110%;
     height: 3px;
@@ -88,8 +107,7 @@ const NavBarItem = styled.div`
     transform: translateX(-110%);
   }
 
-  &:hover::before{
+  &:hover::before {
     transform: none;
   }
 `;
-
