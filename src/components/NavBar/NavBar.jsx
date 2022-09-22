@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const NavBar = () => {
   let prevScrollpos = window.scrollY;
   const [show, setShow] = useState(true);
+  const [shadow, setShadow] = useState(false);
 
   const handleNavBar = () => {
     const currentScrollPos = window.scrollY;
     prevScrollpos < currentScrollPos ? setShow(false) : setShow(true);
+    currentScrollPos === 0 ? setShadow(false) : setShadow(true);
     prevScrollpos = currentScrollPos;
   };
 
@@ -17,16 +19,20 @@ const NavBar = () => {
     return () => {
       window.removeEventListener('scroll', handleNavBar);
     };
-  }, []);
+  });
 
   return (
-    <Conateiner show={show}>
+    <Conateiner show={show} shadow={shadow}>
       <Content>
         <LogoName>Mykhailo Toporkov</LogoName>
         <RightSide>
-          <NavBarItem>Experience</NavBarItem>
+          <a href="/#experience">
+            <NavBarItem>Experience</NavBarItem>
+          </a>
           <NavBarItem>Resume</NavBarItem>
-          <NavBarItem>Contact</NavBarItem>
+          <a href="/#contact">
+            <NavBarItem>Contact</NavBarItem>
+          </a>
           <NavBarItem>Dark Theme</NavBarItem>
         </RightSide>
       </Content>
@@ -40,11 +46,22 @@ const Conateiner = styled.div`
   position: fixed;
   width: 100%;
   height: 7rem;
-  background-color: #283149;
+  background-color: #0a192f;
   display: flex;
   z-index: 999;
-  opacity: ${(props) => (props.show ? '1' : '0')};
   transition: all 700ms;
+
+  ${( props ) =>
+    !props.show &&
+    css`
+      transform: translateY(-100%);
+    `}
+
+    ${( props ) =>
+    props.shadow &&
+    css`
+      box-shadow: 0 10px 30px -10px rgba(2,12,27,0.7);
+    `}
 `;
 
 const Content = styled.div`
@@ -72,6 +89,10 @@ const RightSide = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  > a {
+    text-decoration: none;
+  }
 
   @media only screen and (max-width: 48em) {
     display: none;

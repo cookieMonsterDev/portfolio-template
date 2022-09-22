@@ -4,62 +4,11 @@ import styled from 'styled-components';
 const MainPage = () => {
   return (
     <Container>
-      <span>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita aut,
-        nemo laboriosam dolorum quos possimus beatae. Perspiciatis, incidunt
-        aut. Magni itaque molestias saepe, culpa dolor qui quos asperiores,
-        perferendis amet hic sunt voluptatem doloribus? Sapiente, rerum incidunt
-        aliquid, quia dignissimos nisi deserunt repellat dolorum autem facilis
-        molestias, repudiandae fuga vero!
-      </span>
-      <span>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita aut,
-        nemo laboriosam dolorum quos possimus beatae. Perspiciatis, incidunt
-        aut. Magni itaque molestias saepe, culpa dolor qui quos asperiores,
-        perferendis amet hic sunt voluptatem doloribus? Sapiente, rerum incidunt
-        aliquid, quia dignissimos nisi deserunt repellat dolorum autem facilis
-        molestias, repudiandae fuga vero!
-      </span>
-      <span>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita aut,
-        nemo laboriosam dolorum quos possimus beatae. Perspiciatis, incidunt
-        aut. Magni itaque molestias saepe, culpa dolor qui quos asperiores,
-        perferendis amet hic sunt voluptatem doloribus? Sapiente, rerum incidunt
-        aliquid, quia dignissimos nisi deserunt repellat dolorum autem facilis
-        molestias, repudiandae fuga vero!
-      </span>
-      <span>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita aut,
-        nemo laboriosam dolorum quos possimus beatae. Perspiciatis, incidunt
-        aut. Magni itaque molestias saepe, culpa dolor qui quos asperiores,
-        perferendis amet hic sunt voluptatem doloribus? Sapiente, rerum incidunt
-        aliquid, quia dignissimos nisi deserunt repellat dolorum autem facilis
-        molestias, repudiandae fuga vero!
-      </span>
-      <span>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita aut,
-        nemo laboriosam dolorum quos possimus beatae. Perspiciatis, incidunt
-        aut. Magni itaque molestias saepe, culpa dolor qui quos asperiores,
-        perferendis amet hic sunt voluptatem doloribus? Sapiente, rerum incidunt
-        aliquid, quia dignissimos nisi deserunt repellat dolorum autem facilis
-        molestias, repudiandae fuga vero!
-      </span>
-      <span>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita aut,
-        nemo laboriosam dolorum quos possimus beatae. Perspiciatis, incidunt
-        aut. Magni itaque molestias saepe, culpa dolor qui quos asperiores,
-        perferendis amet hic sunt voluptatem doloribus? Sapiente, rerum incidunt
-        aliquid, quia dignissimos nisi deserunt repellat dolorum autem facilis
-        molestias, repudiandae fuga vero!
-      </span>
-      <span>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita aut,
-        nemo laboriosam dolorum quos possimus beatae. Perspiciatis, incidunt
-        aut. Magni itaque molestias saepe, culpa dolor qui quos asperiores,
-        perferendis amet hic sunt voluptatem doloribus? Sapiente, rerum incidunt
-        aliquid, quia dignissimos nisi deserunt repellat dolorum autem facilis
-        molestias, repudiandae fuga vero!
-      </span>
+      <Span>Into</Span>
+      <Span>About me</Span>
+      <Span id="experience">Experience</Span>
+      <Span>Projects</Span>
+      <Span id="contact">Contact</Span>
     </Container>
   );
 };
@@ -67,15 +16,16 @@ const MainPage = () => {
 export default MainPage;
 
 const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  background-color: #283149;
-
-  > span {
-    width: 10rem;
-    margin: 2rem;
-  }
+  background-color: #0a192f;
+  padding: 0 10rem;
 `;
 
-
-
+const Span = styled.span`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 0;
+  color: white;
+`;
