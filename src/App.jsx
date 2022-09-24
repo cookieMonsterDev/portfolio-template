@@ -1,7 +1,8 @@
-import styled from "styled-components";
-import NavBar from "./components/NavBar/NavBar";
-import MainPage from "./pages/MainPage";
-import Socials from "./components/Socials/Socials";
+import styled from 'styled-components';
+import NavBar from './components/NavBar/NavBar';
+import MainPage from './pages/MainPage';
+import Socials from './components/Socials/Socials';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Wrap>
         <Socials />
       </Wrap>
+      <Footer />
     </>
   );
 }
@@ -21,4 +23,4 @@ const Wrap = styled.div`
   position: fixed;
   bottom: 0;
   right: 3rem;
-`
+`;
