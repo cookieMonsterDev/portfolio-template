@@ -27,11 +27,11 @@ const NavBar = () => {
       <Content>
         <LogoName>Mykhailo</LogoName>
         <NavSection>
-          <a href="/#experience">
+          <a href="#experience">
             <NavBarItem>Experience</NavBarItem>
           </a>
           <NavBarItem>Resume</NavBarItem>
-          <a href="/#contact">
+          <a href="#contact">
             <NavBarItem>Contact</NavBarItem>
           </a>
           <NavBarItem>Dark Theme</NavBarItem>
