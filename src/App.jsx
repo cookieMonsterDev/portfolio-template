@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import NavBar from "./components/NavBar/NavBar";
 import MainPage from "./pages/MainPage";
-import Links from "./components/Social/Social";
+import Socials from "./components/Socials/Socials";
 
 function App() {
   return (
@@ -9,7 +9,7 @@ function App() {
       <NavBar />
       <MainPage />
       <Wrap>
-        <Links />
+        <Socials />
       </Wrap>
     </>
   );

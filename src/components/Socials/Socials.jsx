@@ -22,7 +22,7 @@ const ToolTip = (props) => {
   );
 };
 
-const Social = () => {
+const Socials = () => {
   return (
     <Container>
       <List>
@@ -64,7 +64,7 @@ const Social = () => {
   );
 };
 
-export default Social;
+export default Socials;
 
 const List = styled.ul`
   display: flex;
