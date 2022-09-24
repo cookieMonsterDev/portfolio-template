@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled, { css } from 'styled-components';
+import BurgerMenu from './BurgerMenu';
 
 const NavBar = () => {
   let prevScrollpos = window.scrollY;
@@ -22,10 +23,10 @@ const NavBar = () => {
   });
 
   return (
-    <Conateiner show={show} shadow={shadow}>
+    <Conteiner show={show} shadow={shadow}>
       <Content>
-        <LogoName>Mykhailo Toporkov</LogoName>
-        <RightSide>
+        <LogoName>Mykhailo</LogoName>
+        <NavSection>
           <a href="/#experience">
             <NavBarItem>Experience</NavBarItem>
           </a>
@@ -34,15 +35,16 @@ const NavBar = () => {
             <NavBarItem>Contact</NavBarItem>
           </a>
           <NavBarItem>Dark Theme</NavBarItem>
-        </RightSide>
+          <NavBarMenu><BurgerMenu /></NavBarMenu>
+        </NavSection>
       </Content>
-    </Conateiner>
+    </Conteiner>
   );
 };
 
 export default NavBar;
 
-const Conateiner = styled.div`
+const Conteiner = styled.div`
   position: fixed;
   width: 100%;
   height: 7rem;
@@ -62,6 +64,10 @@ const Conateiner = styled.div`
     css`
       box-shadow: 0 10px 30px -10px rgba(2,12,27,0.7);
     `}
+
+  @media only screen and (max-width: 48em) {
+    height: 5rem;
+  }
 `;
 
 const Content = styled.div`
@@ -80,9 +86,13 @@ const LogoName = styled.div`
   font-family: 'Ubuntu Condensed', sans-serif;
   font-size: 2rem;
   font-weight: 600;
+  
+  @media only screen and (max-width: 1000rem) {
+    margin-left: 1rem;
+  }
 `;
 
-const RightSide = styled.div`
+const NavSection = styled.div`
   height: 100%;
   float: right;
   box-sizing: border-box;
@@ -94,8 +104,8 @@ const RightSide = styled.div`
     text-decoration: none;
   }
 
-  @media only screen and (max-width: 48em) {
-    display: none;
+  @media only screen and (max-width: 1000rem) {
+    margin-right: 1rem;
   }
 `;
 
@@ -131,4 +141,16 @@ const NavBarItem = styled.div`
   &:hover::before {
     transform: none;
   }
+
+  @media only screen and (max-width: 48em) {
+    display: none;
+  }
 `;
+
+const NavBarMenu = styled.div`
+  display: none;
+
+  @media only screen and (max-width: 48em) {
+    display: flex;
+  }
+`
