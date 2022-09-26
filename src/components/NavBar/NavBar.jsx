@@ -25,8 +25,11 @@ const NavBar = () => {
   return (
     <Conteiner show={show} shadow={shadow}>
       <Content>
-        <LogoName>Mykhailo</LogoName>
+        <LogoName></LogoName>
         <NavSection>
+          <a href="#about">
+            <NavBarItem>About</NavBarItem>
+          </a>
           <a href="#experience">
             <NavBarItem>Experience</NavBarItem>
           </a>

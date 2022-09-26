@@ -4,6 +4,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import AlternateEmailOutlinedIcon from '@mui/icons-material/AlternateEmailOutlined';
 import LocalPhoneOutlinedIcon from '@mui/icons-material/LocalPhoneOutlined';
 import styled from 'styled-components';
+import externalLinks from '../../static/externalLinks';
 
 const Footer = () => {
   return (
@@ -11,7 +12,7 @@ const Footer = () => {
       <Socials>
         <SocialItem>
           <a
-            href="https://github.com/cookieMonsterDev"
+            href={externalLinks.gitHub.href}
             target="_blank"
             rel="noreferrer"
           >
@@ -20,7 +21,7 @@ const Footer = () => {
         </SocialItem>
         <SocialItem>
           <a
-            href="https://www.linkedin.com/in/mykhailo-toporkov/"
+            href={externalLinks.gitHub.href}
             target="_blank"
             rel="noreferrer"
           >
