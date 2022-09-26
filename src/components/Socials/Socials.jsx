@@ -6,6 +6,7 @@ import LocalPhoneOutlinedIcon from '@mui/icons-material/LocalPhoneOutlined';
 import Tooltip from '@mui/material/Tooltip';
 import Zoom from '@mui/material/Zoom';
 import styled from 'styled-components';
+import externalLinks from '../../static/externalLinks';
 
 const ToolTip = (props) => {
   return (
@@ -27,23 +28,19 @@ const Socials = () => {
     <Container>
       <List>
         <ListItem>
-          <a
-            href="https://github.com/cookieMonsterDev"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <ToolTip title="GitHub" enterDelay={800}>
+          <a href={externalLinks.gitHub.href} target="_blank" rel="noreferrer">
+            <ToolTip title={externalLinks.gitHub.title} enterDelay={800}>
               <GitHubIcon />
             </ToolTip>
           </a>
         </ListItem>
         <ListItem>
           <a
-            href="https://www.linkedin.com/in/mykhailo-toporkov/"
+            href={externalLinks.linkedin.href}
             target="_blank"
             rel="noreferrer"
           >
-            <ToolTip title="Linkedin" enterDelay={800}>
+            <ToolTip title={externalLinks.linkedin.title} enterDelay={800}>
               <LinkedInIcon />
             </ToolTip>
           </a>

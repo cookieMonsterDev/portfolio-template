@@ -25,13 +25,16 @@ const NavBar = () => {
   return (
     <Conteiner show={show} shadow={shadow}>
       <Content>
-        <LogoName>Mykhailo</LogoName>
+        <LogoName></LogoName>
         <NavSection>
-          <a href="/#experience">
+          <a href="#about">
+            <NavBarItem>About</NavBarItem>
+          </a>
+          <a href="#experience">
             <NavBarItem>Experience</NavBarItem>
           </a>
           <NavBarItem>Resume</NavBarItem>
-          <a href="/#contact">
+          <a href="#contact">
             <NavBarItem>Contact</NavBarItem>
           </a>
           <NavBarItem>Dark Theme</NavBarItem>
