@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled, { css } from 'styled-components';
 import BurgerMenu from './BurgerMenu';
+import SideMenu from './SideMenu';
 
 const NavBar = () => {
   let prevScrollpos = window.scrollY;
@@ -23,9 +24,12 @@ const NavBar = () => {
   });
 
   return (
-    <Conteiner show={show} shadow={shadow}>
+    <>
+      <Conteiner show={show} shadow={shadow}>
       <Content>
-        <LogoName></LogoName>
+        <LogoName>
+     
+        </LogoName>
         <NavSection>
           <a href="#about">
             <NavBarItem>About</NavBarItem>
@@ -38,10 +42,14 @@ const NavBar = () => {
             <NavBarItem>Contact</NavBarItem>
           </a>
           <NavBarItem>Dark Theme</NavBarItem>
-          <NavBarMenu><BurgerMenu /></NavBarMenu>
+          <NavBarMenu>
+            <BurgerMenu />
+          </NavBarMenu>
         </NavSection>
       </Content>
     </Conteiner>
+    <SideMenu />
+    </>
   );
 };
 
@@ -55,17 +63,18 @@ const Conteiner = styled.div`
   display: flex;
   z-index: 999;
   transition: all 700ms;
+  touch-action: none;
 
-  ${( props ) =>
+  ${(props) =>
     !props.show &&
     css`
       transform: translateY(-100%);
     `}
 
-    ${( props ) =>
+  ${(props) =>
     props.shadow &&
     css`
-      box-shadow: 0 10px 30px -10px rgba(2,12,27,0.7);
+      box-shadow: 0 10px 30px -10px rgba(2, 12, 27, 0.7);
     `}
 
   @media only screen and (max-width: 48em) {
@@ -86,10 +95,7 @@ const LogoName = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'Ubuntu Condensed', sans-serif;
-  font-size: 2rem;
-  font-weight: 600;
-  
+
   @media only screen and (max-width: 1000rem) {
     margin-left: 1rem;
   }
@@ -156,4 +162,4 @@ const NavBarMenu = styled.div`
   @media only screen and (max-width: 48em) {
     display: flex;
   }
-`
+`;

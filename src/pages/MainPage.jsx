@@ -1,11 +1,11 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import Intro from '../components/Intro/Intro';
 import Experience from '../components/Experience/Experience';
 
 const MainPage = () => {
   return (
-    <Container>
+    <Container >
       <Span>
         <Intro />
       </Span>
@@ -39,7 +39,7 @@ const Span = styled.span`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
+  height: 100vh;
   width: 100%;
   padding: 0;
   color: white;

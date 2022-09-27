@@ -62,6 +62,7 @@ const AboutButton = styled(Button)`
   border-radius: 0;
   border: 0.15rem solid #0ee3b5;
   color: #0ee3b5;
+  z-index: 1;
 
   &:active {
     background-color: rgba(14, 227, 181, 0.2)

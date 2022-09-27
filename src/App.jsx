@@ -5,22 +5,27 @@ import Socials from './components/Socials/Socials';
 import Footer from './components/Footer/Footer';
 
 function App() {
+
   return (
-    <>
+    <ScrollableContent>
       <NavBar />
       <MainPage />
-      <Wrap>
-        <Socials />
-      </Wrap>
       <Footer />
-    </>
+      <SocialsWrapper>
+        <Socials />
+      </SocialsWrapper>
+    </ScrollableContent>
   );
 }
 
 export default App;
 
-const Wrap = styled.div`
+const SocialsWrapper = styled.div`
   position: fixed;
   bottom: 0;
   right: 3rem;
+`;
+
+const ScrollableContent = styled.div`
+  height: 100vh;
 `;
