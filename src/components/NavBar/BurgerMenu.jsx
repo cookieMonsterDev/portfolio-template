@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
+import { useSelector, useDispatch } from 'react-redux';
+import { switchMenu } from '../../actions/menuActions';
 
 const BurgerMenu = () => {
-  const [isOpen, setOpen] = useState(false);
+  const isOpen = useSelector((state) => state.menu);
+  const dispatch = useDispatch();
 
   return (
-    <Conteiner onClick={() => setOpen((prev) => !prev)}>
+    <Conteiner onClick={() => dispatch(switchMenu())}>
       <Section isOpen={isOpen} />
     </Conteiner>
   );
