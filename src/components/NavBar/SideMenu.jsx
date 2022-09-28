@@ -16,7 +16,7 @@ const SideMenu = () => {
   };
 
   const handleClick = (str) => {
-    scrollToSection(str);
+    setTimeout(() => scrollToSection(str), 300);
     dispatch(switchMenu());
     return;
   };
@@ -63,7 +63,7 @@ const MenuOverlay = styled.div`
   width: 75%;
   height: 100vh;
   transform: translateX(110%);
-  transition: all 700ms;
+  transition: all 600ms;
   z-index: 100;
   visibility: hidden;
   background-color: #112240;
