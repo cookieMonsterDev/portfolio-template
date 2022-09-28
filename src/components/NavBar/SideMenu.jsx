@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled, { css } from 'styled-components';
 import { switchMenu } from '../../actions/menuActions';
@@ -20,6 +20,14 @@ const SideMenu = () => {
     dispatch(switchMenu());
     return;
   };
+
+  useEffect(() => {
+    if (isOn) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'auto'
+    }
+  }, [isOn])
 
   return (
     <>
@@ -56,7 +64,7 @@ const MenuOverlay = styled.div`
   height: 100vh;
   transform: translateX(110%);
   transition: all 700ms;
-  z-index: 101;
+  z-index: 100;
   visibility: hidden;
   background-color: #112240;
 
@@ -80,12 +88,14 @@ const BlurOverlay = styled.div`
   z-index: 100;
   backdrop-filter: blur(0.3rem);
 
-  ${(props) =>
-    props.isOn &&
-    css`
-      display: flex;
-      touch-action: none;
-    `}
+  @media only screen and (max-width: 48em) {
+    ${(props) =>
+      props.isOn &&
+      css`
+        display: flex;
+        touch-action: none;
+      `}
+  }
 `;
 
 const MenuItem = styled.button`

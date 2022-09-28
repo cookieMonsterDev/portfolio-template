@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux';
 import { switchMenu } from '../../actions/menuActions';
+import { Button } from '@mui/material';
 
 const BurgerMenu = () => {
   const isOpen = useSelector((state) => state.menu);
@@ -21,6 +22,7 @@ const Conteiner = styled.div`
   position: relative;
   transition-duration: 1s;
   cursor: pointer;
+  z-index: 10000;
 `;
 
 const Section = styled.span`

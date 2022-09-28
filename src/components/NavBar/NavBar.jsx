@@ -47,8 +47,8 @@ const NavBar = () => {
           </NavBarMenu>
         </NavSection>
       </Content>
+      <SideMenu />
     </Conteiner>
-    <SideMenu />
     </>
   );
 };
@@ -61,7 +61,7 @@ const Conteiner = styled.div`
   height: 7rem;
   background-color: #0a192f;
   display: flex;
-  z-index: 999;
+  z-index: 1000;
   transition: all 700ms;
   touch-action: none;
 
@@ -158,6 +158,8 @@ const NavBarItem = styled.div`
 
 const NavBarMenu = styled.div`
   display: none;
+  position: relative;
+  z-index: 1000;
 
   @media only screen and (max-width: 48em) {
     display: flex;
