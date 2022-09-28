@@ -1,11 +1,12 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import Intro from '../components/Intro/Intro';
 import Experience from '../components/Experience/Experience';
+import Projects from '../components/Projects/Projects';
 
 const MainPage = () => {
   return (
-    <Container >
+    <Container>
       <Span>
         <Intro />
       </Span>
@@ -13,7 +14,7 @@ const MainPage = () => {
       <Span id="experience">
         <Experience />
       </Span>
-      <Span>Projects</Span>
+      <Projects />
       <Span id="contact">Contact</Span>
     </Container>
   );

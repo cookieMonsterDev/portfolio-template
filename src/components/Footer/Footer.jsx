@@ -83,9 +83,11 @@ const SocialItem = styled.div`
 
 const Info = styled.section`
   margin: 2rem 0;
-  font-family: 'Ubuntu Condensed', sans-serif;
-  font-size: 1.5rem;
-  font-weight: 600;
+  text-align: center;
+  color: #8fa3cd;
+  font-size: 0.8rem;
+  font-weight: 700;
+  font-family: 'Roboto Mono', monospace;
 
   @media only screen and (max-width: 48em) {
     font-size: 1rem;
