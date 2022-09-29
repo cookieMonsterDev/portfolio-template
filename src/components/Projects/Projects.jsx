@@ -58,6 +58,10 @@ const Title = styled.h1`
   font-size: 3rem;
   font-weight: 700;
   font-family: 'Roboto Mono', monospace;
+
+  @media only screen and (max-width: 48em) {
+    font-size: 2rem;
+  }
 `
 
 const List = styled.div`

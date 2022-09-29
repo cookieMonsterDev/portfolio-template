@@ -51,9 +51,11 @@ const Socials = () => {
           </ToolTip>
         </ListItem>
         <ListItem>
+        <a href="tel:+380 096 050 33 48">
           <ToolTip title="+380 096 050 33 48">
             <LocalPhoneOutlinedIcon />
           </ToolTip>
+         </a> 
         </ListItem>
       </List>
       <Stripe />
