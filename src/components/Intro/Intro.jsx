@@ -12,7 +12,7 @@ const Intro = () => {
           Currently I’m looking for a position of JS MERN stack web developer.
           This app is some kind of my portfolio that represents me so feel free to
           press `}
-        <a>About</a>
+        <a href='#about'>About</a>
         {` button to get to know me better)`}
       </SomeInfo>
       <AboutButton disableRipple href="#about">About me</AboutButton>
@@ -53,6 +53,8 @@ const SomeInfo = styled.p`
 
   > a {
     color: #0ee3b5;
+    text-decoration: none;
+    pointer-events: none;
   }
 `;
 
