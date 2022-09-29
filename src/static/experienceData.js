@@ -1,29 +1,32 @@
 const Experience = [
   {
     id: 1,
-    title: 'test 1',
-    desc: '1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus nostrum, excepturi non earum iste suscipit maxime officiis nobis culpa quae dolor aperiam reiciendis necessitatibus incidunt autem neque repellat voluptates animi ut inventore enim impedit commodi. Atque illo recusandae tempora? Voluptatum animi quisquam totam maxime accusantium voluptatem tempora iusto qui sed!',
+    title: 'University',
+    companyUrl: 'https://www.youtube.com/',
+    dates: 'July 2017 - December 2021',
+    responsibilities: ['responsibiliti - 1', 'responsibiliti - 2', 'responsibiliti - 3'],
   },
   {
     id: 2,
-    title: 'test 2',
-    desc: '2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus nostrum, excepturi non earum iste suscipit maxime officiis nobis culpa quae dolor aperiam reiciendis necessitatibus incidunt autem neque repellat voluptates animi ut inventore enim impedit commodi. Atque illo recusandae tempora? Voluptatum animi quisquam totam maxime accusantium voluptatem tempora iusto qui sed!',
+    title: 'Mate Academy',
+    companyUrl: 'https://www.youtube.com/',
+    dates: 'July 2017 - December 2021',
+    responsibilities: ['responsibiliti - 1', 'responsibiliti - 2', 'responsibiliti - 3'],
   },
   {
     id: 4,
-    title: 'test 4',
-    desc: '4 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus nostrum, excepturi non earum iste suscipit maxime officiis nobis culpa quae dolor aperiam reiciendis necessitatibus incidunt autem neque repellat voluptates animi ut inventore enim impedit commodi. Atque illo recusandae tempora? Voluptatum animi quisquam totam maxime accusantium voluptatem tempora iusto qui sed!',
+    title: 'NetEnt QA',
+    companyUrl: 'https://www.youtube.com/',
+    dates: 'July 2017 - December 2021',
+    responsibilities: ['responsibiliti - 1', 'responsibiliti - 2', 'responsibiliti - 3'],
   },
   {
     id: 5,
-    title: 'test 5',
-    desc: '5 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus nostrum, excepturi non earum iste suscipit maxime officiis nobis culpa quae dolor aperiam reiciendis necessitatibus incidunt autem neque repellat voluptates animi ut inventore enim impedit commodi. Atque illo recusandae tempora? Voluptatum animi quisquam totam maxime accusantium voluptatem tempora iusto qui sed!',
+    title: 'NetEnt DEV',
+    companyUrl: 'https://www.youtube.com/',
+    dates: 'July 2017 - December 2021',
+    responsibilities: ['asperiores fuga ducimus molestiae illum recusandae atque incidunt accusantium quidem in quibusdam quod repellendus suscipit ab non. - 1', 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae quos excepturi sunt autem omnis quis facere, nulla asperiores fuga ducimus molestiae illum recusandae atque incidunt accusantium quidem in quibusdam quod repellendus suscipit ab non dignissimos dicta? Solut', 'asperiores fuga ducimus molestiae illum recusandae atque incidunt accusantium quidem in quibusdam quod repellendus suscipit ab non. - 1'],
   },
-  {
-    id: 6,
-    title: 'test 6',
-    desc: '6 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus nostrum, excepturi non earum iste suscipit maxime officiis nobis culpa quae dolor aperiam reiciendis necessitatibus incidunt autem neque repellat voluptates animi ut inventore enim impedit commodi. Atque illo recusandae tempora? Voluptatum animi quisquam totam maxime accusantium voluptatem tempora iusto qui sed!',
-  }
 ];
 
 export default Experience;
