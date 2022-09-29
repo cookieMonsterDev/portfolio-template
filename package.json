@@ -1,7 +1,7 @@
 {
   "name": "my-portfolio",
   "version": "0.1.0",
-  "homepage": "https://cookieMonsterDev.github.io/my-portfolio",
+  "homepage": "https://cookieMonsterDev.github.io/portfolio-template",
   "private": true,
   "dependencies": {
     "@mui/icons-material": "^5.10.6",
