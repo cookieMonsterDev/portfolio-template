@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled, { css } from 'styled-components';
-import { switchMenu } from '../../actions/menuActions';
+import { switchMenu } from '../../actions/actions';
 
 const SideMenu = () => {
   const isOn = useSelector((state) => state.menu);
@@ -32,7 +32,7 @@ const SideMenu = () => {
   return (
     <>
       <BlurOverlay isOn={isOn} onClick={() => dispatch(switchMenu())} />
-      <MenuOverlay isOn={isOn}>
+      <NavMenuOverlay isOn={isOn}>
         <MenuItem
           onClick={() => {
             handleClick('about');
@@ -46,14 +46,14 @@ const SideMenu = () => {
         <MenuItem>Resume</MenuItem>
         <MenuItem onClick={() => handleClick('contact')}>Contact</MenuItem>
         <MenuItem>Dark theme</MenuItem>
-      </MenuOverlay>
+      </NavMenuOverlay>
     </>
   );
 };
 
 export default SideMenu;
 
-const MenuOverlay = styled.div`
+const NavMenuOverlay = styled.div`
   display: flex;
   flex-direction: column;
   position: fixed;

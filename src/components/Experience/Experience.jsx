@@ -7,8 +7,6 @@ import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 const Experience = () => {
   const [active, setActive] = useState(experience[0]);
 
-  console.log(experience[0]);
-
   return (
     <>
       <Title>Life path</Title>
@@ -37,7 +35,7 @@ const Experience = () => {
           <ResponsibilitiesList>
             {active.responsibilities.map((i, j) => {
               return (
-                <ResponsibilityItem>
+                <ResponsibilityItem key={j}>
                   <ArrowRightIcon />
                   <p>{i}</p>
                 </ResponsibilityItem>

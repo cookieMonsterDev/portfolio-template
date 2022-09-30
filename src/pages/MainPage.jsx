@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Intro from '../components/Intro/Intro';
 import Experience from '../components/Experience/Experience';
 import Projects from '../components/Projects/Projects';
+import ContactMe from '../components/ContactMe/ContactMe';
 
 const MainPage = () => {
   return (
@@ -15,7 +16,9 @@ const MainPage = () => {
         <Experience />
       </Span>
       <Projects />
-      <Span id="contact">Contact</Span>
+      <Span id="contact">
+        <ContactMe />
+      </Span>
     </Container>
   );
 };
