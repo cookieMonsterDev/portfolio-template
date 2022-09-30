@@ -191,6 +191,10 @@ const ResponsibilityItem = styled.li`
     height: 2rem;
     fill: #0ee3b5;
   }
+
+  > P {
+    text-align: justify;
+  } 
 `;
 const Title = styled.h1`
   margin-bottom: 2.5rem;
