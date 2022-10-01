@@ -194,8 +194,9 @@ const ResponsibilityItem = styled.li`
 
   > P {
     text-align: justify;
-  } 
+  }
 `;
+
 const Title = styled.h1`
   margin-bottom: 2.5rem;
   text-align: center;

@@ -3,6 +3,8 @@ import { useEffect } from 'react';
 import styled, { css } from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux';
 import { switchContact } from '../../actions/actions';
+import CloseButton from './CloseButton';
+import ContactFrom from './ContactFrom';
 
 const ContactMe = () => {
   const active = useSelector((state) => state.contact);
@@ -24,11 +26,12 @@ const ContactMe = () => {
 
   return (
     <Container>
-      <Button onClick={handleClick}>Test window</Button>
+      <Title>Wanna Stay in touch ?</Title>
+      <p>I’m not currently looking for any new opportunities, my inbox is always open. Whether you have a question or just want to say hi, I’ll try my best to get back to you!</p>
+      <Button onClick={handleClick}>Contact Me</Button>
       <Window isShow={active}>
-        <Box1 onClick={handleClick} />
-        <Box1 />
-        <Box1 />
+        <CloseButton close={handleClick}/>
+        <ContactFrom />
       </Window>
     </Container>
   );
@@ -39,22 +42,38 @@ export default ContactMe;
 const Container = styled.div`
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 45rem;
+  padding-top: 8rem;
+
+  > p {
+    max-width: 40rem;
+    margin: auto;
+    text-align: justify;
+    color: #c1cde8;
+    font-size: 1rem;
+    font-weight: 300;
+    font-family: 'Heebo', sans-serif;
+  }
 `;
 
 const Button = styled.button`
   width: 10rem;
   height: 5rem;
-
-  background-color: white;
-  color: black;
-
+  color: #0ee3b5;
+  border: 0.15rem solid #0ee3b5;
+  background-color: transparent;
+  text-transform: uppercase;
   position: absolute;
+  font-size: 1.1rem;
+  font-weight: 700;
   top: 50%;
   right: 50%;
   transform: translate(50%, -50%);
-
   z-index: 10;
+
+  &:active {
+    background-color: rgba(14, 227, 181, 0.2);
+  }
 `;
 
 const Window = styled.div`
@@ -85,14 +104,19 @@ const Window = styled.div`
         width: 100vw;
         height: 100vh;
         background-color: #112240;
-        background-color: red;
       }
     `}
 `;
 
-const Box1 = styled.div`
-  width: 10rem;
-  height: 10rem;
-  background-color: green;
-  border: 2px solid black;
+const Title = styled.h1`
+  margin-bottom: 2.5rem;
+  text-align: center;
+  color: #0ee3b5;
+  font-size: 3rem;
+  font-weight: 700;
+  font-family: 'Roboto Mono', monospace;
+
+  @media only screen and (max-width: 48em) {
+    font-size: 2rem;
+  }
 `;

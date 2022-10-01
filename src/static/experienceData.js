@@ -25,7 +25,7 @@ const Experience = [
     title: 'NetEnt DEV',
     companyUrl: 'https://www.netent.com/en/',
     dates: 'December 2021 - Present',
-    responsibilities: ['Fixing layout cross device / platforms bugs for slot-games keydays. ( React, styled-components ) and imporovment event tracking', 'Support autotests integration: Adding states locators for DOM elements.', 'Leading scrum meetings'],
+    responsibilities: ['Fixing layout cross device / platforms bugs for slot-games keypads. ( React, styled-components ) and imporovment event tracking', 'Support autotests integration: Adding states locators for DOM elements.', 'Leading scrum meetings'],
   },
 ];
 
