@@ -17,6 +17,12 @@ const Projects = [
     description: 'Just the Real-time-chat base on firebase)',
     tags: ['TypeScript', 'FireBase', 'React'],
   },
+  {
+    title: 'Portfolio template',
+    prjectLink: 'https://github.com/cookieMonsterDev/portfolio-template',
+    description: 'Sth',
+    tags: ['React', 'Styled Components', 'EmailJS'],
+  },
 ];
 
 export default Projects;

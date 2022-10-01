@@ -2,8 +2,11 @@ import React, { useState, useEffect } from 'react';
 import styled, { css } from 'styled-components';
 import BurgerMenu from './BurgerMenu';
 import SideMenu from './SideMenu';
+import { useSelector } from 'react-redux';
 
 const NavBar = () => {
+  const active = useSelector((state) => state.contact);
+
   let prevScrollpos = window.scrollY;
   const [show, setShow] = useState(true);
   const [shadow, setShadow] = useState(false);
@@ -25,30 +28,31 @@ const NavBar = () => {
 
   return (
     <>
-      <Conteiner show={show} shadow={shadow}>
-      <Content>
-        <LogoName>
-     
-        </LogoName>
-        <NavSection>
-          <a href="#about">
-            <NavBarItem>About</NavBarItem>
-          </a>
-          <a href="#experience">
-            <NavBarItem>Experience</NavBarItem>
-          </a>
-          <NavBarItem>Resume</NavBarItem>
-          <a href="#contact">
-            <NavBarItem>Contact</NavBarItem>
-          </a>
-          <NavBarItem>Dark Theme</NavBarItem>
-          <NavBarMenu>
-            <BurgerMenu />
-          </NavBarMenu>
-        </NavSection>
-      </Content>
-      <SideMenu />
-    </Conteiner>
+      <Conteiner
+        show={active ? show && !(window.innerWidth <= 768) : show}
+        shadow={shadow}
+      >
+        <Content>
+          <LogoName></LogoName>
+          <NavSection>
+            <a href="#about">
+              <NavBarItem>About</NavBarItem>
+            </a>
+            <a href="#experience">
+              <NavBarItem>Experience</NavBarItem>
+            </a>
+            <NavBarItem>Resume</NavBarItem>
+            <a href="#contact">
+              <NavBarItem>Contact</NavBarItem>
+            </a>
+            <NavBarItem>Dark Theme</NavBarItem>
+            <NavBarMenu>
+              <BurgerMenu />
+            </NavBarMenu>
+          </NavSection>
+        </Content>
+        <SideMenu />
+      </Conteiner>
     </>
   );
 };
@@ -77,7 +81,7 @@ const Conteiner = styled.div`
       box-shadow: 0 10px 30px -10px rgba(2, 12, 27, 0.7);
     `}
 
-  @media only screen and (max-width: 48em) {
+  @media only screen and (max-width: 48rem) {
     height: 5rem;
   }
 `;

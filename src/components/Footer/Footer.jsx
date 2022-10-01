@@ -32,7 +32,9 @@ const Footer = () => {
           <AlternateEmailOutlinedIcon />
         </SocialItem>
         <SocialItem>
-          <LocalPhoneOutlinedIcon />
+          <a href='tel: +380 096 050 33 48'>
+            <LocalPhoneOutlinedIcon />
+          </a>
         </SocialItem>
       </Socials>
       <Info>Designed and Build by Mykhailo Toporkov</Info>
@@ -62,7 +64,7 @@ const Socials = styled.div`
   justify-content: space-around;
   margin-bottom: 2rem;
 
-  @media only screen and (max-width: 48em) {
+  @media only screen and (max-width: 48em)  {
     display: flex;
     margin-bottom: 1rem;
   }
@@ -89,7 +91,7 @@ const Info = styled.section`
   font-weight: 700;
   font-family: 'Roboto Mono', monospace;
 
-  @media only screen and (max-width: 48em) {
+  @media only screen and (max-width: 48em)  {
     font-size: 1rem;
     margin: 0.5rem 0;
   }

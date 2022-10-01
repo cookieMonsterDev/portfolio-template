@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux';
-import { switchMenu } from '../../actions/menuActions';
+import { switchMenu } from '../../actions/actions';
 
 const BurgerMenu = () => {
   const isOpen = useSelector((state) => state.menu);
