@@ -29,7 +29,9 @@ const Footer = () => {
           </a>
         </SocialItem>
         <SocialItem>
+          <a href='mailto: mykhailo.toporkov@gmail.com'>
           <AlternateEmailOutlinedIcon />
+          </a>
         </SocialItem>
         <SocialItem>
           <a href='tel: +380 096 050 33 48'>

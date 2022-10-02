@@ -46,16 +46,18 @@ const Socials = () => {
           </a>
         </ListItem>
         <ListItem>
-          <ToolTip title="mykhailo.toporkov@gmail.com">
-            <AlternateEmailOutlinedIcon />
-          </ToolTip>
+          <a href="mailto: mykhailo.toporkov@gmail.com">
+            <ToolTip title="mykhailo.toporkov@gmail.com">
+              <AlternateEmailOutlinedIcon />
+            </ToolTip>
+          </a>
         </ListItem>
         <ListItem>
-        <a href="tel:+380 096 050 33 48">
-          <ToolTip title="+380 096 050 33 48">
-            <LocalPhoneOutlinedIcon />
-          </ToolTip>
-         </a> 
+          <a href="tel:+380 096 050 33 48">
+            <ToolTip title="+380 096 050 33 48">
+              <LocalPhoneOutlinedIcon />
+            </ToolTip>
+          </a>
         </ListItem>
       </List>
       <Stripe />
