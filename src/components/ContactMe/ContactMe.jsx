@@ -31,7 +31,7 @@ const ContactMe = () => {
       <Button onClick={handleClick}>Contact Me</Button>
       <Window isShow={active}>
         <CloseButton close={handleClick}/>
-        <ContactFrom />
+        <ContactFrom isShow={active}/>
       </Window>
     </Container>
   );
