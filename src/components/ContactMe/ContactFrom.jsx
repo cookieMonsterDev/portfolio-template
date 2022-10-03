@@ -3,24 +3,27 @@ import emailjs from '@emailjs/browser';
 import styled from 'styled-components';
 
 const ContactFrom = (props) => {
-  const form = useRef();
+  const form = useRef(null);
+  const InputTextRef = useRef(null);
 
   const sendEmail = async (e) => {
     e.preventDefault();
 
     try {
-     const res = await emailjs.sendForm(
+      const res = await emailjs.sendForm(
         'service_5ml49gq',
         'template_oyvjyt6',
         form.current,
         '9ny3aq0Bbc21nyhOl'
       );
 
-      if(!res) {
-        throw new Error('Sth wen wrong')
+      if (!res) {
+        throw new Error('Sth went wrong');
       }
 
-      return console.log(res.status)
+      InputTextRef.current.value = '';
+
+      return console.log(res.status);
     } catch (err) {
       console.log(err.text);
     }
@@ -33,7 +36,7 @@ const ContactFrom = (props) => {
       <Label>Email</Label>
       <InputItem type="email" name="user_email" />
       <Label>Message</Label>
-      <InputText name="message" />
+      <InputText ref={InputTextRef} name="message" />
       <SubmitButton type="submit" value="Send" />
     </Form>
   );

@@ -33,7 +33,6 @@ const NavBar = () => {
         shadow={shadow}
       >
         <Content>
-          <LogoName></LogoName>
           <NavSection>
             <a href="#about">
               <NavBarItem>About</NavBarItem>
@@ -41,11 +40,10 @@ const NavBar = () => {
             <a href="#experience">
               <NavBarItem>Experience</NavBarItem>
             </a>
-            <NavBarItem>Resume</NavBarItem>
             <a href="#contact">
               <NavBarItem>Contact</NavBarItem>
             </a>
-            <NavBarItem>Dark Theme</NavBarItem>
+            <NavBarItem>Resume</NavBarItem>
             <NavBarMenu>
               <BurgerMenu />
             </NavBarMenu>
@@ -89,20 +87,6 @@ const Conteiner = styled.div`
 const Content = styled.div`
   width: 100rem;
   margin: 0 auto;
-`;
-
-const LogoName = styled.div`
-  height: 100%;
-  float: left;
-  box-sizing: border-box;
-  color: #0ee3b5;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  @media only screen and (max-width: 1000rem) {
-    margin-left: 1rem;
-  }
 `;
 
 const NavSection = styled.div`

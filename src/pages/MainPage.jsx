@@ -4,6 +4,7 @@ import Intro from '../components/Intro/Intro';
 import Experience from '../components/Experience/Experience';
 import Projects from '../components/Projects/Projects';
 import ContactMe from '../components/ContactMe/ContactMe';
+import About from '../components/About/About';
 
 const MainPage = () => {
   return (
@@ -11,7 +12,7 @@ const MainPage = () => {
       <Span>
         <Intro />
       </Span>
-      <Span id="about">About me</Span>
+      <Span id="about"><About /></Span>
       <Span id="experience">
         <Experience />
       </Span>

@@ -14,13 +14,13 @@ const Projects = [
   {
     title: 'Real time chat',
     prjectLink: 'https://github.com/cookieMonsterDev/real-time-chat',
-    description: 'Just the Real-time-chat base on firebase)',
+    description: 'Just the Real-time-chat base on firebase) Where users can share their messages after authentication with Gmail account.',
     tags: ['TypeScript', 'FireBase', 'React'],
   },
   {
     title: 'Portfolio template',
     prjectLink: 'https://github.com/cookieMonsterDev/portfolio-template',
-    description: 'Sth',
+    description: 'The portfolio template is a projects that should help developer to present his knowledge, it is kind of simple but still has a great help.',
     tags: ['React', 'Styled Components', 'EmailJS'],
   },
 ];

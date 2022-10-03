@@ -23,11 +23,11 @@ const SideMenu = () => {
 
   useEffect(() => {
     if (isOn) {
-      document.body.style.overflow = 'hidden'
+      document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = 'auto'
+      document.body.style.overflow = 'auto';
     }
-  }, [isOn])
+  }, [isOn]);
 
   return (
     <>
@@ -43,9 +43,8 @@ const SideMenu = () => {
         <MenuItem onClick={() => handleClick('experience')}>
           Experience
         </MenuItem>
-        <MenuItem>Resume</MenuItem>
         <MenuItem onClick={() => handleClick('contact')}>Contact</MenuItem>
-        <MenuItem>Dark theme</MenuItem>
+        <MenuItem>Resume</MenuItem>
       </NavMenuOverlay>
     </>
   );
