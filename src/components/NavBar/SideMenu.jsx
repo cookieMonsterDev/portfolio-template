@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled, { css } from 'styled-components';
 import { switchMenu } from '../../actions/actions';
+import config from '../../static/config';
 
 const SideMenu = () => {
   const isOn = useSelector((state) => state.menu);
