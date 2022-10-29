@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 import BurgerMenu from './BurgerMenu';
 import SideMenu from './SideMenu';
 import { useSelector } from 'react-redux';
+import config from '../../static/config';
 
 const NavBar = () => {
   const active = useSelector((state) => state.contact);
@@ -26,6 +27,8 @@ const NavBar = () => {
     };
   });
 
+  // use create download link https://sites.google.com/site/gdocs2direct/
+
   return (
     <>
       <Conteiner
@@ -43,7 +46,9 @@ const NavBar = () => {
             <a href="#contact">
               <NavBarItem>Contact</NavBarItem>
             </a>
-            <NavBarItem>Resume</NavBarItem>
+            <a href={config.resume_url} download>
+              <ResumeButton>Resume</ResumeButton>
+            </a>
             <NavBarMenu>
               <BurgerMenu />
             </NavBarMenu>
@@ -137,6 +142,29 @@ const NavBarItem = styled.div`
 
   &:hover::before {
     transform: none;
+  }
+
+  @media only screen and (max-width: 48em) {
+    display: none;
+  }
+`;
+
+const ResumeButton = styled.button`
+  width: 6rem;
+  margin: 0 1rem;
+  box-sizing: border-box;
+  background-color: #0a192f;
+  border-radius: 0;
+  border: 0.15rem solid #0ee3b5;
+  color: #0ee3b5;
+
+  font-family: 'Ubuntu Condensed', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 200;
+  text-transform: uppercase;
+
+  &:active {
+    background-color: rgba(14, 227, 181, 0.2);
   }
 
   @media only screen and (max-width: 48em) {

@@ -44,7 +44,9 @@ const SideMenu = () => {
           Experience
         </MenuItem>
         <MenuItem onClick={() => handleClick('contact')}>Contact</MenuItem>
-        <MenuItem>Resume</MenuItem>
+        <a href={config.resume_url} download>
+          <MenuItem>Resume</MenuItem>
+        </a>
       </NavMenuOverlay>
     </>
   );
