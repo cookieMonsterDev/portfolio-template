@@ -1,5 +1,5 @@
 const config = {
-  resume_url: 'https://drive.google.com/uc?export=download&id=1-H12zR1a3pP7ZMB5UNohui0mrjvWV7ay'
+  resume_url: 'https://drive.google.com/uc?export=download&id=1VIWgMVisqFzd7wjpGD8Yji6yQ84p7Pyl'
 };
 
 export default config;

@@ -17,14 +17,14 @@ const Experience = [
     id: 4,
     title: 'NetEnt QA',
     companyUrl: 'https://www.netent.com/en/',
-    dates: 'December 2021 - Present',
+    dates: 'December 2021 - May 2022',
     responsibilities: ['Development and support testing documentation for Framework components of Slot games, with Jira and TestRail. Leading onboarding for new QAs.', 'Development and support e2e autotests for Framework components ( Typescript, Cucumber, WebdriverIO ).', 'Leading scrum meetings'],
   },
   {
     id: 5,
     title: 'NetEnt DEV',
     companyUrl: 'https://www.netent.com/en/',
-    dates: 'December 2021 - Present',
+    dates: 'May 2022 - Current',
     responsibilities: ['Fixing layout cross device / platforms bugs for slot-games keypads. ( React, styled-components ) and imporovment event tracking', 'Support autotests integration: Adding states locators for DOM elements.', 'Leading scrum meetings'],
   },
 ];
