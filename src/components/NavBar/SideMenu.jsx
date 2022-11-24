@@ -70,7 +70,7 @@ const NavMenuOverlay = styled.div`
   visibility: hidden;
   background-color: #112240;
 
-  @media only screen and (max-width: 48em) {
+  @media only screen and (max-width: 56rem) {
     ${(props) =>
       props.isOn &&
       css`
@@ -90,7 +90,7 @@ const BlurOverlay = styled.div`
   z-index: 100;
   backdrop-filter: blur(0.3rem);
 
-  @media only screen and (max-width: 48em) {
+  @media only screen and (max-width: 56rem) {
     ${(props) =>
       props.isOn &&
       css`
