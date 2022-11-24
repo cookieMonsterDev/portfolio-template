@@ -23,6 +23,19 @@ const Projects = [
     description: 'The portfolio template is a projects that should help developer to present his knowledge, it is kind of simple but still has a great help.',
     tags: ['React', 'Styled Components', 'EmailJS'],
   },
+  {
+    title: 'Forkify app',
+    prjectLink: 'https://github.com/cookieMonsterDev/forkify-app',
+    description: 'The app to search for the recipes of delicious dishes!',
+    tags: ['React', 'Styled Components', 'MUI'],
+  },
+  {
+    title: 'Pixi Slot game',
+    prjectLink: 'https://github.com/cookieMonsterDev/pixi-js-slot-game',
+    description: 'Simple slot game, based on Pixi and Node.js, has the respin feature) Try to win if you are ready!',
+    tags: ['PixiJS', 'Express', 'Node.js'],
+  },
 ];
+
 
 export default Projects;

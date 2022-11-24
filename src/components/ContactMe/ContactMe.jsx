@@ -13,7 +13,7 @@ const ContactMe = () => {
   useEffect(() => {
     const screenWidth = window.innerWidth;
 
-    if (active && screenWidth <= 768) {
+    if (active && screenWidth <= 896) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'auto';
@@ -29,7 +29,7 @@ const ContactMe = () => {
       <Title>Wanna Stay in touch ?</Title>
       <Button onClick={handleClick}>Contact Me</Button>
       <p>
-        I’m not currently looking for any new opportunities, my inbox is always
+        I’m currently looking for any new opportunities, my inbox is always
         open. Whether you have a question or just want to say hi, I’ll try my
         best to get back to you!
       </p>
@@ -47,7 +47,7 @@ const Container = styled.div`
   position: relative;
   width: 100%;
   height: 45rem;
-  padding-top: 8rem;
+  padding-top: 7rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -97,6 +97,7 @@ const Window = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  visibility: hidden;
 
   ${(props) =>
     props.isShow &&
@@ -106,6 +107,7 @@ const Window = styled.div`
       z-index: 20;
       opacity: 1;
       background-color: #122c59;
+      visibility: visible;
 
       @media only screen and (max-width: 56rem) {
         position: fixed;

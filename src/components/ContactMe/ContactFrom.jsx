@@ -28,6 +28,7 @@ const ContactFrom = (props) => {
       console.log(err.text);
     }
   };
+  
 
   return (
     <Form ref={form} onSubmit={sendEmail} isShow={props.isShow}>

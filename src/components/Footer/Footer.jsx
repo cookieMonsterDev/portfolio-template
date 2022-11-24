@@ -56,7 +56,8 @@ const Conteiner = styled.div`
   align-items: center;
   color: white;
 
-  @media only screen and (max-width: 48em) {
+  @media only screen and (max-width: 56em) and (max-height: 30rem) {
+    padding: 3rem 0.5rem 0.5rem 0.5rem;
   }
 `;
 
@@ -66,7 +67,7 @@ const Socials = styled.div`
   justify-content: space-around;
   margin-bottom: 2rem;
 
-  @media only screen and (max-width: 48em)  {
+  @media only screen and (max-width: 56rem)  {
     display: flex;
     margin-bottom: 1rem;
   }
@@ -93,7 +94,7 @@ const Info = styled.section`
   font-weight: 700;
   font-family: 'Roboto Mono', monospace;
 
-  @media only screen and (max-width: 48em)  {
+  @media only screen and (max-width: 56rem)  {
     font-size: 1rem;
     margin: 0.5rem 0;
   }
