@@ -17,8 +17,10 @@ const Container = styled.section`
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  position: absolute;
+  z-index: 10;
 
-  @media only screen and (max-width: 48em) {
+  @media only screen and (max-width: 56em) {
     height: 5rem;
   }
 `;

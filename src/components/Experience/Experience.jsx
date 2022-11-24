@@ -8,7 +8,7 @@ const Experience = () => {
   const [active, setActive] = useState(experience[0]);
 
   return (
-    <>
+    <ParentContainer>
       <Title>Life path</Title>
       <Container>
         <TabsList>
@@ -44,11 +44,22 @@ const Experience = () => {
           </ResponsibilitiesList>
         </Tab>
       </Container>
-    </>
+    </ParentContainer>
   );
 };
 
 export default Experience;
+
+const ParentContainer = styled.section`
+  box-sizing: border-box;
+  flex-direction: column;
+  padding: 5rem 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
 const Container = styled.div`
   position: relative;
@@ -117,7 +128,6 @@ const Tab = styled.div`
   min-width: 35rem;
   position: relative;
   flex: 5;
-  height: 30rem;
   box-sizing: border-box;
   padding: 1rem;
   background-color: #0a192f;

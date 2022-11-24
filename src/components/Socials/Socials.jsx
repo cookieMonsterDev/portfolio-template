@@ -135,7 +135,7 @@ const Container = styled.div`
     }
   }
 
-  @media only screen and (max-width: 48em) {
+  @media only screen and (max-width: 56rem) {
     display: none;
   }
 `;

@@ -54,8 +54,10 @@ const Form = styled.form`
   align-items: center;
   padding: 2rem 5rem;
 
-  @media only screen and (max-width: 48em) {
+  @media only screen and (max-width: 56em) {
     padding: 2rem 2rem;
+    position: absolute;
+    top: 1rem;
   }
 
   ${(props) => props.isShow && 'display: flex;'}
@@ -68,6 +70,10 @@ const Label = styled.label`
   font-weight: 700;
   font-family: 'Roboto Mono', monospace;
   color: #0ee3b5;
+
+  @media only screen and (max-width: 56em) {
+    font-size: 0.8rem;
+  }
 `;
 
 const SubmitButton = styled.input`
@@ -97,6 +103,10 @@ const InputItem = styled.input`
   border: 2px solid #0ee3b5;
   background-color: rgba(14, 227, 181, 0.1);
   color: wheat;
+
+  @media only screen and (max-width: 56em) {
+    height: 2rem;
+  }
 `;
 
 const InputText = styled.textarea`
@@ -113,4 +123,8 @@ const InputText = styled.textarea`
   color: wheat;
   text-align: start;
   resize: vertical;
+
+  @media only screen and (max-width: 56em) and (max-height: 30rem) {
+    height: 4rem;
+  }
 `;

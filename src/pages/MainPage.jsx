@@ -13,9 +13,9 @@ const MainPage = () => {
         <Intro />
       </Span>
       <Span id="about"><About /></Span>
-      <Span id="experience">
-        <Experience />
-      </Span>
+ 
+        <Experience id="experience"/>
+   
       <Projects />
       <Span id="contact">
         <ContactMe />

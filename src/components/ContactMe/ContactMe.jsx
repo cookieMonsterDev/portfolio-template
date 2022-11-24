@@ -27,11 +27,15 @@ const ContactMe = () => {
   return (
     <Container>
       <Title>Wanna Stay in touch ?</Title>
-      <p>I’m not currently looking for any new opportunities, my inbox is always open. Whether you have a question or just want to say hi, I’ll try my best to get back to you!</p>
       <Button onClick={handleClick}>Contact Me</Button>
+      <p>
+        I’m not currently looking for any new opportunities, my inbox is always
+        open. Whether you have a question or just want to say hi, I’ll try my
+        best to get back to you!
+      </p>
       <Window isShow={active}>
-        <CloseButton close={handleClick}/>
-        <ContactFrom isShow={active}/>
+        <CloseButton close={handleClick} />
+        <ContactFrom isShow={active} />
       </Window>
     </Container>
   );
@@ -44,15 +48,24 @@ const Container = styled.div`
   width: 100%;
   height: 45rem;
   padding-top: 8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   > p {
     max-width: 40rem;
-    margin: auto;
+    margin: 2rem 0;
     text-align: justify;
     color: #c1cde8;
     font-size: 1rem;
     font-weight: 300;
     font-family: 'Heebo', sans-serif;
+  }
+
+  @media only screen and (max-width: 56rem) {
+    > h1 {
+      font-size: 2rem;
+    }
   }
 `;
 
@@ -63,13 +76,8 @@ const Button = styled.button`
   border: 0.15rem solid #0ee3b5;
   background-color: transparent;
   text-transform: uppercase;
-  position: absolute;
   font-size: 1.1rem;
   font-weight: 700;
-  top: 50%;
-  right: 50%;
-  transform: translate(50%, -50%);
-  z-index: 10;
 
   &:active {
     background-color: rgba(14, 227, 181, 0.2);
@@ -99,7 +107,7 @@ const Window = styled.div`
       opacity: 1;
       background-color: #122c59;
 
-      @media only screen and (max-width: 48em) {
+      @media only screen and (max-width: 56rem) {
         position: fixed;
         width: 100vw;
         height: 100vh;

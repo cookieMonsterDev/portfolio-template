@@ -27,8 +27,6 @@ const NavBar = () => {
     };
   });
 
-  // use create download link https://sites.google.com/site/gdocs2direct/
-
   return (
     <>
       <Conteiner
@@ -84,7 +82,7 @@ const Conteiner = styled.div`
       box-shadow: 0 10px 30px -10px rgba(2, 12, 27, 0.7);
     `}
 
-  @media only screen and (max-width: 48rem) {
+  @media only screen and (max-width: 56rem) {
     height: 5rem;
   }
 `;
@@ -144,7 +142,7 @@ const NavBarItem = styled.div`
     transform: none;
   }
 
-  @media only screen and (max-width: 48em) {
+  @media only screen and (max-width: 56rem) {
     display: none;
   }
 `;
@@ -167,7 +165,7 @@ const ResumeButton = styled.button`
     background-color: rgba(14, 227, 181, 0.2);
   }
 
-  @media only screen and (max-width: 48em) {
+  @media only screen and (max-width: 56rem) {
     display: none;
   }
 `;
@@ -177,7 +175,7 @@ const NavBarMenu = styled.div`
   position: relative;
   z-index: 1000;
 
-  @media only screen and (max-width: 48em) {
+  @media only screen and (max-width: 56rem) {
     display: flex;
   }
 `;
