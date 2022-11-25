@@ -4,12 +4,20 @@ import styled from 'styled-components';
 
 const ContactFrom = (props) => {
   const form = useRef(null);
-  const InputTextRef = useRef(null);
 
   const sendEmail = async (e) => {
     e.preventDefault();
+    const nameForm = form.current;
 
     try {
+      if (
+        !nameForm['user_name'].value ||
+        !nameForm['user_email'].value ||
+        !nameForm['message'].value
+      ) {
+        throw new Error('All fields should be filed');
+      }
+
       const res = await emailjs.sendForm(
         'service_5ml49gq',
         'template_oyvjyt6',
@@ -21,14 +29,13 @@ const ContactFrom = (props) => {
         throw new Error('Sth went wrong');
       }
 
-      InputTextRef.current.value = '';
+      nameForm['message'].value = '';
 
       return console.log(res.status);
     } catch (err) {
-      console.log(err.text);
+      console.log(err);
     }
   };
-  
 
   return (
     <Form ref={form} onSubmit={sendEmail} isShow={props.isShow}>
@@ -37,7 +44,7 @@ const ContactFrom = (props) => {
       <Label>Email</Label>
       <InputItem type="email" name="user_email" />
       <Label>Message</Label>
-      <InputText ref={InputTextRef} name="message" />
+      <InputText name="message" />
       <SubmitButton type="submit" value="Send" />
     </Form>
   );
