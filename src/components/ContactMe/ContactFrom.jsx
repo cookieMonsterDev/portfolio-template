@@ -40,12 +40,12 @@ const ContactFrom = (props) => {
   return (
     <Form ref={form} onSubmit={sendEmail} isShow={props.isShow}>
       <Label>Name</Label>
-      <InputItem type="text" name="user_name" />
+      <InputItem type="text" name="user_name" required/>
       <Label>Email</Label>
-      <InputItem type="email" name="user_email" />
+      <InputItem type="email" name="user_email" required/>
       <Label>Message</Label>
       <InputText name="message" />
-      <SubmitButton type="submit" value="Send" />
+      <SubmitButton type="submit" value="Send" required/>
     </Form>
   );
 };
