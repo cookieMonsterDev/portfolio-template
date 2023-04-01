@@ -1,6 +1,8 @@
-import Head from 'next/head'
+import { Background } from "@components/background";
+import Head from "next/head";
 
 export default function Home() {
+
   return (
     <>
       <Head>
@@ -9,7 +11,8 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <h1>hello world</h1>
+      <h1 style={{background: 'white'}}>hello world</h1>
+      <Background />
     </>
-  )
+  );
 }
