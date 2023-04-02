@@ -12,10 +12,9 @@ export const HeadComponent: React.FC<HeadProps> = ({ title, description }) => {
 
       
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:site" content="@yourwebsite" />
-      <meta name="twitter:creator" content="@yourtwitterhandle" />
-      <meta name="twitter:title" content="your title" />
-      <meta name="twitter:description" content="your description." />
+      <meta name="twitter:site" content={title + 'trest=1'} />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={description} />
       <meta
         name="twitter:image"
         content="https://where-your-image-is-hosted/name.jpg"
