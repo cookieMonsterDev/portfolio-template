@@ -7,7 +7,7 @@ const Home = ({ projects }: { projects: any }) => {
 
   return (
     <>
-      <Head title="sth" description="test"/>
+      <Head />
       <Background />
     </>
   );

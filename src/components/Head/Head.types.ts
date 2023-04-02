@@ -1,4 +1,5 @@
 export type HeadProps = {
-  title: string;
-  description: string;
+  title?: string;
+  description?: string;
+  image?: string;
 } 
