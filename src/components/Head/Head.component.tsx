@@ -1,11 +1,12 @@
 import React from "react";
 import Head from "next/head";
 import { HeadProps } from "./Head.types";
+import img from '../../../public/test.jpg';
 
 const defaults = {
   title: `cookieMonsterDev`,
   description: `Hello it is me Mario!`,
-  image: ``,
+  image: img,
   url: `${process.env.VERCEL_URL!}`
 }
 
@@ -29,6 +30,7 @@ export const HeadComponent: React.FC<HeadProps> = ({ title, description, image }
       <meta name="twitter:description" content={description || defaults.description} />
       <meta name="twitter:image" content={image || defaults.image} />
       <meta name="twitter:card" content="summary_large_image" />
+
     </Head>
   );
 };
