@@ -13,6 +13,7 @@
     "@emotion/styled": "^11.10.6",
     "@mui/icons-material": "^5.11.11",
     "@mui/material": "^5.11.15",
+    "emotion-normalize": "^11.0.1",
     "formik": "^2.2.9",
     "next": "13.2.4",
     "react": "18.2.0",

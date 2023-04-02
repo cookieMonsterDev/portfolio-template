@@ -1,7 +1,13 @@
 import { Background } from "@components/background";
 import Head from "next/head";
+import styled from '@emotion/styled'
 
-export default function Home() {
+const Dev = styled.div`
+  color: var(--test);
+`
+
+const Home = ({ projects }: { projects: any }) => {
+  console.log(projects)
 
   return (
     <>
@@ -11,8 +17,22 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <h1 style={{background: 'white'}}>hello world</h1>
+      <Dev>hello world</Dev>
       <Background />
     </>
   );
-}
+};
+
+export const getServerSideProps = async () => {
+  const data = await fetch(
+    `https://api.github.com/users/cookieMonsterDev/repos`
+  ).then((response) => response.json());
+
+  return {
+    props: {
+      projects: data,
+    },
+  };
+};
+
+export default Home;
