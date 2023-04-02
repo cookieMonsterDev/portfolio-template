@@ -1,14 +1,15 @@
 import React from "react";
 import Head from "next/head";
 import { HeadProps } from "./Head.types";
-import img from '../../../public/test.jpg';
+import img from "../../../public/test.jpg";
 
 const defaults = {
   title: `cookieMonsterDev`,
   description: `Hello it is me Mario!`,
-  image: img,
-  url: `${process.env.VERCEL_URL!}`
-}
+  image:
+    "https://www.google.com/url?sa=i&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FImage&psig=AOvVaw0BvDWIImcrrs1oQZelVOKM&ust=1680512008139000&source=images&cd=vfe&ved=0CA8QjRxqFwoTCLiG5Zvpiv4CFQAAAAAdAAAAABAE",
+  url: `${process.env.VERCEL_URL!}`,
+};
 
 export const HeadComponent: React.FC<HeadProps> = ({ title, description, image }) => {
   return (
@@ -30,7 +31,6 @@ export const HeadComponent: React.FC<HeadProps> = ({ title, description, image }
       <meta name="twitter:description" content={description || defaults.description} />
       <meta name="twitter:image" content={image || defaults.image} />
       <meta name="twitter:card" content="summary_large_image" />
-
     </Head>
   );
 };
