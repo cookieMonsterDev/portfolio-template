@@ -1,3 +1,4 @@
+import gitHubApi from '@features/axios'
 import React from 'react'
 
 const Projects = ({ projects }: { projects: any[] }) => {
@@ -9,9 +10,8 @@ const Projects = ({ projects }: { projects: any[] }) => {
 }
 
 export const getServerSideProps = async () => {
-  const data = await fetch(
-    `https://api.github.com/users/cookieMonsterDev/repos`
-  ).then((response) => response.json());
+  const user = process.env.API_USERNAME!;
+  const { data } = await gitHubApi.get(`users/${user}/repos`);
 
   return {
     props: {

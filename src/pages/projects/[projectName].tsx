@@ -1,3 +1,4 @@
+import gitHubApi from '@features/axios'
 import { GetStaticPropsContext } from 'next'
 import React from 'react'
 
@@ -11,9 +12,8 @@ const Project = ({ project }: { project: any }) => {
 
 export const getServerSideProps = async (context: GetStaticPropsContext) => {
   const projectName = context.params?.projectName;
-  const data = await fetch(
-    `https://api.github.com/repos/cookieMonsterDev/${projectName}`
-  ).then((response) => response.json());
+  const user = process.env.API_USERNAME!;
+  const { data } = await gitHubApi.get(`repos/${user}/${projectName}`);
 
   return {
     props: {
