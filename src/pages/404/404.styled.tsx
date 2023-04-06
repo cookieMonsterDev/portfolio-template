@@ -58,6 +58,7 @@ export const DialogContainer = styled.dialog`
   }
 
   @media only screen and (max-width: 28rem) {
+    max-width: 80vw;
     padding: 1rem;
     grid-template-areas:
       "title"
@@ -68,6 +69,19 @@ export const DialogContainer = styled.dialog`
     a,
     img {
       justify-self: center;
+    }
+
+    h1 {
+      font-size: 3rem;
+    }
+  }
+
+  @media only screen and (max-width: 56rem) {
+    max-width: 80vw;
+    padding: 1.5rem;
+
+    h1 {
+      font-size: 3rem;
     }
   }
 `;
