@@ -22,7 +22,7 @@ export const NavBarComponent: React.FC<NavBarProps> = ({ tabs, logo }) => {
     return () => {
       window.removeEventListener("scroll", handleNavBar);
     };
-  }, []);
+  });
 
   return (
     <Container show={show}>

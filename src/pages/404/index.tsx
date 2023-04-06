@@ -6,6 +6,7 @@ import { DialogContainer, ErrorButton, Main } from "./404.styles";
 import gif from "../../../public/404.gif";
 import { NextPageWithLayout } from "@pages/_app";
 import { Layout404 } from "@layouts/404";
+import Image from "next/image";
 
 const ErrorPage: NextPageWithLayout = () => {
   return (
@@ -16,7 +17,7 @@ const ErrorPage: NextPageWithLayout = () => {
           <h1>Oops!</h1>
           <Main>
             <p>
-              <strong>We can't seem to find a page you're looking for.</strong>
+              <strong>{"We can't seem to find a page you're looking for."}</strong>
             </p>
             <p>
               <strong>Error code: 404</strong>
@@ -28,7 +29,7 @@ const ErrorPage: NextPageWithLayout = () => {
               Go to Home
             </ErrorButton>
           </Link>
-          <img src={gif.src} alt="john_travolta_meme_gif" />
+          <Image src={gif.src} alt="john_travolta_meme_gif" width={18} height={18} />
         </DialogContainer>
       </Overlay>
     </>
