@@ -2,9 +2,9 @@ import { Background } from "@components/background";
 import { Overlay } from "@components/Overlay";
 import Link from "next/link";
 import React, { ReactElement } from "react";
-import { DialogContainer, ErrorButton, Main } from "./404.styles";
+import { DialogContainer, ErrorButton, Main } from "./404.styled";
 import gif from "../../../public/404.gif";
-import { NextPageWithLayout } from "@pages/_app";
+import { NextPageWithLayout } from "@pages/_app.page";
 import { Layout404 } from "@layouts/404";
 import Image from "next/image";
 

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Container, Navbar, TabLink, Logo } from "./NavBar.styles";
+import { Container, Navbar, TabLink, Logo } from "./NavBar.styled";
 import { NavBarProps } from "./NavBar.types";
 import Link from "next/link";
 

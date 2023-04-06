@@ -1,5 +1,5 @@
 import React from "react";
-import { Container } from "./Overlay.styles";
+import { Container } from "./Overlay.styled";
 import { OverlayProps } from "./Overlay.types";
 
 export const OverlayComponent: React.FC<OverlayProps> = ({
