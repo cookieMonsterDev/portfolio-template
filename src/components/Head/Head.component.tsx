@@ -4,8 +4,8 @@ import { HeadProps } from "./Head.types";
 import img from "../../../public/test.jpg";
 
 const defaults = {
-  title: `cookieMonsterDev`,
-  description: `Hello it is me Mario!`,
+  title: `Mykhailo Toporkov`,
+  description: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et nobis libero quidem eveniet porro pariatur est. Sed, deserunt minima id eos praesentium doloremque nisi ipsa! Consectetur nisi, recusandae dolores nulla hic optio tenetur aliquid dicta sit perspiciatis eveniet repudiandae suscipit modi maiores vitae eaque fugit incidunt asperiores qui voluptatem dolorum!`,
   image: img.src,
   url: `${process.env.VERCEL_URL!}`,
 };
