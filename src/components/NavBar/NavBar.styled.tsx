@@ -3,6 +3,7 @@ import { css, keyframes } from "@emotion/react";
 
 export const Container = styled.header<{ show: boolean }>`
   position: fixed;
+  top: 0;
   display: flex;
   justify-content: space-between;
   width: 100%;

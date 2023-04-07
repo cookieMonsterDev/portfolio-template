@@ -1,6 +1,8 @@
 import { Background } from "@components/background";
 import { DefaultLayoutProps } from "./Default.types";
 import { NavBar, TabProps } from "@components/NavBar";
+import { Head } from "@components/Head";
+import { Footer } from "@components/Footer";
 
 const Tabs: TabProps[] = [
   {
@@ -26,6 +28,7 @@ export const DefaultLayout: React.FC<DefaultLayoutProps> = ({
 }) => {
   return (
     <>
+      <Head />
       <Background />
       <NavBar tabs={Tabs} />
       {children}

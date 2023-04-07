@@ -2,11 +2,12 @@ import { Background } from "@components/background";
 import { Overlay } from "@components/Overlay";
 import Link from "next/link";
 import React, { ReactElement } from "react";
-import { DialogContainer, ErrorButton, Main } from "./404.styled";
+import { DialogContainer, Main } from "./404.styled";
 import gif from "../../../public/404.gif";
 import { NextPageWithLayout } from "@pages/_app.page";
 import { Layout404 } from "@layouts/404";
 import Image from "next/image";
+import { NeonButton } from "@styles/common";
 
 const ErrorPage: NextPageWithLayout = () => {
   return (
@@ -25,9 +26,9 @@ const ErrorPage: NextPageWithLayout = () => {
             <p>Try to start from the beginning from the Home page:</p>
           </Main>
           <Link href="/">
-            <ErrorButton variant="outlined" role="link">
+            <NeonButton variant="outlined" role="link">
               Go to Home
-            </ErrorButton>
+            </NeonButton>
           </Link>
           <Image src={gif.src} alt="john_travolta_meme_gif" width={18} height={18} />
         </DialogContainer>

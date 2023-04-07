@@ -113,12 +113,3 @@ export const Main = styled.main`
   }
 `;
 
-export const ErrorButton = styled(Button)`
-  color: var(--neon);
-  border: 0.1rem solid var(--neon);
-
-  &:hover {
-    background: var(--neon-light);
-    border: 0.1rem solid var(--neon);
-  }
-`;

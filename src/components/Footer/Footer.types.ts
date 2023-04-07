@@ -1,4 +1,5 @@
 export type FooterProps = {
-  forksCount: number;
-  stargazersCount: number;
+  forksCount?: number;
+  stargazersCount?: number;
+  stats?: boolean;
 }

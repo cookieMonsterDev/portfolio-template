@@ -5,6 +5,7 @@ export const Container = styled.footer`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 2rem;
 
   a {
     text-decoration: none;
@@ -16,7 +17,6 @@ export const Info = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 2rem;
   font-weight: 700;
   font-family: "Roboto Mono", monospace;
   color: var(--primary);
