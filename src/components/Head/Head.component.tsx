@@ -6,8 +6,7 @@ import img from "../../../public/test.jpg";
 const defaults = {
   title: `cookieMonsterDev`,
   description: `Hello it is me Mario!`,
-  image:
-    "https://www.google.com/url?sa=i&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FImage&psig=AOvVaw0BvDWIImcrrs1oQZelVOKM&ust=1680512008139000&source=images&cd=vfe&ved=0CA8QjRxqFwoTCLiG5Zvpiv4CFQAAAAAdAAAAABAE",
+  image: img.src,
   url: `${process.env.VERCEL_URL!}`,
 };
 

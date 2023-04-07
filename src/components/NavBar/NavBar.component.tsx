@@ -1,19 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Container, Navbar, TabLink, Logo } from "./NavBar.styled";
 import { NavBarProps } from "./NavBar.types";
 import Link from "next/link";
-
-const isBrowser = () => typeof window !== "undefined";
+import { isBrowser } from "@utils/helpers";
 
 export const NavBarComponent: React.FC<NavBarProps> = ({ tabs, logo }) => {
-  let prevScrollpos: number;
-  if (isBrowser()) prevScrollpos = window.screenY;
+  const prevScrollpos = useRef(isBrowser() ? window.screenY : 0);
   const [show, setShow] = useState(true);
 
   const handleNavBar = () => {
     const currentScrollPos = window.scrollY;
-    prevScrollpos < currentScrollPos ? setShow(false) : setShow(true);
-    prevScrollpos = currentScrollPos;
+    prevScrollpos.current < currentScrollPos ? setShow(false) : setShow(true);
+    prevScrollpos.current = currentScrollPos;
   };
 
   useEffect(() => {
