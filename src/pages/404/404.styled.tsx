@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
 import { keyframes } from "@emotion/react";
-import { Button } from "@mui/material";
 
 const Anim = keyframes`
   0% {

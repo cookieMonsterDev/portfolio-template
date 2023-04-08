@@ -23,6 +23,13 @@ export const Container = styled.header<{ show: boolean }>`
     `}
 `;
 
+export const LogoContainer = styled.span`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 2rem;
+`;
+
 export const Navbar = styled.nav`
   display: flex;
   align-items: center;

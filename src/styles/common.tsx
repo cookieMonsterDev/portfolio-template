@@ -3,12 +3,18 @@ import { Button } from "@mui/material";
 
 export const Main = styled.main`
   min-height: 100vh;
-  padding: 8rem 5rem;
-`
+  padding: 8rem 20vw 2rem 20vw;
 
-export const Section = styled.section`
-  
-`
+  @media only screen and (max-width: 56rem) {
+    padding: 8rem 3rem 3rem 3rem;
+  }
+
+  @media only screen and (max-width: 28rem) {
+    padding: 8rem 1rem 1rem 1rem;
+  }
+`;
+
+export const Section = styled.section``;
 
 export const NeonButton = styled(Button)`
   color: var(--neon);
@@ -28,4 +34,11 @@ export const PrimaryButton = styled(Button)`
     background: var(--primary-light);
     border: 0.1rem solid var(--primary);
   }
+`;
+
+export const SubTitle = styled.h2`
+  margin: 1rem 0 2rem 0;
+  font-size: 2.5rem;
+  font-family: Heebo, sans-serif;
+  color: var(--primary);
 `;

@@ -17,8 +17,8 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
 
   return getLayout(
     <>
-      <Global styles={globalStyle} />
-      <Component {...pageProps} />
+        <Global styles={globalStyle} />
+        <Component {...pageProps} />
     </>
   );
 }
