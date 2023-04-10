@@ -2,7 +2,6 @@ import { Background } from "@components/background";
 import { DefaultLayoutProps } from "./Default.types";
 import { NavBar, TabProps } from "@components/NavBar";
 import { Head } from "@components/Head";
-import { Footer } from "@components/Footer";
 import Image from "next/image";
 import img from "../../../public/favicon.ico";
 
@@ -42,6 +41,7 @@ export const DefaultLayout: React.FC<DefaultLayoutProps> = ({ children }) => {
               borderRadius: "50%",
               border: "0.1rem solid var(--neon)",
             }}
+            priority
           />
         }
       />

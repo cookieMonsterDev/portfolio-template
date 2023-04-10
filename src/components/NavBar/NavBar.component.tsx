@@ -20,7 +20,7 @@ export const NavBarComponent: React.FC<NavBarProps> = ({ tabs, logo }) => {
     return () => {
       window.removeEventListener("scroll", handleNavBar);
     };
-  });
+  }, []);
 
   return (
     <Container show={show}>
@@ -30,8 +30,8 @@ export const NavBarComponent: React.FC<NavBarProps> = ({ tabs, logo }) => {
         </Link>
       </LogoContainer>
       <Navbar>
-        {tabs.map(({ name, href, content, ...rest }, i) => (
-          <TabLink key={name} href={href} item={Boolean(content)} delay={i} {...rest}>
+        {tabs.map(({ name, content, ...rest }, i) => (
+          <TabLink key={name} delay={i} {...rest}>
             {content || name}
           </TabLink>
         ))}

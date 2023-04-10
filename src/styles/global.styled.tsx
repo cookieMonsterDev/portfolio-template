@@ -12,7 +12,8 @@ export const globalStyle = css`
   }
 
   * {
-    scroll-behavior: smooth;
+    scroll-behavior: smooth!important;
+    --scroll-behavior: smooth!important;
     -webkit-tap-highlight-color: transparent;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
