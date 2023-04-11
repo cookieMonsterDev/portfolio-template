@@ -16,4 +16,5 @@ const Anim = keyframes`
 
 export const ProjectsTitle = styled(SubTitle)`
   animation: ${Anim} 700ms ease-in-out forwards;
+  margin-bottom: 4rem;
 `;

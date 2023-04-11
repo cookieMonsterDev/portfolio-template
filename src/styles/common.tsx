@@ -5,7 +5,7 @@ export const Main = styled.main`
   min-height: 100vh;
   padding: 8rem 20vw 2rem 20vw;
 
-  @media only screen and (max-width: 56rem) {
+  @media only screen and (max-width: 70rem) {
     padding: 8rem 3rem 3rem 3rem;
   }
 
@@ -27,6 +27,7 @@ export const NeonButton = styled(Button)`
 `;
 
 export const PrimaryButton = styled(Button)`
+  text-decoration: none;
   color: var(--primary);
   border: 0.1rem solid var(--primary);
 
