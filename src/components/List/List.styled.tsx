@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { css, keyframes } from "@emotion/react";
 import { PrimaryButton } from "@styles/common";
 import Link from "next/link";
 
@@ -19,8 +20,36 @@ export const ListContainer = styled.ul`
   gap: 1.5rem;
 `;
 
-export const ListButton = styled(PrimaryButton)`
-  margin: 3rem;
+const ApperAnim = keyframes`
+  0% {
+    opacity: 0;
+    transform: translateY(10%);
+  }
+  90% {
+    opacity: 1;
+    transform: translateY(-2%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+`;
+
+export const ListButton = styled(PrimaryButton)<{ isBase: boolean; inView: boolean }>`
+  opacity: 0;
+
+  ${({ inView }) =>
+    inView &&
+    css`
+      opacity: 1;
+      animation: ${ApperAnim} 700ms ease-out;
+    `}
+
+  ${({ isBase }) =>
+    isBase &&
+    css`
+      margin-top: 3rem;
+    `}
 `;
 
 export const TheLink = styled(Link)`

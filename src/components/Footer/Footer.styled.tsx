@@ -17,13 +17,14 @@ export const Info = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-size: 0.7rem;
   font-weight: 700;
   font-family: "Roboto Mono", monospace;
   color: var(--primary);
 
   svg {
-    width: 1.2rem;
-    height: 1.2rem;
+    width: 1.1rem;
+    height: 1.1rem;
     fill: var(--primary);
   }
 
@@ -42,7 +43,7 @@ export const Info = styled.div`
 
 export const Stats = styled.span`
   display: flex;
-  gap: 2rem;
+  gap: 1rem;
 
   div {
     display: flex;

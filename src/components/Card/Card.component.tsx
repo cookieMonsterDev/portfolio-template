@@ -28,7 +28,7 @@ export const CardComponent: React.FC<CardProps> = ({ name, description, topics, 
       <Desc>{description}</Desc>
       <Topics>
         {firstTree.map((e) => (
-          <Topic>{e}</Topic>
+          <Topic key={e}>{e}</Topic>
         ))}
         {rest > 0 && <Topic>{`and ${rest} more`}</Topic>}
       </Topics>

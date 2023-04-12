@@ -15,8 +15,8 @@ const Tabs: TabProps[] = [
     href: "/#experience",
   },
   {
-    name: "Work",
-    href: "/#work",
+    name: "Projects",
+    href: "/#projects",
   },
   {
     name: "Contact",

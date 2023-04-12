@@ -1,11 +1,11 @@
 import { Footer } from "@components/Footer";
-import { Head } from "@components/Head";
 import { List } from "@components/List";
-import Test1 from "@components/Test/Test1";
-import Test2 from "@components/Test/Test2";
+import { Title } from "@components/Title";
 import gitHubApi from "@features/axios";
 import Project from "@features/project.types";
 import { DefaultLayout } from "@layouts/default";
+import { TitleFirst } from "@styles/animations";
+import { Main, Section } from "@styles/common";
 
 type HomeProps = {
   projects: Project[];
@@ -21,10 +21,12 @@ const Home = ({ projects, currentProject }: HomeProps) => {
   return (
     <>
       <DefaultLayout>
-        <div style={{ minHeight: "100vh" }}>test</div>
-        <Test1 />
-        <Test2 />
-        <List list={projects}/>
+        <Main>
+          <Section id="projects">
+            <Title animation={TitleFirst}>Some my projects</Title>
+            <List list={projects} />
+          </Section>
+        </Main>
         <Footer {...footerProps} />
       </DefaultLayout>
     </>
