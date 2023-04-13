@@ -5,7 +5,7 @@ export const Container = styled.footer`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 2rem;
+  padding: 2rem 0 0.3rem 0;
 
   a {
     text-decoration: none;
@@ -53,5 +53,35 @@ export const Stats = styled.span`
 
   svg {
     margin: 0 0.5rem;
+  }
+`;
+
+export const Socials = styled.ul`
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: 100%;
+  display: none;
+  visibility: hidden;
+  justify-content: center;
+  margin-bottom: 0.6rem;
+  gap: 2rem;
+
+  @media only screen and (max-width: 70rem) {
+    display: flex;
+    visibility: visible;
+  }
+`;
+
+export const SocialItem = styled.li`
+  svg {
+    width: 1.6rem;
+    height: 1.6rem;
+    color: var(--primary);
+    transition: all 500ms;
+
+    &:hover {
+      color: var(--neon);
+    }
   }
 `;

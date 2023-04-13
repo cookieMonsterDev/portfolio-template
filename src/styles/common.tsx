@@ -16,7 +16,6 @@ export const Main = styled.main`
 
 export const Section = styled.section`
   padding: 6rem 0 0 0;
-  overflow: hidden;
 `;
 
 export const NeonButton = styled(Button)`

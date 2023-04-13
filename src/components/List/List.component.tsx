@@ -3,6 +3,7 @@ import { ListContainer, Container, ListButton, TheLink } from "./List.styled";
 import { ListProps } from "./List.types";
 import { Card } from "@components/Card";
 import { useInView } from "react-intersection-observer";
+import { InView } from 'react-intersection-observer';
 
 export const ListComponent: React.FC<ListProps> = ({
   list,

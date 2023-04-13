@@ -1,4 +1,8 @@
-import { Container, Info, Stats } from "./Footer.styled";
+import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import AlternateEmailOutlinedIcon from '@mui/icons-material/AlternateEmailOutlined';
+import LocalPhoneOutlinedIcon from '@mui/icons-material/LocalPhoneOutlined';
+import { Container, Info, SocialItem, Socials, Stats } from "./Footer.styled";
 import { FooterProps } from "./Footer.types";
 
 export const FooterComponent: React.FC<FooterProps> = ({
@@ -8,6 +12,36 @@ export const FooterComponent: React.FC<FooterProps> = ({
 }) => {
   return (
     <Container>
+      <Socials>
+      <SocialItem>
+          <a
+            href={'https://github.com/cookieMonsterDev'}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <GitHubIcon />
+          </a>
+        </SocialItem>
+        <SocialItem>
+          <a
+            href={'https://www.linkedin.com/in/mykhailo-toporkov/'}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <LinkedInIcon />
+          </a>
+        </SocialItem>
+        <SocialItem>
+          <a href='mailto: mykhailo.toporkov@gmail.com'>
+          <AlternateEmailOutlinedIcon />
+          </a>
+        </SocialItem>
+        <SocialItem>
+          <a href='tel: +380 096 050 33 48'>
+            <LocalPhoneOutlinedIcon />
+          </a>
+        </SocialItem>
+      </Socials>
       <a
         href="https://github.com/cookieMonsterDev/portfolio-template"
         rel="noopener noreferrer"

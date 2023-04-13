@@ -98,4 +98,4 @@ export const Topic = styled.li`
   font-size: 0.8rem;
   font-weight: 600;
   color: var(--primary-dark);
-`
+`;

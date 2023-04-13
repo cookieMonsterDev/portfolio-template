@@ -5,6 +5,7 @@ import { Heading } from "./Title.styled";
 export const TitleComponent: React.FC<TitleProps> = ({ children, animation }) => {
   const { ref, inView } = useInView({
     threshold: 0.5,
+    rootMargin: '-10px',
     triggerOnce: true,
   });
 

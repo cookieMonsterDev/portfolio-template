@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import { css, keyframes } from "@emotion/react";
 import { PrimaryButton } from "@styles/common";
+import type { ButtonProps } from "@mui/material";
 import Link from "next/link";
 
 export const Container = styled.div`
@@ -35,7 +36,9 @@ const ApperAnim = keyframes`
   }
 `;
 
-export const ListButton = styled(PrimaryButton)<{ isBase: boolean; inView: boolean }>`
+export const ListButton = styled(PrimaryButton, {
+  shouldForwardProp: (propName) => propName !== "isBase" && propName !== "inView",
+})<{ isBase: boolean; inView: boolean }>`
   opacity: 0;
 
   ${({ inView }) =>

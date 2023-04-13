@@ -5,7 +5,7 @@ import { useInView } from "react-intersection-observer";
 
 export const CardComponent: React.FC<CardProps> = ({ name, description, topics, url }) => {
   const { ref, inView } = useInView({
-    threshold: 0.7,
+    threshold: 0.5,
     triggerOnce: true,
   });
 
