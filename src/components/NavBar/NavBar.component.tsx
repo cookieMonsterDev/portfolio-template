@@ -1,8 +1,15 @@
 import React, { useEffect, useState, useRef } from "react";
-import { Container, Navbar, TabLink, Logo, LogoContainer } from "./NavBar.styled";
+import {
+  Container,
+  Navbar,
+  TabLink,
+  Logo,
+  LogoContainer,
+} from "./NavBar.styled";
 import { NavBarProps } from "./NavBar.types";
 import Link from "next/link";
 import { isBrowser } from "@utils/helpers";
+import { BurgerButton } from "@components/BurgerButton";
 
 export const NavBarComponent: React.FC<NavBarProps> = ({ tabs, logo }) => {
   const prevScrollpos = useRef(isBrowser() ? window.screenY : 0);
@@ -36,6 +43,7 @@ export const NavBarComponent: React.FC<NavBarProps> = ({ tabs, logo }) => {
           </TabLink>
         ))}
       </Navbar>
+      <BurgerButton />
     </Container>
   );
 };

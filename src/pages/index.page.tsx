@@ -5,6 +5,7 @@ import { Title } from "@components/Title";
 import config from "@config";
 import gitHubApi from "@features/axios";
 import Project from "@features/project.types";
+import serverSideErrorHandler from "@features/serverSideErrorHandler";
 import { DefaultLayout } from "@layouts/default";
 import { TitleFirst } from "@styles/animations";
 import { Main, Section } from "@styles/common";
@@ -48,9 +49,12 @@ const Home = ({ projects, currentProject }: HomeProps) => {
 export const getServerSideProps = async () => {
   const user = config.git.github_user_name;
   const thisRepoName = config.git.this_repo_name;
-  const { data } = await gitHubApi.get<Project[]>(`users/${user}/repos`);
-  const projects = data.slice(0, 6);
-  const thisProject = data.filter((e) => e.name === thisRepoName)[0];
+
+
+  try {
+    const { data } = await gitHubApi.get<Project[]>(`users/${user}/repos`);
+    const projects = data.slice(0, 6);
+    const thisProject = data.filter((e) => e.name === thisRepoName)[0];
 
   return {
     props: {
@@ -58,6 +62,10 @@ export const getServerSideProps = async () => {
       currentProject: thisProject,
     },
   };
+
+} catch (error) {
+  return serverSideErrorHandler(error);
+}
 };
 
 export default Home;

@@ -8,6 +8,7 @@ export const Container = styled.header<{ show: boolean }>`
   top: 0;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
   height: 5rem;
   background: var(--secondary);
@@ -43,6 +44,11 @@ export const Navbar = styled.nav`
     margin: 0;
     overflow: hidden;
     height: auto;
+  }
+
+  @media only screen and (max-width: 70rem) {
+    display: none;
+    visibility: hidden;
   }
 `;
 

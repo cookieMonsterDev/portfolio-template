@@ -6,6 +6,7 @@ import { ProjectsTitle } from "./projects.styled";
 import gitHubApi from "@features/axios";
 import Project from "@features/project.types";
 import config from "@config";
+import serverSideErrorHandler from "@features/serverSideErrorHandler";
 
 type ProjectsProps = {
   projects: Project[];
@@ -25,13 +26,17 @@ const Projects = ({ projects }: ProjectsProps) => {
 
 export const getServerSideProps = async () => {
   const user = config.git.github_user_name;
-  const { data } = await gitHubApi.get<Project[]>(`users/${user}/repos`);
+  try {
+    const { data } = await gitHubApi.get<Project[]>(`users/${user}/repos`);
 
-  return {
-    props: {
-      projects: data,
-    },
-  };
+    return {
+      props: {
+        projects: data,
+      },
+    };
+  } catch (error) {
+    return serverSideErrorHandler(error);
+  }
 };
 
 export default Projects;
