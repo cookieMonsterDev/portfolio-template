@@ -28,7 +28,7 @@ export const LetterComponent: React.FC<LetterProps> = ({
       clearTimeout(hoverTimer);
       clearTimeout(activeTimer);
     };
-  }, [hover]);
+  }, [hover, delay, duration]);
 
   return (
     <Span
