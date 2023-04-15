@@ -1,4 +1,3 @@
-import { Background } from "@components/Background";
 import { Overlay } from "@components/Overlay";
 import { ReactElement } from "react";
 import { DialogContainer, Main } from "./404.styled";
@@ -12,7 +11,6 @@ import gif from "../../../public/404.gif";
 const ErrorPage: NextPageWithLayout = () => {
   return (
     <>
-      <Background />
       <Overlay>
         <DialogContainer open>
           <h1>Oops!</h1>

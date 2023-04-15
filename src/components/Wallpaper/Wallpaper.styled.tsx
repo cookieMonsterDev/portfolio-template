@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import Particles from "react-particles";
 
-const MyBackground = styled(Particles)`
+const MyWallpaper = styled(Particles)`
   position: fixed;
   width: 100vw;
   height: 100vh;
@@ -9,4 +9,4 @@ const MyBackground = styled(Particles)`
   z-index: -1;
 `;
 
-export default MyBackground
+export default MyWallpaper;
