@@ -14,13 +14,6 @@ export const globalStyle = css`
   * {
     scroll-behavior: smooth!important;
     --scroll-behavior: smooth!important;
-    -webkit-tap-highlight-color: transparent;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
     box-sizing: border-box;
     text-decoration: none!important;
   }
@@ -51,5 +44,6 @@ export const globalStyle = css`
     --secondary: rgb(10, 25, 47);
     --neon: rgb(14, 227, 181);
     --neon-light: rgba(14, 227, 181, 0.2);
+    --red-neon: rgb(255, 49, 49);
   }
 `;

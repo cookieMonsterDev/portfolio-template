@@ -1,4 +1,4 @@
-import { Background } from "@components/background";
+import { Background } from "@components/Background";
 import { DefaultLayoutProps } from "./Default.types";
 import { NavBar, TabProps } from "@components/NavBar";
 import { Head } from "@components/Head";

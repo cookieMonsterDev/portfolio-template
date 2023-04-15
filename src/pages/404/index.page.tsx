@@ -1,4 +1,4 @@
-import { Background } from "@components/background";
+import { Background } from "@components/Background";
 import { Overlay } from "@components/Overlay";
 import { ReactElement } from "react";
 import { DialogContainer, Main } from "./404.styled";

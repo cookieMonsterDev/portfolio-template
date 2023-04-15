@@ -12,11 +12,11 @@ export const BurgerButtonComponent: React.FC<BurgerButtonProps> = ({
       <Input
         type="checkbox"
         id="burgerbutton"
-        name="burgerbutton"
         onChange={onChange}
         checked={checked}
         aria-checked={checked}
         aria-controls={ariaControls}
+        aria-label="burgerbutton"
       />
       <Label htmlFor="burgerbutton" />
     </BurgerButton>

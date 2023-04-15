@@ -2,13 +2,14 @@ import { Footer } from "@components/Footer";
 import { List } from "@components/List";
 import { Socials } from "@components/Socials";
 import { Title } from "@components/Title";
+import { Welcome } from "@components/Welcome";
 import config from "@config";
 import gitHubApi from "@features/axios";
 import Project from "@features/project.types";
 import serverSideErrorHandler from "@features/serverSideErrorHandler";
 import { DefaultLayout } from "@layouts/default";
 import { TitleFirst } from "@styles/animations";
-import { Main, Section } from "@styles/common";
+import { FirstSection, Main, Section } from "@styles/common";
 
 type HomeProps = {
   projects: Project[];
@@ -25,9 +26,9 @@ const Home = ({ projects, currentProject }: HomeProps) => {
     <>
       <DefaultLayout>
         <Main>
-          <Section>
-            <h1>info</h1>
-          </Section>
+          <FirstSection>
+            <Welcome />
+          </FirstSection>
           <Section id="about">
             <h1>About</h1>
           </Section>
@@ -50,22 +51,20 @@ export const getServerSideProps = async () => {
   const user = config.git.github_user_name;
   const thisRepoName = config.git.this_repo_name;
 
-
   try {
     const { data } = await gitHubApi.get<Project[]>(`users/${user}/repos`);
     const projects = data.slice(0, 6);
     const thisProject = data.filter((e) => e.name === thisRepoName)[0];
 
-  return {
-    props: {
-      projects: projects,
-      currentProject: thisProject,
-    },
-  };
-
-} catch (error) {
-  return serverSideErrorHandler(error);
-}
+    return {
+      props: {
+        projects: projects,
+        currentProject: thisProject,
+      },
+    };
+  } catch (error) {
+    return serverSideErrorHandler(error);
+  }
 };
 
 export default Home;

@@ -24,6 +24,10 @@ export const Container = styled.header<{ show: boolean }>`
     css`
       transform: translateY(-100%);
     `}
+
+  @media only screen and (max-width: 28rem) {
+    height: 4rem;
+  }
 `;
 
 export const LogoContainer = styled.span`
@@ -31,6 +35,10 @@ export const LogoContainer = styled.span`
   justify-content: center;
   align-items: center;
   padding-left: 2rem;
+
+  @media only screen and (max-width: 28rem) {
+    padding-left: 1rem;
+  }
 `;
 
 export const Navbar = styled.nav`

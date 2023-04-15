@@ -13,14 +13,14 @@ export const CardComponent: React.FC<CardProps> = ({ name, description, topics, 
   const rest = topics.slice(3).length;
 
   return (
-    <Container role="card" ref={ref} inView={inView}>
-      <BackLink href={`/projects/${name}`} />
+    <Container aria-label="card" ref={ref} inView={inView}>
+      <BackLink href={`/projects/${name}`} aria-label="Project page link"/>
       <Links>
         <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none">
           <title>Folder</title>
           <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
         </svg>
-        <a href={url} rel="noopener noreferrer" target="_blank" title="GitHub">
+        <a href={url} rel="noopener noreferrer" target="_blank" aria-label="Link to github repo">
           <GitHubIcon />
         </a>
       </Links>

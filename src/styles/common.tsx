@@ -14,6 +14,10 @@ export const Main = styled.main`
   }
 `;
 
+export const FirstSection = styled.section`
+  padding: 8rem 0 15rem 0;
+`;
+
 export const Section = styled.section`
   padding: 6rem 0 0 0;
 `;
@@ -32,7 +36,8 @@ export const PrimaryButton = styled(Button)`
   text-decoration: none;
   color: var(--primary);
   border: 0.1rem solid var(--primary);
-
+  padding: 6px 2rem;
+  
   &:hover {
     background: var(--primary-light);
     border: 0.1rem solid var(--primary);

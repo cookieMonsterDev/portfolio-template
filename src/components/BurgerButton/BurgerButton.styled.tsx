@@ -89,4 +89,8 @@ export const BurgerButton = styled.div`
     visibility: hidden;
     display: none;
   }
+
+  @media only screen and (max-width: 28rem) {
+    margin-right: 2rem;
+  }
 `;
