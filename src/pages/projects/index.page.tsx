@@ -5,6 +5,7 @@ import { Main } from "@styles/common";
 import { ProjectsTitle } from "./projects.styled";
 import gitHubApi from "@features/axios";
 import Project from "@features/project.types";
+import config from "@config";
 
 type ProjectsProps = {
   projects: Project[];
@@ -23,7 +24,7 @@ const Projects = ({ projects }: ProjectsProps) => {
 };
 
 export const getServerSideProps = async () => {
-  const user = process.env.API_USERNAME!;
+  const user = config.git.github_user_name;
   const { data } = await gitHubApi.get<Project[]>(`users/${user}/repos`);
 
   return {

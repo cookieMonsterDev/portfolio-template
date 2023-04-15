@@ -1,6 +1,8 @@
 import { Footer } from "@components/Footer";
 import { List } from "@components/List";
+import { Socials } from "@components/Socials";
 import { Title } from "@components/Title";
+import config from "@config";
 import gitHubApi from "@features/axios";
 import Project from "@features/project.types";
 import { DefaultLayout } from "@layouts/default";
@@ -22,11 +24,21 @@ const Home = ({ projects, currentProject }: HomeProps) => {
     <>
       <DefaultLayout>
         <Main>
+          <Section>
+            <h1>info</h1>
+          </Section>
+          <Section id="about">
+            <h1>About</h1>
+          </Section>
           <Section id="projects">
             <Title animation={TitleFirst}>Some my projects</Title>
             <List list={projects} />
           </Section>
+          <Section id="contact">
+            <h1>About</h1>
+          </Section>
         </Main>
+        <Socials />
         <Footer {...footerProps} />
       </DefaultLayout>
     </>
@@ -34,8 +46,8 @@ const Home = ({ projects, currentProject }: HomeProps) => {
 };
 
 export const getServerSideProps = async () => {
-  const user = process.env.API_USERNAME!;
-  const thisRepoName = process.env.THIS_REPO_NAME!;
+  const user = config.git.github_user_name;
+  const thisRepoName = config.git.this_repo_name;
   const { data } = await gitHubApi.get<Project[]>(`users/${user}/repos`);
   const projects = data.slice(0, 6);
   const thisProject = data.filter((e) => e.name === thisRepoName)[0];

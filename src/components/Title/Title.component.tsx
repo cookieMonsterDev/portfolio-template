@@ -2,7 +2,7 @@ import { useInView } from "react-intersection-observer";
 import { TitleProps } from "./Title.types";
 import { Heading } from "./Title.styled";
 
-export const TitleComponent: React.FC<TitleProps> = ({ children, animation }) => {
+export const TitleComponent: React.FC<TitleProps> = ({ children, animation, textAlign = 'left' }) => {
   const { ref, inView } = useInView({
     threshold: 0.5,
     rootMargin: '-10px',
@@ -10,7 +10,7 @@ export const TitleComponent: React.FC<TitleProps> = ({ children, animation }) =>
   });
 
   return (
-    <Heading inView={inView} animation={animation} ref={ref}>
+    <Heading inView={inView} animation={animation} textAlign={textAlign} ref={ref}>
       {children}
     </Heading>
   );

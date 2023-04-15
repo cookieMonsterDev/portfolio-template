@@ -1,9 +1,11 @@
-import GitHubIcon from '@mui/icons-material/GitHub';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import AlternateEmailOutlinedIcon from '@mui/icons-material/AlternateEmailOutlined';
-import LocalPhoneOutlinedIcon from '@mui/icons-material/LocalPhoneOutlined';
+import GitHubIcon from "@mui/icons-material/GitHub";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import AlternateEmailOutlinedIcon from "@mui/icons-material/AlternateEmailOutlined";
+import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
+import TelegramIcon from "@mui/icons-material/Telegram";
 import { Container, Info, SocialItem, Socials, Stats } from "./Footer.styled";
 import { FooterProps } from "./Footer.types";
+import config from "@config";
 
 export const FooterComponent: React.FC<FooterProps> = ({
   stargazersCount,
@@ -13,40 +15,33 @@ export const FooterComponent: React.FC<FooterProps> = ({
   return (
     <Container>
       <Socials>
-      <SocialItem>
-          <a
-            href={'https://github.com/cookieMonsterDev'}
-            target="_blank"
-            rel="noreferrer"
-          >
+        <SocialItem>
+          <a href={config.socials.github_link} target="_blank" rel="noreferrer">
             <GitHubIcon />
           </a>
         </SocialItem>
         <SocialItem>
-          <a
-            href={'https://www.linkedin.com/in/mykhailo-toporkov/'}
-            target="_blank"
-            rel="noreferrer"
-          >
+          <a href={config.socials.linkedin_link} target="_blank" rel="noreferrer">
             <LinkedInIcon />
           </a>
         </SocialItem>
         <SocialItem>
-          <a href='mailto: mykhailo.toporkov@gmail.com'>
-          <AlternateEmailOutlinedIcon />
+          <a href={config.socials.telegram_Link} target="_blank" rel="noreferrer">
+            <TelegramIcon />
           </a>
         </SocialItem>
         <SocialItem>
-          <a href='tel: +380 096 050 33 48'>
+          <a href={`mailto: ${config.socials.email}`}>
+            <AlternateEmailOutlinedIcon />
+          </a>
+        </SocialItem>
+        <SocialItem>
+          <a href={`tel: ${config.socials.phone}`}>
             <LocalPhoneOutlinedIcon />
           </a>
         </SocialItem>
       </Socials>
-      <a
-        href="https://github.com/cookieMonsterDev/portfolio-template"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
+      <a href={config.git.this_repo_link} rel="noopener noreferrer" target="_blank">
         <Info>
           <p>Designed & Build by Mykhailo Toporkov</p>
           {stats && (

@@ -1,3 +1,4 @@
+import config from "@config";
 import gitHubApi from "@features/axios";
 import Project from "@features/project.types";
 import serverSideErrorHandler from "@features/serverSideErrorHandler";
@@ -13,7 +14,7 @@ const Project = ({ project }: ProjectProps) => {
 
 export const getServerSideProps = async (context: GetStaticPropsContext) => {
   const projectName = context.params?.projectName;
-  const user = process.env.API_USERNAME!;
+  const user = config.git.github_user_name;
 
   try {
     const { data } = await gitHubApi.get<Project>(`repos/${user}/${projectName}`);
