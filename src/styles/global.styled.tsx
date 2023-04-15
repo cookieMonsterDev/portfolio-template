@@ -12,7 +12,8 @@ export const globalStyle = css`
   }
 
   * {
-    scroll-behavior: smooth;
+    scroll-behavior: smooth!important;
+    --scroll-behavior: smooth!important;
     -webkit-tap-highlight-color: transparent;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -20,6 +21,8 @@ export const globalStyle = css`
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    box-sizing: border-box;
+    text-decoration: none!important;
   }
 
   ::-webkit-scrollbar {
@@ -43,6 +46,8 @@ export const globalStyle = css`
 
   &:root {
     --primary: rgb(170, 189, 230);
+    --primary-light: rgb(170, 189, 230, 0.2);
+    --primary-dark: rgb(136, 146, 176);
     --secondary: rgb(10, 25, 47);
     --neon: rgb(14, 227, 181);
     --neon-light: rgba(14, 227, 181, 0.2);

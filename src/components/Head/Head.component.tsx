@@ -5,7 +5,7 @@ import img from "../../../public/test.jpg";
 
 const defaults = {
   title: `Mykhailo Toporkov`,
-  description: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et nobis libero quidem eveniet porro pariatur est. Sed, deserunt minima id eos praesentium doloremque nisi ipsa! Consectetur nisi, recusandae dolores nulla hic optio tenetur aliquid dicta sit perspiciatis eveniet repudiandae suscipit modi maiores vitae eaque fugit incidunt asperiores qui voluptatem dolorum!`,
+  description: `Mykhailo Toporkov is a cool full-stack engineer who builds extraordinary and hight performed applications (mostly web) that always make feel of satisfaction.`,
   image: img.src,
   url: `${process.env.VERCEL_URL!}`,
 };
@@ -16,7 +16,7 @@ export const HeadComponent: React.FC<HeadProps> = ({ title, description, image }
       <title>{title || defaults.title}</title>
       <meta name="description" content={description || defaults.description} />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <link rel="icon" href="/favicon.ico" />
+      <link rel="shortcut icon" href="/favicon.ico" />
 
       {/* Open Graph */}
       <meta property="og:title" content={title || defaults.title} />

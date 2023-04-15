@@ -1,8 +1,11 @@
+import Link from "next/link";
 import styled from "@emotion/styled";
 import { css, keyframes } from "@emotion/react";
 
 export const Container = styled.header<{ show: boolean }>`
   position: fixed;
+  z-index: 1000;
+  top: 0;
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -20,6 +23,13 @@ export const Container = styled.header<{ show: boolean }>`
     css`
       transform: translateY(-100%);
     `}
+`;
+
+export const LogoContainer = styled.span`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 2rem;
 `;
 
 export const Navbar = styled.nav`
@@ -45,7 +55,7 @@ const Anim = keyframes`
   }
 `;
 
-export const TabLink = styled.a<{ item?: boolean; delay: number; current?: boolean }>`
+export const TabLink = styled(Link)<{ delay: number }>`
   height: 2rem;
   position: relative;
   overflow: hidden;
@@ -69,12 +79,6 @@ export const TabLink = styled.a<{ item?: boolean; delay: number; current?: boole
     background: var(--neon);
     transform: translateX(-100%);
     transition: all 300ms ease 0s;
-
-    ${({ item }) =>
-      item &&
-      css`
-        display: none;
-      `}
   }
 
   &:hover {
@@ -84,12 +88,6 @@ export const TabLink = styled.a<{ item?: boolean; delay: number; current?: boole
       transform: translateX(0);
     }
   }
-
-  ${({ current }) =>
-    current &&
-    css`
-      color: var(--neon);
-    `}
 `;
 
 export const Logo = styled.span`

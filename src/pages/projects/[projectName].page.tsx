@@ -1,25 +1,32 @@
-import gitHubApi from '@features/axios'
-import { GetStaticPropsContext } from 'next'
-import React from 'react'
+import config from "@config";
+import gitHubApi from "@features/axios";
+import Project from "@features/project.types";
+import serverSideErrorHandler from "@features/serverSideErrorHandler";
+import { GetStaticPropsContext } from "next";
 
-const Project = ({ project }: { project: any }) => {
-  console.log(project)
+type ProjectProps = {
+  project: Project;
+};
 
-  return (
-    <div>Project</div>
-  )
-}
+const Project = ({ project }: ProjectProps) => {
+  return <div>Project</div>;
+};
 
 export const getServerSideProps = async (context: GetStaticPropsContext) => {
   const projectName = context.params?.projectName;
-  const user = process.env.API_USERNAME!;
-  const { data } = await gitHubApi.get(`repos/${user}/${projectName}`);
+  const user = config.git.github_user_name;
 
-  return {
-    props: {
-      project: data,
-    },
-  };
-}
+  try {
+    const { data } = await gitHubApi.get<Project>(`repos/${user}/${projectName}`);
 
-export default Project
+    return {
+      props: {
+        project: data,
+      },
+    };
+  } catch (error) {
+    return serverSideErrorHandler(error);
+  }
+};
+
+export default Project;

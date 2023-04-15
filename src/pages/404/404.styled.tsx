@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
 import { keyframes } from "@emotion/react";
-import { Button } from "@mui/material";
 
 const Anim = keyframes`
   0% {
@@ -113,12 +112,3 @@ export const Main = styled.main`
   }
 `;
 
-export const ErrorButton = styled(Button)`
-  color: var(--neon);
-  border: 0.1rem solid var(--neon);
-
-  &:hover {
-    background: var(--neon-light);
-    border: 0.1rem solid var(--neon);
-  }
-`;

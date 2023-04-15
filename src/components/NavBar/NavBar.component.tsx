@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import { Container, Navbar, TabLink, Logo } from "./NavBar.styled";
+import { Container, Navbar, TabLink, Logo, LogoContainer } from "./NavBar.styled";
 import { NavBarProps } from "./NavBar.types";
 import Link from "next/link";
 import { isBrowser } from "@utils/helpers";
@@ -20,16 +20,18 @@ export const NavBarComponent: React.FC<NavBarProps> = ({ tabs, logo }) => {
     return () => {
       window.removeEventListener("scroll", handleNavBar);
     };
-  });
+  }, []);
 
   return (
     <Container show={show}>
-      <Link href="/">
-        <Logo>{logo}</Logo>
-      </Link>
+      <LogoContainer>
+        <Link href="/">
+          <Logo>{logo}</Logo>
+        </Link>
+      </LogoContainer>
       <Navbar>
-        {tabs.map(({ name, href, content, ...rest }, i) => (
-          <TabLink key={name} href={href} item={Boolean(content)} delay={i} {...rest}>
+        {tabs.map(({ name, content, ...rest }, i) => (
+          <TabLink key={name} delay={i} {...rest}>
             {content || name}
           </TabLink>
         ))}
