@@ -1,8 +1,8 @@
 import { DefaultLayout } from "@layouts/default";
 import { Footer } from "@components/Footer";
 import { List } from "@components/List";
-import { Main } from "@styles/common";
-import { ProjectsTitle } from "./projects.styled";
+
+import { ProjectsMain, ProjectsTitle } from "./projects.styled";
 import gitHubApi from "@features/axios";
 import Project from "@features/project.types";
 import config from "@config";
@@ -15,10 +15,10 @@ type ProjectsProps = {
 const Projects = ({ projects }: ProjectsProps) => {
   return (
     <DefaultLayout>
-      <Main>
+      <ProjectsMain>
         <ProjectsTitle>Stuff that I have done so far...</ProjectsTitle>
         <List list={projects} buttonType="button" />
-      </Main>
+      </ProjectsMain>
       <Footer stats={false} />
     </DefaultLayout>
   );

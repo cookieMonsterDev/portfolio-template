@@ -14,7 +14,7 @@ export const WelcomeComponent: React.FC = () => {
       <Heading aria-label="Hi, I’m  Mykhailo, JavaScript engineer">
         {welcome.map((e, i) =>
           e !== " " ? (
-            <Letter key={i} duration={700} delay={100 * i}>
+            <Letter key={i} duration={500} delay={50 * i}>
               {e}
             </Letter>
           ) : (
@@ -26,7 +26,7 @@ export const WelcomeComponent: React.FC = () => {
         <br />
         {name.map((e, i) =>
           e !== " " ? (
-            <Letter key={i} duration={700} delay={100 * i + 200 * welcomeLength}>
+            <Letter key={i} duration={500} delay={(50 * i) + (500 + (welcomeLength * 50))}>
               {e}
             </Letter>
           ) : (
@@ -38,7 +38,7 @@ export const WelcomeComponent: React.FC = () => {
         <br />
         {position.map((e, i) =>
           e !== " " ? (
-            <Letter key={i} duration={700} delay={100 * i + 150 * nameLength}>
+            <Letter key={i} duration={500} delay={(50 * i) + (500 + (nameLength * 50))}>
               {e}
             </Letter>
           ) : (

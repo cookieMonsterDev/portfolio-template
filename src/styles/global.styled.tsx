@@ -5,7 +5,6 @@ export const globalStyle = css`
   ${emotionNormalize};
 
   html {
-    position: relative;
     font-size: 1rem;
     font-weight: 300;
     font-family: Heebo, sans-serif;
@@ -18,6 +17,13 @@ export const globalStyle = css`
     text-decoration: none!important;
   }
 
+  #__next {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+  }
+  
   ::-webkit-scrollbar {
     width: 1.1rem;
   }

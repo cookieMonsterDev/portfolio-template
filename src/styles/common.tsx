@@ -3,19 +3,22 @@ import { Button } from "@mui/material";
 
 export const Main = styled.main`
   min-height: 100vh;
-  padding: 8rem 20vw 2rem 20vw;
+  padding: 0 20vw;
 
   @media only screen and (max-width: 70rem) {
-    padding: 8rem 3rem 3rem 3rem;
+    padding: 0 3rem;
   }
 
   @media only screen and (max-width: 28rem) {
-    padding: 8rem 1rem 1rem 1rem;
+    padding: 0 1rem;
   }
 `;
 
 export const FirstSection = styled.section`
-  padding: 8rem 0 15rem 0;
+  min-height: 100vh;
+  margin: auto;
+  display: flex;
+  align-items: center;
 `;
 
 export const Section = styled.section`

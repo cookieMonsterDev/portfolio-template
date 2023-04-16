@@ -1,6 +1,7 @@
 import { Footer } from "@components/Footer";
 import { List } from "@components/List";
 import { Socials } from "@components/Socials";
+import { Tabs } from "@components/Tabs";
 import { Title } from "@components/Title";
 import { Welcome } from "@components/Welcome";
 import config from "@config";
@@ -30,7 +31,7 @@ const Home = ({ projects, currentProject }: HomeProps) => {
             <Welcome />
           </FirstSection>
           <Section id="about">
-            <h1>About</h1>
+            <Tabs />
           </Section>
           <Section id="projects">
             <Title animation={TitleFirst}>Some my projects</Title>

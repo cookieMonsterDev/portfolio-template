@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { Span } from "./Letter.styled";
 import { LetterProps } from "./Letter.types";
-import { DefaultFading, RubberBand } from "@styles/animations";
+import { RubberBand, RubberScale } from "@styles/animations";
 
 export const LetterComponent: React.FC<LetterProps> = ({
   children,
-  apperenceAinamtion = DefaultFading,
+  apperenceAinamtion = RubberScale,
   hoverAinamtion = RubberBand,
   duration = 0,
   delay = duration,
