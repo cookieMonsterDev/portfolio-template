@@ -8,7 +8,7 @@ export const BurgerButtonComponent: React.FC<BurgerButtonProps> = ({
   onChange,
 }) => {
   return (
-    <BurgerButton role="checkbox">
+    <BurgerButton>
       <Input
         type="checkbox"
         id="burgerbutton"
@@ -17,6 +17,7 @@ export const BurgerButtonComponent: React.FC<BurgerButtonProps> = ({
         aria-checked={checked}
         aria-controls={ariaControls}
         aria-label="burgerbutton"
+        role="checkbox"
       />
       <Label htmlFor="burgerbutton" />
     </BurgerButton>

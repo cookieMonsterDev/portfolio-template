@@ -57,6 +57,13 @@ export const TabButton = styled.button<{ isActive?: boolean }>`
     top: 0;
     width: 0.1rem;
     background-color: rgb(35, 53, 84);
+    transition: all 700ms;
+
+    ${({ isActive }) =>
+      isActive &&
+      css`
+        background-color: var(--neon);
+      `}
   }
 
   @media only screen and (max-width: 48.4rem) {

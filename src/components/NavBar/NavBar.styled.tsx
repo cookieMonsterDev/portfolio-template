@@ -109,3 +109,40 @@ export const Logo = styled.span`
   justify-content: center;
   align-items: center;
 `;
+
+const MenuAnimation = keyframes`
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+`;
+
+export const Menu = styled.div`
+  position: absolute;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8rem 2rem 2rem 2rem;
+  gap: 2rem;
+  right: 0;
+  height: 100vh;
+  width: 70vw;
+  background-color: rgb(17, 34, 64);
+  animation: ${MenuAnimation} 700ms ease-in-out;
+
+  @media only screen and (max-width: 28rem) {
+    width: 80vw;
+  }
+`;
+
+export const MenuLink = styled(Link)`
+  font-family: "Roboto Mono", monospace;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--neon);
+`;

@@ -30,7 +30,8 @@ const Home = ({ projects, currentProject }: HomeProps) => {
           <FirstSection>
             <Welcome />
           </FirstSection>
-          <Section id="about">
+          <Section id="experience">
+            <Title animation={TitleFirst}>Experience & Education</Title>
             <Tabs />
           </Section>
           <Section id="projects">

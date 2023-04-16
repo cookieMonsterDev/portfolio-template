@@ -37,7 +37,7 @@ const config = {
     },
     {
       id: 4,
-      title: "NetEnt QA",
+      title: "NetEnt",
       company_link: "https://www.netent.com/en/",
       start_date: "December 2021",
       end_date: "May 2022",
@@ -49,7 +49,7 @@ const config = {
     },
     {
       id: 5,
-      title: "NetEnt DEV",
+      title: "Evolution",
       company_link: "https://www.netent.com/en/",
       start_date: "May 2022",
       end_date: "Current",

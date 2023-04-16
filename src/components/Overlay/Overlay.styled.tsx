@@ -4,6 +4,7 @@ import { css } from "@emotion/react";
 export const Container = styled.div<{ overlayColor: string; blur: boolean }>`
   position: fixed;
   inset: 0;
+  overflow: hidden;
   background: ${({ overlayColor }) => overlayColor};
 
   ${({ blur }) =>

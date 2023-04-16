@@ -63,6 +63,7 @@ export const BurgerButton = styled.div`
   width: 2.3rem;
   height: 3rem;
   position: relative;
+  z-index: 1000;
   cursor: pointer;
 
   & ${Input}:checked + ${Label} {

@@ -19,22 +19,22 @@ export const SocialsComponent: React.FC = () => {
       <ContainerLeft>
         <List>
           <li>
-            <Link href={config.socials.github_link} target="_blank" rel="noreferrer">
+            <Link href={config.socials.github_link} target="_blank" rel="noreferrer" aria-label="GitHub">
               <GitHubIcon />
             </Link>
           </li>
           <li>
-            <Link href={config.socials.linkedin_link} target="_blank" rel="noreferrer">
+            <Link href={config.socials.linkedin_link} target="_blank" rel="noreferrer" aria-label="LinkedIn">
               <LinkedInIcon />
             </Link>
           </li>
           <li>
-            <Link href={config.socials.telegram_Link} target="_blank" rel="noreferrer">
+            <Link href={config.socials.telegram_Link} target="_blank" rel="noreferrer" aria-label="Telegram">
               <TelegramIcon />
             </Link>
           </li>
           <li>
-            <Link href={`tel: ${config.socials.phone}`}>
+            <Link href={`tel: ${config.socials.phone}`} aria-label="Phone">
               <LocalPhoneOutlinedIcon />
             </Link>
           </li>
@@ -42,7 +42,7 @@ export const SocialsComponent: React.FC = () => {
         <StripeLeft />
       </ContainerLeft>
       <ContaineRight>
-        <EmailLink href={`mailto: ${config.socials.email}`}>{config.socials.email}</EmailLink>
+        <EmailLink href={`mailto: ${config.socials.email}`} aria-label="Email">{config.socials.email}</EmailLink>
         <StripeRigth />
       </ContaineRight>
     </>
