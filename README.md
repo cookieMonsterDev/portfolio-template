@@ -7,7 +7,7 @@ Portfolio-template app is the pattern for the portfolio site. It build using Rea
 1. Install dependencies
 
 ```sh
-yarn add yarn
+yarn
 ```
 
 2. run the app
