@@ -2,11 +2,16 @@ import { useState } from "react";
 import { TabProps } from "./Tabs.types";
 import {
   Container,
+  Item,
+  Link,
+  List,
   TabButton,
   TabButtonsContainer,
   TabPanel,
-  TabPanelsContainer,
+  TimeSpawns,
+  Title,
 } from "./Tabs.styled";
+import LinkIcon from "@mui/icons-material/Link";
 import config from "@config";
 
 export const TabsComponent: React.FC<TabProps> = ({ list = config.experience }) => {
@@ -30,7 +35,7 @@ export const TabsComponent: React.FC<TabProps> = ({ list = config.experience }) 
           </TabButton>
         ))}
       </TabButtonsContainer>
-      <TabPanelsContainer aria-label="tabpanels container">
+      <div aria-label="tabpanels container">
         {list.map((e, i) => (
           <TabPanel
             key={e.id}
@@ -39,10 +44,26 @@ export const TabsComponent: React.FC<TabProps> = ({ list = config.experience }) 
             aria-labelledby={`tab-${i + 1}`}
             hidden={e.title !== active.title}
           >
-            {e.title}
+            <Title>{e.title}</Title>
+            <TimeSpawns>{e.start_date}</TimeSpawns>
+            <Link>
+              <a
+                href={e.company_link}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="company-link"
+              >
+                <LinkIcon />
+              </a>
+            </Link>
+            <List>
+              {e.responsibilities.map((e) => (
+                <Item>{e}</Item>
+              ))}
+            </List>
           </TabPanel>
         ))}
-      </TabPanelsContainer>
+      </div>
     </Container>
   );
 };

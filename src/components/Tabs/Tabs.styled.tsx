@@ -21,8 +21,6 @@ export const TabButtonsContainer = styled.div`
   }
 `;
 
-export const TabPanelsContainer = styled.div``;
-
 export const TabButton = styled.button<{ isActive?: boolean }>`
   position: relative;
   cursor: pointer;
@@ -79,4 +77,71 @@ export const TabButton = styled.button<{ isActive?: boolean }>`
   }
 `;
 
-export const TabPanel = styled.article``;
+export const TabPanel = styled.article<{ hidden: boolean }>`
+  min-height: 100%;
+  background: var(--secondary);
+  padding: 0.5rem;
+  display: grid;
+  grid-template-areas:
+    "title link"
+    "date date"
+    "list list";
+
+  ${({ hidden }) =>
+    hidden &&
+    css`
+      display: none;
+      visibility: hidden;
+    `}
+`;
+
+export const Title = styled.h1`
+  grid-area: title;
+  margin: 0;
+  align-self: center;
+  color: rgb(231, 230, 225);
+  font-size: 1.6rem;
+  font-weight: 700;
+  font-family: Heebo, sans-serif;
+`;
+
+export const TimeSpawns = styled.span`
+  grid-area: date;
+  align-self: center;
+  color: var(--primary);
+`;
+
+export const Link = styled.span`
+  grid-area: link;
+  align-self: center;
+  justify-self: end;
+
+  svg {
+    width: 2rem;
+    height: 2rem;
+    color: var(--neon);
+  }
+`;
+
+export const List = styled.ul`
+  grid-area: list;
+  display: flex;
+  flex-direction: column;
+  padding: 0 0 0 2rem;
+  list-style: none;
+  gap: 0.5rem;
+`;
+
+export const Item = styled.li`
+  position: relative;
+  color: rgb(170, 189, 230, 0.6);
+  font-size: 1rem;
+  font-weight: 400;
+
+  &:before {
+    content: "\25B6";
+    position: absolute;
+    color: var(--neon);
+    left: -1.5rem;
+  }
+`;

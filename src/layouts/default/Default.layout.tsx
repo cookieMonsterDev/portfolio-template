@@ -29,22 +29,7 @@ export const DefaultLayout: React.FC<DefaultLayoutProps> = ({ children }) => {
     <>
       <Head />
       <Wallpaper />
-      <NavBar
-        tabs={Tabs}
-        logo={
-          <Image
-            src={img.src}
-            alt="john_travolta_meme_gif"
-            width={50}
-            height={50}
-            style={{
-              borderRadius: "50%",
-              border: "0.1rem solid var(--neon)",
-            }}
-            priority
-          />
-        }
-      />
+      <NavBar tabs={Tabs} />
       {children}
     </>
   );

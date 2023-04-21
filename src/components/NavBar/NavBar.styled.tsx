@@ -1,6 +1,7 @@
 import Link from "next/link";
 import styled from "@emotion/styled";
 import { css, keyframes } from "@emotion/react";
+import { DefaultFading } from "@styles/animations";
 
 export const Container = styled.header<{ show: boolean }>`
   position: fixed;
@@ -108,6 +109,29 @@ export const Logo = styled.span`
   display: flex;
   justify-content: center;
   align-items: center;
+  animation: ${DefaultFading} 1500ms ease-in-out;
+
+  svg {
+    width: 3rem;
+    height: 3rem;
+
+    > polygon {
+      transition: all 500ms;
+      fill: transparent;
+      stroke: var(--neon);
+    }
+
+    > path {
+      fill: var(--neon);
+    }
+  }
+
+  &:hover {
+    polygon {
+      transition: all 500ms;
+      fill: var(--neon-light);
+    }
+  }
 `;
 
 const MenuAnimation = keyframes`
