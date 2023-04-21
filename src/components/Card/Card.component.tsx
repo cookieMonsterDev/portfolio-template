@@ -1,6 +1,6 @@
 import { CardProps } from "./Card.types";
 import { Container, Desc, Links, Title, BackLink, Topics, Topic } from "./Card.styled";
-import GitHubIcon from "@mui/icons-material/GitHub";
+import GitHubIcon from '@mui/icons-material/GitHub';
 import { useInView } from "react-intersection-observer";
 
 export const CardComponent: React.FC<CardProps> = ({ name, description, topics, url }) => {
