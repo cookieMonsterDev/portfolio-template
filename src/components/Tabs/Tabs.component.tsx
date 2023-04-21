@@ -58,7 +58,7 @@ export const TabsComponent: React.FC<TabProps> = ({ list = config.experience }) 
             </Link>
             <List>
               {e.responsibilities.map((e) => (
-                <Item>{e}</Item>
+                <Item key={e}>{e}</Item>
               ))}
             </List>
           </TabPanel>
