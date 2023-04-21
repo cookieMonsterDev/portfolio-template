@@ -3,7 +3,6 @@ import { ListContainer, Container, ListButton, TheLink } from "./List.styled";
 import { ListProps } from "./List.types";
 import { Card } from "@components/Card";
 import { useInView } from "react-intersection-observer";
-import { InView } from 'react-intersection-observer';
 
 export const ListComponent: React.FC<ListProps> = ({
   list,
@@ -18,7 +17,7 @@ export const ListComponent: React.FC<ListProps> = ({
 
   return (
     <Container>
-      <ListContainer role="cardlist">
+      <ListContainer aria-label="cardlist">
         {list.slice(0, 6).map(({ name, description, topics, html_url, id }) => (
           <li key={id}>
             <Card name={name} description={description} topics={topics} url={html_url} />

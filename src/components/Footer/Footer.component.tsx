@@ -16,32 +16,52 @@ export const FooterComponent: React.FC<FooterProps> = ({
     <Container>
       <Socials>
         <SocialItem>
-          <a href={config.socials.github_link} target="_blank" rel="noreferrer">
+          <a
+            href={config.socials.github_link}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="GitHub"
+          >
             <GitHubIcon />
           </a>
         </SocialItem>
         <SocialItem>
-          <a href={config.socials.linkedin_link} target="_blank" rel="noreferrer">
+          <a
+            href={config.socials.linkedin_link}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="LinkedIn"
+          >
             <LinkedInIcon />
           </a>
         </SocialItem>
         <SocialItem>
-          <a href={config.socials.telegram_Link} target="_blank" rel="noreferrer">
+          <a
+            href={config.socials.telegram_Link}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Telegram"
+          >
             <TelegramIcon />
           </a>
         </SocialItem>
         <SocialItem>
-          <a href={`mailto: ${config.socials.email}`}>
+          <a href={`mailto: ${config.socials.email}`} aria-label="email">
             <AlternateEmailOutlinedIcon />
           </a>
         </SocialItem>
         <SocialItem>
-          <a href={`tel: ${config.socials.phone}`}>
+          <a href={`tel: ${config.socials.phone}`} aria-label="phone number">
             <LocalPhoneOutlinedIcon />
           </a>
         </SocialItem>
       </Socials>
-      <a href={config.git.this_repo_link} rel="noopener noreferrer" target="_blank">
+      <a
+        href={config.git.this_repo_link}
+        rel="noopener noreferrer"
+        target="_blank"
+        aria-label="This github repo"
+      >
         <Info>
           <p>Designed & Build by Mykhailo Toporkov</p>
           {stats && (

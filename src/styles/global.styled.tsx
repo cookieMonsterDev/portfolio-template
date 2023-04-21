@@ -5,7 +5,6 @@ export const globalStyle = css`
   ${emotionNormalize};
 
   html {
-    position: relative;
     font-size: 1rem;
     font-weight: 300;
     font-family: Heebo, sans-serif;
@@ -14,17 +13,17 @@ export const globalStyle = css`
   * {
     scroll-behavior: smooth!important;
     --scroll-behavior: smooth!important;
-    -webkit-tap-highlight-color: transparent;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
     box-sizing: border-box;
     text-decoration: none!important;
   }
 
+  #__next {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+  }
+  
   ::-webkit-scrollbar {
     width: 1.1rem;
   }
@@ -51,5 +50,6 @@ export const globalStyle = css`
     --secondary: rgb(10, 25, 47);
     --neon: rgb(14, 227, 181);
     --neon-light: rgba(14, 227, 181, 0.2);
+    --red-neon: rgb(255, 49, 49);
   }
 `;

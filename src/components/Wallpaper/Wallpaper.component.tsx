@@ -1,15 +1,14 @@
 import React, { useCallback } from "react";
 import { loadFull } from "tsparticles";
 import config from "./tsparticles.config";
-import MyBackground from "./Background.styled";
+import MyWallpaper from "./Wallpaper.styled";
 import type { Engine } from "tsparticles-engine";
-import type { BackgroundProps } from "./Background.types";
+import type { WallpaperProps } from "./Wallpaper.types";
 
-
-export const BackgroundComponent: React.FC<BackgroundProps> = ({ options }) => {
+export const WallpaperComponent: React.FC<WallpaperProps> = ({ options }) => {
   const particlesInit = useCallback(async (engine: Engine) => {
     await loadFull(engine);
   }, []);
 
-  return <MyBackground init={particlesInit} options={{ ...config, ...options }}/>;
+  return <MyWallpaper init={particlesInit} options={{ ...config, ...options }} />;
 };

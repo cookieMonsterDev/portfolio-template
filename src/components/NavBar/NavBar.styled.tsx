@@ -1,6 +1,7 @@
 import Link from "next/link";
 import styled from "@emotion/styled";
 import { css, keyframes } from "@emotion/react";
+import { DefaultFading } from "@styles/animations";
 
 export const Container = styled.header<{ show: boolean }>`
   position: fixed;
@@ -8,6 +9,7 @@ export const Container = styled.header<{ show: boolean }>`
   top: 0;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
   height: 5rem;
   background: var(--secondary);
@@ -23,6 +25,10 @@ export const Container = styled.header<{ show: boolean }>`
     css`
       transform: translateY(-100%);
     `}
+
+  @media only screen and (max-width: 28rem) {
+    height: 4rem;
+  }
 `;
 
 export const LogoContainer = styled.span`
@@ -30,6 +36,10 @@ export const LogoContainer = styled.span`
   justify-content: center;
   align-items: center;
   padding-left: 2rem;
+
+  @media only screen and (max-width: 28rem) {
+    padding-left: 1rem;
+  }
 `;
 
 export const Navbar = styled.nav`
@@ -43,6 +53,11 @@ export const Navbar = styled.nav`
     margin: 0;
     overflow: hidden;
     height: auto;
+  }
+
+  @media only screen and (max-width: 70rem) {
+    display: none;
+    visibility: hidden;
   }
 `;
 
@@ -94,4 +109,64 @@ export const Logo = styled.span`
   display: flex;
   justify-content: center;
   align-items: center;
+  animation: ${DefaultFading} 1500ms ease-in-out;
+
+  svg {
+    width: 3rem;
+    height: 3rem;
+
+    > polygon {
+      transition: all 500ms;
+      fill: transparent;
+      stroke: var(--neon);
+    }
+
+    > path {
+      fill: var(--neon);
+    }
+  }
+
+  &:hover {
+    polygon {
+      transition: all 500ms;
+      fill: var(--neon-light);
+    }
+  }
+`;
+
+const MenuAnimation = keyframes`
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+`;
+
+export const Menu = styled.div`
+  position: absolute;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8rem 2rem 2rem 2rem;
+  gap: 2rem;
+  right: 0;
+  height: 100vh;
+  width: 70vw;
+  background-color: rgb(17, 34, 64);
+  animation: ${MenuAnimation} 700ms ease-in-out;
+
+  @media only screen and (max-width: 28rem) {
+    width: 80vw;
+  }
+`;
+
+export const MenuLink = styled(Link)`
+  font-family: "Roboto Mono", monospace;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--neon);
 `;

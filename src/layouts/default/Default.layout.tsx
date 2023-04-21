@@ -1,4 +1,4 @@
-import { Background } from "@components/background";
+import { Wallpaper } from "@components/Wallpaper";
 import { DefaultLayoutProps } from "./Default.types";
 import { NavBar, TabProps } from "@components/NavBar";
 import { Head } from "@components/Head";
@@ -28,23 +28,8 @@ export const DefaultLayout: React.FC<DefaultLayoutProps> = ({ children }) => {
   return (
     <>
       <Head />
-      <Background />
-      <NavBar
-        tabs={Tabs}
-        logo={
-          <Image
-            src={img.src}
-            alt="john_travolta_meme_gif"
-            width={50}
-            height={50}
-            style={{
-              borderRadius: "50%",
-              border: "0.1rem solid var(--neon)",
-            }}
-            priority
-          />
-        }
-      />
+      <Wallpaper />
+      <NavBar tabs={Tabs} />
       {children}
     </>
   );
