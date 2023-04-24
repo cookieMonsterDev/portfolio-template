@@ -13,12 +13,19 @@ import {
 } from "./Tabs.styled";
 import LinkIcon from "@mui/icons-material/Link";
 import config from "@config";
+import { useInView } from "react-intersection-observer";
 
 export const TabsComponent: React.FC<TabProps> = ({ list = config.experience }) => {
   const [active, setActive] = useState(list[0]);
 
+  const { ref, inView } = useInView({
+    threshold: 0.8,
+    triggerOnce: true,
+    rootMargin: '-100px'
+  });
+
   return (
-    <Container aria-label="experience tabs">
+    <Container aria-label="experience tabs" ref={ref} inView={inView}>
       <TabButtonsContainer aria-label="tab buttons container" role="tablist">
         {list.map((e, i) => (
           <TabButton

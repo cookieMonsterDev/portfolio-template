@@ -85,3 +85,18 @@ export const RubberScale = keyframes`
       color: var(--neon);
     }
 `;
+
+export const Rollout = keyframes`
+  0% {
+    opacity: 0;
+    transform: translateY(10%);
+  }
+  90% {
+    opacity: 1;
+    transform: translateY(-2%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+`;

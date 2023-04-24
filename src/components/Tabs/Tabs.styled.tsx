@@ -1,9 +1,18 @@
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
+import { Rollout } from "@styles/animations";
 
-export const Container = styled.div`
+export const Container = styled.div<{ inView: boolean }>`
   display: grid;
   grid-template-columns: auto 1fr;
+  opacity: 0;
+
+  ${({ inView }) =>
+    inView &&
+    css`
+      opacity: 1;
+      animation: ${Rollout} 700ms ease-out;
+    `}
 
   @media only screen and (max-width: 48.4rem) {
     grid-template-columns: none;

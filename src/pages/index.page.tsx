@@ -39,7 +39,6 @@ const Home = ({ projects, currentProject }: HomeProps) => {
             <List list={projects} />
           </Section>
           <Section id="contact">
-            <h1>About</h1>
           </Section>
         </Main>
         <Socials />
