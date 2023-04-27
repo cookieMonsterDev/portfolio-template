@@ -38,8 +38,7 @@ const Home = ({ projects, currentProject }: HomeProps) => {
             <Title animation={TitleFirst}>Some my projects</Title>
             <List list={projects} />
           </Section>
-          <Section id="contact">
-          </Section>
+          <Section id="contact"></Section>
         </Main>
         <Socials />
         <Footer {...footerProps} />

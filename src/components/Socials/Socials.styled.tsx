@@ -71,6 +71,7 @@ export const EmailLink = styled.a`
 
   &:hover {
     color: var(--neon);
+    transform: translateY(-0.3rem);
   }
 `;
 

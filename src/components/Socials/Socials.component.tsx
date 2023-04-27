@@ -52,7 +52,11 @@ export const SocialsComponent: React.FC = () => {
             </Link>
           </li>
           <li>
-            <Link href={`tel: ${config.socials.phone}`} aria-label="Phone" title={config.socials.phone}>
+            <Link
+              href={`tel: ${config.socials.phone}`}
+              aria-label="Phone"
+              title={config.socials.phone}
+            >
               <LocalPhoneOutlinedIcon />
             </Link>
           </li>
