@@ -1,4 +1,5 @@
 const config = {
+  resume_url: 'https://drive.google.com/uc?export=download&id=19miiyiy_Hn-_UxZWAo6WGPOr2WABhpdX',
   git: {
     api_url: "https://api.github.com/",
     github_user_name: "cookieMonsterDev",

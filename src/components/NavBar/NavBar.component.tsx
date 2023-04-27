@@ -13,6 +13,7 @@ import Link from "next/link";
 import { isBrowser } from "@utils/helpers";
 import { BurgerButton } from "@components/BurgerButton";
 import { Overlay } from "@components/Overlay";
+import { ResumeButton } from "@components/ResumeButton";
 
 export const NavBarComponent: React.FC<NavBarProps> = ({ tabs, logo }) => {
   const prevScrollpos = useRef(isBrowser() ? window.screenY : 0);
@@ -64,11 +65,15 @@ export const NavBarComponent: React.FC<NavBarProps> = ({ tabs, logo }) => {
         </Link>
       </LogoContainer>
       <Navbar>
-        {tabs.map(({ name, content, ...rest }, i) => (
-          <TabLink key={name} delay={i} {...rest}>
-            {content || name}
-          </TabLink>
-        ))}
+        {tabs.map(({ name, content, ...rest }, i) =>
+          name === "Resume" ? (
+            <ResumeButton delay={i} key={name} />
+          ) : (
+            <TabLink key={name} delay={i} {...rest}>
+              {content || name}
+            </TabLink>
+          )
+        )}
       </Navbar>
       <BurgerButton
         onChange={() => setMenu((prev) => !prev)}
@@ -77,11 +82,15 @@ export const NavBarComponent: React.FC<NavBarProps> = ({ tabs, logo }) => {
       />
       <Overlay blur={true} hidden={!menu}>
         <Menu id="menu">
-          {tabs.map(({ name, content, ...rest }) => (
-            <MenuLink key={name} {...rest} onClick={() => setMenu(false)}>
-              {content || name}
-            </MenuLink>
-          ))}
+          {tabs.map(({ name, content, ...rest }) =>
+            name === "Resume" ? (
+              <ResumeButton animation={null} key={name} />
+            ) : (
+              <MenuLink key={name} {...rest} onClick={() => setMenu(false)}>
+                {name}
+              </MenuLink>
+            )
+          )}
         </Menu>
       </Overlay>
     </Container>

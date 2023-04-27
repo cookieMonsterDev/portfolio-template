@@ -9,7 +9,7 @@ import gitHubApi from "@features/axios";
 import Project from "@features/project.types";
 import serverSideErrorHandler from "@features/serverSideErrorHandler";
 import { DefaultLayout } from "@layouts/default";
-import { TitleFirst } from "@styles/animations";
+import { DefaultFading, TitleFirst } from "@styles/animations";
 import { FirstSection, Main, Section } from "@styles/common";
 
 type HomeProps = {
@@ -30,6 +30,10 @@ const Home = ({ projects, currentProject }: HomeProps) => {
           <FirstSection>
             <Welcome />
           </FirstSection>
+          <Section id="about">
+            <Title animation={TitleFirst}>About Me</Title>
+           
+          </Section>
           <Section id="experience">
             <Title animation={TitleFirst}>Experience & Education</Title>
             <Tabs />
@@ -38,7 +42,9 @@ const Home = ({ projects, currentProject }: HomeProps) => {
             <Title animation={TitleFirst}>Some my projects</Title>
             <List list={projects} />
           </Section>
-          <Section id="contact"></Section>
+          <Section id="contact">
+            <Title animation={DefaultFading} textAlign="center">CONTACT ME</Title>
+          </Section>
         </Main>
         <Socials />
         <Footer {...footerProps} />
