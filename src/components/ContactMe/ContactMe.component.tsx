@@ -4,7 +4,6 @@ import { useInView } from "react-intersection-observer";
 import config from "@config";
 
 export const ContactMeComponent: React.FC = () => {
-
   const { ref, inView } = useInView({
     threshold: 0.8,
     triggerOnce: true,
@@ -14,7 +13,7 @@ export const ContactMeComponent: React.FC = () => {
   return (
     <Container inView={inView} ref={ref}>
       <Text>
-        Although I'm not currently looking for any new opportunities, my mail is always open
+        Although I`m not currently looking for any new opportunities, my mail is always open
         for any questions. Just ask anything and I will do my best to reach you with answers!
       </Text>
       <a href={`mailto: ${config.socials.email}`} aria-label="Send a message through email">
