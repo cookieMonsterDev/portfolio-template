@@ -1,7 +1,7 @@
 import React from "react";
 import { ResumeButtonProps } from "./ResumeButton.types";
 import { Anim, Link, ResumeButton } from "./ResumeButton.styled";
-import config from "../../config";
+import config from "@config";
 
 export const ResumeButtonComponent: React.FC<ResumeButtonProps> = ({
   googleFileUrl = config.resume_url,

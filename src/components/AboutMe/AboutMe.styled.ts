@@ -35,7 +35,7 @@ export const InfoContainer = styled.div`
 
 export const Text = styled.p`
   font-size: 1.1rem;
-  letter-spacing: 0.05rem;
+  line-height: 1.4;
   color: var(--primary);
   max-width: 40rem;
   margin: 0 0 2rem 0;
@@ -48,7 +48,6 @@ export const Test = styled.div`
   border-radius: 50%;
   background: red;
   grid-area: b;
-
 `;
 
 export const List = styled.ul`

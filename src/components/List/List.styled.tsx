@@ -1,13 +1,13 @@
 import styled from "@emotion/styled";
 import { css, keyframes } from "@emotion/react";
 import { PrimaryButton } from "@styles/common";
-import type { ButtonProps } from "@mui/material";
 import Link from "next/link";
 
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 6rem;
 `;
 
 export const ListContainer = styled.ul`

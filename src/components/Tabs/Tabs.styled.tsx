@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { css } from "@emotion/react";
+import { css, keyframes } from "@emotion/react";
 import { Rollout } from "@styles/animations";
 
 export const Container = styled.div<{ inView: boolean }>`
@@ -98,6 +98,17 @@ export const Slider = styled.div<{ offset: number; length: number }>`
   }
 `;
 
+export const ChangeAnim = keyframes`
+  0% {
+    opacity: 0;
+    scale: 0.9;
+  }
+  100% {
+    opacity: 1;
+    scale: 1;
+  }
+`;
+
 export const TabPanel = styled.article<{ hidden: boolean }>`
   min-height: 100%;
   background: var(--secondary);
@@ -107,6 +118,7 @@ export const TabPanel = styled.article<{ hidden: boolean }>`
     "title link"
     "date date"
     "list list";
+  animation: ${ChangeAnim} 500ms ease-out;
 
   ${({ hidden }) =>
     hidden &&
@@ -129,7 +141,10 @@ export const Title = styled.h1`
 export const TimeSpawns = styled.span`
   grid-area: date;
   align-self: center;
-  color: var(--primary);
+  color: var(--neon);
+  font-size: 1rem;
+  font-weight: 800;
+  font-family: "Roboto Mono", monospace;
 `;
 
 export const Link = styled.span`

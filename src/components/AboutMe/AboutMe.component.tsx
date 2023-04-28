@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, InfoContainer, Item, List, Test, Text } from "./AboutMe.styled";
 import { AboutMeProps } from "./AboutMe.types";
-import config from "../../config";
+import config from "@config";
 import { useInView } from "react-intersection-observer";
 
 export const AboutMeComponent: React.FC<AboutMeProps> = ({ skilsList = config.skils }) => {

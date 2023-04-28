@@ -81,7 +81,7 @@ export const TabsComponent: React.FC<TabProps> = ({ list = config.experience }) 
             hidden={e.title !== active.title}
           >
             <Title>{e.title}</Title>
-            <TimeSpawns>{e.start_date}</TimeSpawns>
+            <TimeSpawns>{e.start_date} - {e.end_date}</TimeSpawns>
             <Link>
               <a
                 href={e.company_link}
