@@ -6,7 +6,7 @@ export const TitleComponent: React.FC<TitleProps> = ({ children, animation, text
   const { ref, inView } = useInView({
     threshold: 0.8,
     triggerOnce: true,
-    rootMargin: '-100px'
+    rootMargin: '-20px'
   });
 
   return (

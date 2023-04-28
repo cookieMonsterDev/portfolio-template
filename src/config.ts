@@ -15,7 +15,7 @@ const config = {
   },
   experience: [
     {
-      id: 1,
+      id: 0,
       title: "University",
       company_link: "https://kpi.ua/",
       start_date: "Sep 2017",
@@ -26,7 +26,7 @@ const config = {
       ],
     },
     {
-      id: 2,
+      id: 1,
       title: "Mate Academy",
       company_link: "https://mate.academy/",
       start_date: "Sep 2021",
@@ -37,7 +37,7 @@ const config = {
       ],
     },
     {
-      id: 4,
+      id: 2,
       title: "NetEnt",
       company_link: "https://www.netent.com/en/",
       start_date: "December 2021",
@@ -49,7 +49,7 @@ const config = {
       ],
     },
     {
-      id: 5,
+      id: 3,
       title: "Evolution",
       company_link: "https://www.netent.com/en/",
       start_date: "May 2022",

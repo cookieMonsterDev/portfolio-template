@@ -24,7 +24,6 @@ export const TabButtonsContainer = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-
   @media only screen and (max-width: 48.4rem) {
     flex-direction: row;
   }
@@ -64,13 +63,6 @@ export const TabButton = styled.button<{ isActive?: boolean }>`
     top: 0;
     width: 0.1rem;
     background-color: rgb(35, 53, 84);
-    transition: all 700ms;
-
-    ${({ isActive }) =>
-      isActive &&
-      css`
-        background-color: var(--neon);
-      `}
   }
 
   @media only screen and (max-width: 48.4rem) {
@@ -83,6 +75,25 @@ export const TabButton = styled.button<{ isActive?: boolean }>`
       top: auto;
       bottom: 0;
     }
+  }
+`;
+
+export const Slider = styled.div<{ offset: number; length: number }>`
+  position: absolute;
+  height: ${({ length }) => length}px;
+  left: 0;
+  top: 0;
+  width: 0.1rem;
+  background-color: var(--neon);
+  transition: all 200ms;
+  transform: translateY(${({ offset, length }) => offset * length}px);
+
+  @media only screen and (max-width: 48.4rem) {
+    top: auto;
+    bottom: 0;
+    height: 0.1rem;
+    width: ${({ length }) => length}px;
+    transform: translateX(${({ offset, length }) => offset * length}px);
   }
 `;
 
