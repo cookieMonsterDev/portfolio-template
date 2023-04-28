@@ -1,7 +1,8 @@
 import React from "react";
 import Head from "next/head";
 import { HeadProps } from "./Head.types";
-import img from "../../../public/test.jpg";
+import img from "../../../public/preview.png";
+import favicon from "../../../public/favicon.svg";
 
 const defaults = {
   title: `Mykhailo Toporkov`,
@@ -16,7 +17,8 @@ export const HeadComponent: React.FC<HeadProps> = ({ title, description, image }
       <title>{title || defaults.title}</title>
       <meta name="description" content={description || defaults.description} />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <link rel="shortcut icon" href="/favicon.ico" />
+      <link rel="icon" type="image/svg+xml" href={favicon.src} />
+  
 
       {/* Open Graph */}
       <meta property="og:title" content={title || defaults.title} />

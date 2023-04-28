@@ -2,8 +2,6 @@ import { Wallpaper } from "@components/Wallpaper";
 import { DefaultLayoutProps } from "./Default.types";
 import { NavBar, TabProps } from "@components/NavBar";
 import { Head } from "@components/Head";
-import Image from "next/image";
-import img from "../../../public/favicon.ico";
 
 const Tabs: TabProps[] = [
   {
@@ -21,6 +19,10 @@ const Tabs: TabProps[] = [
   {
     name: "Contact",
     href: "/#contact",
+  },
+  {
+    name: "Resume",
+    href: "/resume",
   },
 ];
 

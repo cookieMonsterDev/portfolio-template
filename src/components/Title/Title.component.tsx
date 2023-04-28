@@ -4,9 +4,9 @@ import { Heading } from "./Title.styled";
 
 export const TitleComponent: React.FC<TitleProps> = ({ children, animation, textAlign = 'left' }) => {
   const { ref, inView } = useInView({
-    threshold: 0.5,
-    rootMargin: '-10px',
+    threshold: 0.8,
     triggerOnce: true,
+    rootMargin: '-20px'
   });
 
   return (

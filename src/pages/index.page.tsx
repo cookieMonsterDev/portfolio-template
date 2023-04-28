@@ -1,3 +1,5 @@
+import { AboutMe } from "@components/AboutMe";
+import { ContactMe } from "@components/ContactMe";
 import { Footer } from "@components/Footer";
 import { List } from "@components/List";
 import { Socials } from "@components/Socials";
@@ -9,20 +11,18 @@ import gitHubApi from "@features/axios";
 import Project from "@features/project.types";
 import serverSideErrorHandler from "@features/serverSideErrorHandler";
 import { DefaultLayout } from "@layouts/default";
-import { TitleFirst } from "@styles/animations";
+import { DefaultFading, TitleFirst } from "@styles/animations";
 import { FirstSection, Main, Section } from "@styles/common";
 
 type HomeProps = {
   projects: Project[];
-  currentProject: Project;
+  stats: {
+    forksCount: number;
+    stargazersCount: number;
+  };
 };
 
-const Home = ({ projects, currentProject }: HomeProps) => {
-  const footerProps = {
-    forksCount: currentProject.forks_count,
-    stargazersCount: currentProject.stargazers_count,
-  };
-
+const Home = ({ projects, stats }: HomeProps) => {
   return (
     <>
       <DefaultLayout>
@@ -30,6 +30,12 @@ const Home = ({ projects, currentProject }: HomeProps) => {
           <FirstSection>
             <Welcome />
           </FirstSection>
+          <Section id="about">
+            <Title animation={TitleFirst} textAlign="center">
+              About Me
+            </Title>
+            <AboutMe />
+          </Section>
           <Section id="experience">
             <Title animation={TitleFirst}>Experience & Education</Title>
             <Tabs />
@@ -39,11 +45,14 @@ const Home = ({ projects, currentProject }: HomeProps) => {
             <List list={projects} />
           </Section>
           <Section id="contact">
-            <h1>About</h1>
+            <Title animation={DefaultFading} textAlign="center">
+              CONTACT ME
+            </Title>
+            <ContactMe />
           </Section>
         </Main>
         <Socials />
-        <Footer {...footerProps} />
+        <Footer {...stats} />
       </DefaultLayout>
     </>
   );
@@ -57,11 +66,15 @@ export const getServerSideProps = async () => {
     const { data } = await gitHubApi.get<Project[]>(`users/${user}/repos`);
     const projects = data.slice(0, 6);
     const thisProject = data.filter((e) => e.name === thisRepoName)[0];
+    const stats = {
+      forksCount: thisProject.forks_count,
+      stargazersCount: thisProject.stargazers_count,
+    };
 
     return {
       props: {
         projects: projects,
-        currentProject: thisProject,
+        stats,
       },
     };
   } catch (error) {

@@ -168,5 +168,5 @@ export const MenuLink = styled(Link)`
   font-weight: 600;
   text-transform: uppercase;
   text-decoration: none;
-  color: var(--neon);
+  color: var(--primary);
 `;

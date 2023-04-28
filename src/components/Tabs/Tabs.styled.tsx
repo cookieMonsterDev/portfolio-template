@@ -1,9 +1,19 @@
 import styled from "@emotion/styled";
-import { css } from "@emotion/react";
+import { css, keyframes } from "@emotion/react";
+import { Rollout } from "@styles/animations";
 
-export const Container = styled.div`
+export const Container = styled.div<{ inView: boolean }>`
   display: grid;
   grid-template-columns: auto 1fr;
+  opacity: 0;
+  margin-bottom: 8rem;
+
+  ${({ inView }) =>
+    inView &&
+    css`
+      opacity: 1;
+      animation: ${Rollout} 700ms ease-out;
+    `}
 
   @media only screen and (max-width: 48.4rem) {
     grid-template-columns: none;
@@ -15,7 +25,6 @@ export const TabButtonsContainer = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-
   @media only screen and (max-width: 48.4rem) {
     flex-direction: row;
   }
@@ -55,13 +64,6 @@ export const TabButton = styled.button<{ isActive?: boolean }>`
     top: 0;
     width: 0.1rem;
     background-color: rgb(35, 53, 84);
-    transition: all 700ms;
-
-    ${({ isActive }) =>
-      isActive &&
-      css`
-        background-color: var(--neon);
-      `}
   }
 
   @media only screen and (max-width: 48.4rem) {
@@ -77,6 +79,36 @@ export const TabButton = styled.button<{ isActive?: boolean }>`
   }
 `;
 
+export const Slider = styled.div<{ offset: number; length: number }>`
+  position: absolute;
+  height: ${({ length }) => length}px;
+  left: 0;
+  top: 0;
+  width: 0.1rem;
+  background-color: var(--neon);
+  transition: all 200ms;
+  transform: translateY(${({ offset, length }) => offset * length}px);
+
+  @media only screen and (max-width: 48.4rem) {
+    top: auto;
+    bottom: 0;
+    height: 0.1rem;
+    width: ${({ length }) => length}px;
+    transform: translateX(${({ offset, length }) => offset * length}px);
+  }
+`;
+
+export const ChangeAnim = keyframes`
+  0% {
+    opacity: 0;
+    scale: 0.9;
+  }
+  100% {
+    opacity: 1;
+    scale: 1;
+  }
+`;
+
 export const TabPanel = styled.article<{ hidden: boolean }>`
   min-height: 100%;
   background: var(--secondary);
@@ -86,6 +118,7 @@ export const TabPanel = styled.article<{ hidden: boolean }>`
     "title link"
     "date date"
     "list list";
+  animation: ${ChangeAnim} 500ms ease-out;
 
   ${({ hidden }) =>
     hidden &&
@@ -108,7 +141,10 @@ export const Title = styled.h1`
 export const TimeSpawns = styled.span`
   grid-area: date;
   align-self: center;
-  color: var(--primary);
+  color: var(--neon);
+  font-size: 1rem;
+  font-weight: 800;
+  font-family: "Roboto Mono", monospace;
 `;
 
 export const Link = styled.span`
@@ -134,8 +170,8 @@ export const List = styled.ul`
 
 export const Item = styled.li`
   position: relative;
-  color: rgb(170, 189, 230, 0.6);
-  font-size: 1rem;
+  color: rgb(170, 189, 230, 0.8);
+  font-size: 1.1rem;
   font-weight: 400;
 
   &:before {

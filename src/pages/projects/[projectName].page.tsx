@@ -2,6 +2,7 @@ import config from "@config";
 import gitHubApi from "@features/axios";
 import Project from "@features/project.types";
 import serverSideErrorHandler from "@features/serverSideErrorHandler";
+import { DefaultLayout } from "@layouts/default";
 import { GetStaticPropsContext } from "next";
 
 type ProjectProps = {
@@ -9,7 +10,13 @@ type ProjectProps = {
 };
 
 const Project = ({ project }: ProjectProps) => {
-  return <div>Project</div>;
+  console.log(project)
+
+  return (
+    <DefaultLayout>
+      <div>{project.name}</div>
+    </DefaultLayout>
+  );
 };
 
 export const getServerSideProps = async (context: GetStaticPropsContext) => {
