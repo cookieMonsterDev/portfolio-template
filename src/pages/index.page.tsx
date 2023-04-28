@@ -1,3 +1,4 @@
+import { AboutMe } from "@components/AboutMe";
 import { Footer } from "@components/Footer";
 import { List } from "@components/List";
 import { Socials } from "@components/Socials";
@@ -31,8 +32,8 @@ const Home = ({ projects, currentProject }: HomeProps) => {
             <Welcome />
           </FirstSection>
           <Section id="about">
-            <Title animation={TitleFirst}>About Me</Title>
-           
+            <Title animation={TitleFirst} >About Me</Title>
+            <AboutMe />
           </Section>
           <Section id="experience">
             <Title animation={TitleFirst}>Experience & Education</Title>

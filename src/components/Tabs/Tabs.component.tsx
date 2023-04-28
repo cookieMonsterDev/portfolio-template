@@ -27,7 +27,6 @@ export const TabsComponent: React.FC<TabProps> = ({ list = config.experience }) 
         window.innerWidth > 775
           ? containerRef?.current?.scrollHeight!
           : containerRef?.current?.scrollWidth!;
-      console.log(value)
 
       setContainerlength(value);
     };

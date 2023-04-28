@@ -6,6 +6,7 @@ export const Container = styled.div<{ inView: boolean }>`
   display: grid;
   grid-template-columns: auto 1fr;
   opacity: 0;
+  margin-bottom: 8rem;
 
   ${({ inView }) =>
     inView &&
@@ -154,8 +155,8 @@ export const List = styled.ul`
 
 export const Item = styled.li`
   position: relative;
-  color: rgb(170, 189, 230, 0.6);
-  font-size: 1rem;
+  color: rgb(170, 189, 230, 0.8);
+  font-size: 1.1rem;
   font-weight: 400;
 
   &:before {

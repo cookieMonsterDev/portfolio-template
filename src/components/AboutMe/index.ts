@@ -1,0 +1,1 @@
+export { AboutMeComponent as AboutMe } from './AboutMe.component';
