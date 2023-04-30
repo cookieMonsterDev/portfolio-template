@@ -14,7 +14,7 @@ type Project = {
   compare_url: string;
   contents_url: string;
   contributors_url: string;
-  created_at: string;
+  created_at: Date;
   default_branch: string;
   deployments_url: string;
   description: string;

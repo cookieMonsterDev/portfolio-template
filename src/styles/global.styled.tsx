@@ -8,6 +8,7 @@ export const globalStyle = css`
     font-size: 1rem;
     font-weight: 300;
     font-family: Heebo, sans-serif;
+    background: rgb(10, 25, 47);
   }
 
   * {
