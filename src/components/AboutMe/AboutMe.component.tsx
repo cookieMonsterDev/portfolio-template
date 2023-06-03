@@ -1,11 +1,12 @@
 import React from "react";
-import { Container, InfoContainer, Item, List, Test, Text } from "./AboutMe.styled";
+import { Container, InfoContainer, Item, List, PhotoContainer, Text } from "./AboutMe.styled";
 import { AboutMeProps } from "./AboutMe.types";
 import config from "@config";
 import { useInView } from "react-intersection-observer";
+import { Aperture } from "@components/Aperture";
+import img from "../../../public/profile_photo.jpg";
 
 export const AboutMeComponent: React.FC<AboutMeProps> = ({ skilsList = config.skils }) => {
-
   const { ref, inView } = useInView({
     threshold: 0.8,
     triggerOnce: true,
@@ -21,15 +22,20 @@ export const AboutMeComponent: React.FC<AboutMeProps> = ({ skilsList = config.sk
           that just testing to enough for me that is when I decided to challenge development!
         </Text>
         <Text>
-          Here are a some technologies I’ve been working with recently:
+          Till this time I tried myself in different projects, with a large sphere of
+          influence. This includes commercial marketplaces, healthcare applications, difference
+          king of APIs and other
         </Text>
+        <Text>Here are a some technologies I’ve been working with recently:</Text>
       </InfoContainer>
       <List>
         {skilsList.map((e) => (
           <Item key={e}>{e}</Item>
         ))}
       </List>
-      <Test />
+      <PhotoContainer>
+        <Aperture image={img.src} />
+      </PhotoContainer>
     </Container>
   );
 };

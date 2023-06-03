@@ -1,4 +1,5 @@
 const config = {
+  photo_url: 'https://lh3.googleusercontent.com/ogw/AOLn63E4sQRGUcVaxFcnisIEjAxWa1C-faHCpXt_P5Rn=s32-c-mo',
   resume_url:
     "https://drive.google.com/uc?export=download&id=19miiyiy_Hn-_UxZWAo6WGPOr2WABhpdX",
   git: {
@@ -14,7 +15,16 @@ const config = {
     email: "mykhailo.toporkov@gmail.com",
     phone: "+380 096 050 33 48",
   },
-  skils: ['JavaScript (ES6+)', 'React', 'TypeScript', 'NextJs', 'NestJs', 'Styled-components', 'Express', 'MongoDB'],
+  skils: [
+    "JavaScript (ES6+)",
+    "React",
+    "TypeScript",
+    "NextJs",
+    "NestJs",
+    "Styled-components",
+    "Express",
+    "MongoDB",
+  ],
   experience: [
     {
       id: 0,
@@ -34,7 +44,8 @@ const config = {
       start_date: "Sep 2021",
       end_date: "December 2021",
       responsibilities: [
-        'Course "Manual QA":  Conducting testing on all testing stages as part of regular SDLC. Test case development and maintenance with TestRail. Regression testing, smoke testing, sanity testing, acceptance testing. Defect management with Jira',
+        'Course "Manual QA":  Conducting testing on all testing stages as part of regular SDLC.',
+        "Test case development and maintenance with TestRail. Regression testing, smoke testing, sanity testing, acceptance testing.",
         'Sub course "Automate QA":  Unit testing (Jest) & API testing (Postman)',
       ],
     },
@@ -45,9 +56,10 @@ const config = {
       start_date: "December 2021",
       end_date: "May 2022",
       responsibilities: [
-        "Development and support testing documentation for Framework components of Slot games, with Jira and TestRail. Leading onboarding for new QAs.",
+        "Development and support testing documentation for Framework components of Slot games.",
+        "Applying the test paradigm for all slot games, developing mono-repo test strategy.",
         "Development and support e2e autotests for Framework components ( Typescript, Cucumber, WebdriverIO ).",
-        "Leading scrum meetings",
+        "Mentoring QAs",
       ],
     },
     {
@@ -57,8 +69,9 @@ const config = {
       start_date: "May 2022",
       end_date: "Feb 2023",
       responsibilities: [
-        "Fixing layout cross device / platforms bugs for slot-games keypads. ( React, styled-components ) and imporovment event tracking",
-        "Support autotests integration: Adding states locators for DOM elements.",
+        "Developing and support slot games core framework ( NodeJs, Express )",
+        "Developing new slot games keypad and support legacy one ( React, styled-components )",
+        "Integrating support of e2e autotest ids for new and legacy keypads",
         "Leading scrum meetings",
       ],
     },
@@ -69,9 +82,9 @@ const config = {
       start_date: "Feb 2023",
       end_date: "Current",
       responsibilities: [
-        "Fixing layout cross device / platforms bugs for slot-games keypads. ( React, styled-components ) and imporovment event tracking",
-        "Support autotests integration: Adding states locators for DOM elements.",
-        "Leading scrum meetings",
+        "Integrating payment systems for marketplace applications ( Stripe, PayPal, etc.)",
+        "Perform optimization for search engines ( SEO ) and migrations to TypeScript ( NextJs ).",
+        "Developing e-commerce APIs ( NestJS )", 
       ],
     },
   ],

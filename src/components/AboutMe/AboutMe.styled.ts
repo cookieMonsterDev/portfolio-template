@@ -38,16 +38,7 @@ export const Text = styled.p`
   line-height: 1.4;
   color: var(--primary);
   max-width: 40rem;
-  margin: 0 0 2rem 0;
-`;
-
-export const Test = styled.div`
-  justify-self: center;
-  width: 10rem;
-  height: 10rem;
-  border-radius: 50%;
-  background: red;
-  grid-area: b;
+  margin: 0 0 1.5rem 0;
 `;
 
 export const List = styled.ul`
@@ -77,3 +68,13 @@ export const Item = styled.li`
     font-size: 0.8rem;
   }
 `;
+
+export const PhotoContainer = styled.div`
+  grid-area: b;
+  justify-self: start;
+
+  @media only screen and (max-width: 48.4rem) {
+    margin-bottom: 3rem;
+    justify-self: center;
+  }
+`
