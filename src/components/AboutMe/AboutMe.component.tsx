@@ -4,6 +4,7 @@ import { AboutMeProps } from "./AboutMe.types";
 import config from "@config";
 import { useInView } from "react-intersection-observer";
 import { Aperture } from "@components/Aperture";
+import img from "../../../public/profile_photo.jpg";
 
 export const AboutMeComponent: React.FC<AboutMeProps> = ({ skilsList = config.skils }) => {
   const { ref, inView } = useInView({
@@ -33,7 +34,7 @@ export const AboutMeComponent: React.FC<AboutMeProps> = ({ skilsList = config.sk
         ))}
       </List>
       <PhotoContainer>
-        <Aperture image={config.photo_url} />
+        <Aperture image={img.src} />
       </PhotoContainer>
     </Container>
   );

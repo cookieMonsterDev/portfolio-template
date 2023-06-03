@@ -68,8 +68,8 @@ export const Img = styled.img`
   right: 50%;
   transform: translate(50%, -50%);
   background-position: center;
-  width: 300px;
-  height: 300px;
+  width: 270px;
+  height: 270px;
   border-radius: 50%;
   opacity: 0;
   z-index: -1;
