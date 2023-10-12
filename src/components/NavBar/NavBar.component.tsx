@@ -1,9 +1,36 @@
-import React from 'react'
+"use client";
+import { isBrowser } from "@/utils";
+import { useState, useEffect, useRef } from "react";
+import classnames from "classnames";
 
-const NavBarСomponent = () => {
+export const NavBarСomponent = () => {
+  const prevScrollpos = useRef(isBrowser() ? window.screenY : 0);
+  const [isShow, setShow] = useState(true);
+
+  const handleScroll = () => {
+    const currentScrollPos = window.scrollY;
+    prevScrollpos.current < currentScrollPos ? setShow(false) : setShow(true);
+    prevScrollpos.current = currentScrollPos;
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const className = classnames("fixed top-0 w-full bg-slate-500 duration-300", {
+    "-translate-y-full": !isShow,
+  });
+
   return (
-    <div>NavBarСomponent</div>
-  )
-}
-
-export default NavBarСomponent
+    <nav className={className}>
+      <div className="container flex justify-between p-4">
+        <div className="">test</div>
+        <div className="">test</div>
+      </div>
+    </nav>
+  );
+};

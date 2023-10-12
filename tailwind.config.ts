@@ -1,10 +1,10 @@
-import type { Config } from 'tailwindcss'
+import type { Config } from "tailwindcss";
 
 const config: Config = {
   content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
@@ -16,16 +16,43 @@ const config: Config = {
         "color-gray": "#333",
         "color-white": "#fff",
         "color-blob": "#A427DF",
-      }
+      },
+      keyframes: {
+        marquee1: {
+          "0%": {
+            transform: "translateX(100%)",
+          },
+          "100%": {
+            transform: "translateX(0)",
+          },
+        },
+        marquee2: {
+          "0%": {
+            transform: "translateX(0)",
+          },
+          "100%": {
+            transform: "translateX(-200%)",
+          },
+        },
+      },
+      animation: {
+        "ticker": "marquee1 2s linear",
+      },
     },
     container: {
       center: true,
       padding: {
-        DEFAULT: '20px',
-        md: "50px"
-      }
-    }
+        DEFAULT: "0.5rem",
+      },
+      screens: {
+        sm: "640px",
+        md: "768px",
+        lg: "1024px",
+        xl: "1280px",
+        "2xl": "1536px",
+      },
+    },
   },
   plugins: [],
-}
-export default config
+};
+export default config;
