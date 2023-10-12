@@ -6,6 +6,8 @@ import { getRepos } from "@/services/GitHub";
 const Home = async () => {
   // const data = await getRepos();
 
+  // console.log(data)
+
   return (
     <main className="w-full flex flex-col bg-blue-300 min-h-[300vh]">
       <Hero />
