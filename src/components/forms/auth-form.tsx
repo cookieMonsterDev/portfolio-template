@@ -5,35 +5,35 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { useAuthStore } from "@/hooks/use-auth-store";
 import { auth } from "@/lib/utils";
+import z from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
 
-type AuthFormT = {
-  accessKey: string;
-};
+const formSchema = z.object({
+  accessKey: z.string().min(1),
+});
 
 export const AuthForm = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    setError,
-  } = useForm<AuthFormT>({
+  const setAuth = useAuthStore((state) => state.updateAuth);
+
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
     defaultValues: {
       accessKey: "",
     },
   });
 
-  const setAuth = useAuthStore((state) => state.updateAuth);
-
-  const onSubmit = (values: AuthFormT) => {
+  const onSubmit = (values: z.infer<typeof formSchema>) => {
     if (auth(values.accessKey)) {
       setAuth(true);
-      return;
     }
-
-    setError("accessKey", {
-      type: "manual",
-      message: "Invalid access key",
-    });
   };
 
   return (
@@ -41,27 +41,29 @@ export const AuthForm = () => {
       <Link href={"/"} className="absolute top-1 right-3 text-4xl">
         ×
       </Link>
-      <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col">
-        <h1 className="self-center text font-bold text-2xl">
-          Sign in to have access to manage Blog
-        </h1>
-        <label className="flex flex-col text-lg mt-8">
-          <span>Access Key</span>
-          <Input
-            {...register("accessKey", {
-              required: "AccessKey Address is required!",
-            })}
-            type="password"
-            className="mt-1"
-          />
-        </label>
-        {errors.accessKey && (
-          <span className="text-red-500 mt-2">{errors.accessKey.message}</span>
-        )}
-        <Button type="submit" className="mt-8">
-          Sign In
-        </Button>
-      </form>
+      <h1 className="mb-4 text-2xl">Sign In to manage App</h1>
+      <div className="space-y-4 py-2 pb-4">
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)}>
+            <FormField
+              control={form.control}
+              name="accessKey"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Access Key</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Enter Access Key" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <div className="pt-6 space-x-2 flex items-center justify-center w-full">
+              <Button type="submit">Sign In</Button>
+            </div>
+          </form>
+        </Form>
+      </div>
     </div>
   );
 };

@@ -1,13 +1,15 @@
 import { ToasterProvider } from "@/providers/toast-provider";
+import { ThemeProvider } from '@/providers/theme-provider'
 import "./globals.css";
 import type { Metadata } from "next";
-import { Ubuntu } from 'next/font/google'
+import { Ubuntu } from "next/font/google";
+
 
 const ubuntu = Ubuntu({
-  weight: '400',
-  subsets: ['latin'],
-  display: 'swap',
-})
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -22,8 +24,15 @@ export default function RootLayout({
   return (
     <html lang="en" className={ubuntu.className}>
       <body className="relative">
-        <ToasterProvider />
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <ToasterProvider />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
