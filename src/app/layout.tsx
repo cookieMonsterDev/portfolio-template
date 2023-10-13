@@ -1,6 +1,6 @@
+import { ToasterProvider } from "@/providers/toast-provider";
 import "./globals.css";
 import type { Metadata } from "next";
-import { AuthProvider } from "@/providers/auth-provider";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -13,10 +13,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <AuthProvider>
-      <html lang="en">
-        <body className="relative">{children}</body>
-      </html>
-    </AuthProvider>
+    <html lang="en">
+      <ToasterProvider />
+      <body className="relative">{children}</body>
+    </html>
   );
 }

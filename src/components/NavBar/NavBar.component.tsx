@@ -1,7 +1,8 @@
 "use client";
-import { isBrowser } from "@/utils";
+
 import { useState, useEffect, useRef } from "react";
 import classnames from "classnames";
+import { isBrowser } from "@/utils/is-browser";
 
 export const NavBarСomponent = () => {
   const prevScrollpos = useRef(isBrowser() ? window.screenY : 0);

@@ -1,30 +1,29 @@
 "use client";
-import { useAuth, useUpdateAuth } from "@/hooks/use-auth";
+import { useAuthStore } from "@/hooks/use-auth-store";
 import { redirect } from "next/navigation";
 import { useEffect } from "react";
 
 const SignInPage = () => {
-  const fn = useUpdateAuth();
-  const state = useAuth();
+  const { isAuthenticated, updateAuth } = useAuthStore();
 
-  const newFn = () => {
-    fn();
+  const fn = () => {
+    updateAuth(true);
     redirect("/");
   };
 
   useEffect(() => {
-    if (state) {
-      redirect("/");
+    if(isAuthenticated) {
+      redirect('/dashboard')
     }
-  }, [state]);
+  }, [isAuthenticated])
 
   return (
     <div className="w-full h-screen flex justify-center items-center">
       <button
         className={`px-4 py-2 border border-1 ${
-          state ? "border-red-500" : "border-black"
+          isAuthenticated ? "border-red-500" : "border-black"
         }`}
-        onClick={newFn}
+        onClick={fn}
       >
         Update state
       </button>
