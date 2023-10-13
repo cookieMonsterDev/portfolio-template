@@ -59,7 +59,7 @@ export const AuthForm = () => {
           <span className="text-red-500 mt-2">{errors.accessKey.message}</span>
         )}
         <Button type="submit" className="mt-8">
-          Submit
+          Sign In
         </Button>
       </form>
     </div>

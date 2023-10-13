@@ -12,7 +12,7 @@ const skilsS = [
   "MongoDB",
 ];
 
-export const AboutComponent = () => {
+export const About = () => {
   const [skils, setSkils] = useState(skilsS);
 
   useEffect(() => {
@@ -32,7 +32,7 @@ export const AboutComponent = () => {
   }, []);
 
   return (
-    <section className="relative w-full h-[100vh] flex items-center justify-center bg-lime-100 overflow-hidden">
+    <section className="relative w-full h-[100vh] flex items-center justify-center bg-lime-100 overflow-hidden" id='about'>
       <div className="absolute top-0 left-0 w-full flex justify-center">
   
       </div>

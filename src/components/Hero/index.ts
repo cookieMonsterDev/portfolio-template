@@ -1,1 +1,0 @@
-export { HeroComponent as Hero } from './Hero.component';

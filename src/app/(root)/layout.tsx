@@ -1,7 +1,7 @@
 
 
-import { Footer } from "@/components/footer";
-import { NavBar } from "@/components/navbar";
+import { Footer } from "@/components/sections/footer";
+import { NavBar } from "@/components/sections/navbar";
 import React from "react";
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {

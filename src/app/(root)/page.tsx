@@ -1,7 +1,6 @@
-import { About } from "@/components/About";
-import { Contact } from "@/components/Contact";
-import { Hero } from "@/components/Hero";
-import { getRepos } from "@/services/GitHub";
+import { About } from "@/components/sections/about";
+import { Contact } from "@/components/sections/contact";
+import { Hero } from "@/components/sections/hero";
 
 const Home = async () => {
   // const data = await getRepos();
@@ -9,7 +8,7 @@ const Home = async () => {
   // console.log(data)
 
   return (
-    <main className="w-full flex flex-col bg-blue-300 min-h-[300vh]">
+    <main className="w-full flex flex-col">
       <Hero />
       <About />
       <Contact />

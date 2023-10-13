@@ -1,9 +1,9 @@
 import Link from "next/link";
 import React from "react";
 
-export const HeroComponent = () => {
+export const Hero= () => {
   return (
-    <section className="w-full h-[100vh] flex items-center justify-center bg-red-100">
+    <section className="w-full h-screen flex items-center justify-center bg-gradient-to-br from-shark-700 to-shark-950">
       <Link href="/sign-in">
         <div>test 1</div>
       </Link>
@@ -11,5 +11,3 @@ export const HeroComponent = () => {
     </section>
   );
 };
-
-export default HeroComponent;

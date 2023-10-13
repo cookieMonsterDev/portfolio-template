@@ -1,1 +1,0 @@
-export { ContactComponent as Contact } from './Contact.component';
