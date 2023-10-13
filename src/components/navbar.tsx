@@ -2,9 +2,10 @@
 
 import { useState, useEffect, useRef } from "react";
 import classnames from "classnames";
-import { isBrowser } from "@/utils/is-browser";
+import { isBrowser } from "@/lib/utils";
 
-export const NavBarСomponent = () => {
+
+export const NavBar = () => {
   const prevScrollpos = useRef(isBrowser() ? window.screenY : 0);
   const [isShow, setShow] = useState(true);
 

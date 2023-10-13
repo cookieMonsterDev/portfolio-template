@@ -1,6 +1,13 @@
 import { ToasterProvider } from "@/providers/toast-provider";
 import "./globals.css";
 import type { Metadata } from "next";
+import { Ubuntu } from 'next/font/google'
+
+const ubuntu = Ubuntu({
+  weight: '400',
+  subsets: ['latin'],
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -13,9 +20,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <ToasterProvider />
-      <body className="relative">{children}</body>
+    <html lang="en" className={ubuntu.className}>
+      <body className="relative">
+        <ToasterProvider />
+        {children}
+      </body>
     </html>
   );
 }

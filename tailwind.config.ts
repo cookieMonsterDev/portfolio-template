@@ -9,13 +9,19 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        "color-primary": "#01051e",
-        "color-primary-light": "#020726",
-        "color-primary-dark": "#010417",
-        "color-secondary": "#ff7d3b",
-        "color-gray": "#333",
-        "color-white": "#fff",
-        "color-blob": "#A427DF",
+        shark: {
+          "50": "#f6f7f7",
+          "100": "#e2e5e3",
+          "200": "#c5cac7",
+          "300": "#a0a8a5",
+          "400": "#7c8581",
+          "500": "#616b67",
+          "600": "#4d5452",
+          "700": "#3f4643",
+          "800": "#353a37",
+          "900": "#2f3231",
+          "950": "#1d201f",
+        },
       },
       keyframes: {
         marquee1: {
@@ -36,8 +42,26 @@ const config: Config = {
         },
       },
       animation: {
-        "ticker": "marquee1 2s linear",
+        ticker: "marquee1 2s linear",
       },
+      fontFamily: {
+        custom: [
+          'ui-sans-serif',
+          'system-ui',
+          '-apple-system',
+          'BlinkMacSystemFont',
+          'Segoe UI',
+          'Roboto',
+          'Helvetica Neue',
+          'Arial',
+          'Noto Sans',
+          'sans-serif',
+          'Apple Color Emoji',
+          'Segoe UI Emoji',
+          'Segoe UI Symbol',
+          'Noto Color Emoji',
+        ],
+      }
     },
     container: {
       center: true,

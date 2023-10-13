@@ -1,29 +1,28 @@
 import { GITHUB_API_BASE_URL, GITHUB_USERNAME } from "@/constants/apiEndpoints";
 import { Project } from "./types";
+import axios from "axios";
 
-export const getRepos = async () => {
+const gitHubApi = axios.create({
+  baseURL: GITHUB_API_BASE_URL,
+});
+
+export const fetchAllRepos = async () => {
   try {
-    const res = await fetch(
-      `${GITHUB_API_BASE_URL}users/${GITHUB_USERNAME}/repos`
-    );
+    const { data } = await gitHubApi.get(`/users/${GITHUB_USERNAME}/repos`);
 
-    const repos = res.json() as unknown as Project[];
-
-    return repos;
+    return data as Project[];
   } catch (error) {
     throw error;
   }
 };
 
-export const getRepo = async (projectName: string) => {
+export const fetchOneRepo = async (projectName: string) => {
   try {
-    const res = await fetch(
-      `${GITHUB_API_BASE_URL}repos/${GITHUB_USERNAME}/${projectName}`
+    const { data } = await gitHubApi.get(
+      `repos/${GITHUB_USERNAME}/${projectName}`
     );
 
-    const repo = res.json() as unknown as Project;
-
-    return repo;
+    return data as Project;
   } catch (error) {
     throw error;
   }
