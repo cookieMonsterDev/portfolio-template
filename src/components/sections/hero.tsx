@@ -3,13 +3,19 @@ import React from "react";
 
 export const Hero = () => {
   return (
-    <section className="w-full h-screen flex items-center justify-center bg-gradient-to-br from-shark-700 to-shark-950">
-      <div className="container">
-        <Link href="/sign-in" className="flex-1">
-          <div>test 1</div>
-        </Link>
-        <div className="flex-1">test 2</div>
-      </div>
+    <section className="w-full h-screen flex items-start justify-center">
+      {/* <div className="container flex flex-col pt-40 px-40 ">
+        <h1
+          aria-label="Hi, I’m  Mykhailo, JavaScript engineer"
+          className="text-7xl font-extrabold space-y-3"
+        >
+          <p aria-hidden className="">
+            Hi,
+          </p>
+          <p aria-hidden>I'm Mykhailo,</p>
+          <p aria-hidden>Full-Stack Engineer</p>
+        </h1>
+      </div> */}
     </section>
   );
 };
