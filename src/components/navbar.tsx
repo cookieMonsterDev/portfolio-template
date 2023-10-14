@@ -165,7 +165,7 @@ export const NavBar = () => {
             <Link
               href={e.href}
               key={e.href}
-              className="hidden text-xl font-medium lg:block"
+              className="hidden text-xl font-medium lg:block opacity-50 hover:opacity-100 active:opacity-100 duration-300"
             >
               {e.name}
             </Link>
