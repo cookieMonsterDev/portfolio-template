@@ -2,9 +2,9 @@ import { ToasterProvider } from "@/providers/toast-provider";
 import { ThemeProvider } from "@/providers/theme-provider";
 import "./globals.css";
 import type { Metadata } from "next";
-import { Ubuntu } from "next/font/google";
+import { Poppins } from "next/font/google";
 
-const ubuntu = Ubuntu({
+const poppins = Poppins({
   weight: "400",
   subsets: ["latin"],
   display: "swap",
@@ -21,7 +21,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={ubuntu.className}>
+    <html lang="en" className={poppins.className}>
       <body className="relative">
         <ThemeProvider
           attribute="class"

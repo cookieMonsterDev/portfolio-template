@@ -2,12 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* html,
-body,
-main {
-  scrollbar-gutter: stable;
-} */
-
 
 * {
   scroll-behavior: smooth;

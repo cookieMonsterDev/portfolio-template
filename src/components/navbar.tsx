@@ -3,9 +3,13 @@
 import { useState, useEffect, useRef } from "react";
 import { isBrowser } from "@/lib/utils";
 import Link from "next/link";
+import Image from "next/image";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { cva } from "class-variance-authority";
 import { cn } from "@/lib/utils";
+import darkLogo from "../../public/logo_2023_hex_letter_dark.svg";
+import lightLogo from "../../public/logo_2023_hex_letter_light.svg";
+import { useTheme } from "next-themes";
 
 const linksList = [
   {
@@ -48,6 +52,7 @@ const navbarVariants = cva(
 export const NavBar = () => {
   const prevScrollpos = useRef(isBrowser() ? window.screenY : 0);
   const [isShow, setShow] = useState(true);
+  const { theme } = useTheme();
 
   const handleScroll = () => {
     const currentScrollPos = window.scrollY;
@@ -68,14 +73,18 @@ export const NavBar = () => {
       className={cn(navbarVariants({ variant: isShow ? "open" : "closed" }))}
     >
       <nav className="container flex items-center justify-between py-2">
-        <div className="">test</div>
+        <Link className="" href="/">
+          <Image
+            src={theme === "dark" ? darkLogo.src : lightLogo.src}
+            width={36}
+            height={36}
+            alt={"my-logo"}
+            priority
+          />
+        </Link>
         <div className="flex gap-8 items-center">
           {linksList.map((e) => (
-            <Link
-              href={e.href}
-              key={e.href}
-              className="text-xl font-medium"
-            >
+            <Link href={e.href} key={e.href} className="text-xl font-medium">
               {e.name}
             </Link>
           ))}
