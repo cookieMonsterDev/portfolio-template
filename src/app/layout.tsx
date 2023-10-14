@@ -1,9 +1,8 @@
 import { ToasterProvider } from "@/providers/toast-provider";
-import { ThemeProvider } from '@/providers/theme-provider'
+import { ThemeProvider } from "@/providers/theme-provider";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Ubuntu } from "next/font/google";
-
 
 const ubuntu = Ubuntu({
   weight: "400",

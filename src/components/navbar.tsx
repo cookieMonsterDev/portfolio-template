@@ -4,6 +4,8 @@ import { useState, useEffect, useRef } from "react";
 import { isBrowser } from "@/lib/utils";
 import Link from "next/link";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
+import { cva } from "class-variance-authority";
+import { cn } from "@/lib/utils";
 
 const linksList = [
   {
@@ -28,6 +30,21 @@ const linksList = [
   },
 ];
 
+const navbarVariants = cva(
+  "sticky top-0 w-full shadow-lg bg-white dark:bg-black dark:shadow dark:shadow-white duration-300 z-10 ",
+  {
+    variants: {
+      variant: {
+        open: "translate-y-0",
+        closed: "-translate-y-full",
+      },
+    },
+    defaultVariants: {
+      variant: "open",
+    },
+  }
+);
+
 export const NavBar = () => {
   const prevScrollpos = useRef(isBrowser() ? window.screenY : 0);
   const [isShow, setShow] = useState(true);
@@ -46,27 +63,25 @@ export const NavBar = () => {
     };
   }, []);
 
-  const className = `fixed top-0 w-full bg-black duration-300 z-10"
-    ${!isShow ? "-translate-y-full" : ""}
-  `;
-
   return (
-    <nav className={className}>
-      <div className="container flex justify-between p-4">
+    <header
+      className={cn(navbarVariants({ variant: isShow ? "open" : "closed" }))}
+    >
+      <nav className="container flex items-center justify-between py-2">
         <div className="">test</div>
-        <div className="flex gap-8">
+        <div className="flex gap-8 items-center">
           {linksList.map((e) => (
             <Link
               href={e.href}
               key={e.href}
-              className="text-xl text-white font-medium"
+              className="text-xl font-medium"
             >
               {e.name}
             </Link>
           ))}
           <ThemeToggle />
         </div>
-      </div>
-    </nav>
+      </nav>
+    </header>
   );
 };
