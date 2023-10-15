@@ -14,7 +14,7 @@ export const Hero = () => {
             <p aria-hidden className="">
               Hi,
             </p>
-            <p aria-hidden>I'm Mykhailo,</p>
+            <p aria-hidden>I&apos;m Mykhailo,</p>
             <p aria-hidden>Full-Stack Engineer</p>
           </h1>
           <span className="text-xl opacity-50">
