@@ -11,11 +11,7 @@ import darkLogo from "../../public/logo_2023_hex_letter_dark.svg";
 import lightLogo from "../../public/logo_2023_hex_letter_light.svg";
 import { useTheme } from "next-themes";
 import { Button } from "./ui/button";
-import {
-  HamburgerMenuIcon,
-  Cross2Icon,
-  Cross1Icon,
-} from "@radix-ui/react-icons";
+import { HamburgerMenuIcon, Cross2Icon } from "@radix-ui/react-icons";
 import { useSideMenuStore } from "@/hooks/use-side-menu-store";
 
 const linksList = [
@@ -24,25 +20,21 @@ const linksList = [
     href: "/#about",
   },
   {
-    name: "Experience",
-    href: "/#experience",
-  },
-  {
-    name: "Projects",
-    href: "/#projects",
-  },
-  {
     name: "Contact",
     href: "/#contact",
   },
   {
-    name: "Resume",
-    href: "/resume",
+    name: "Projects",
+    href: "/projects",
+  },
+  {
+    name: "Blog",
+    href: "/blog",
   },
 ];
 
 const navbarVariants = cva(
-  "sticky top-0 w-full bg-slate-50 border-b border-slate-300 dark:bg-black dark:border-slate-700 duration-300 z-10 ",
+  "sticky top-0 w-full bg-slate-50 border-b border-slate-300 dark:bg-slate-950 dark:border-slate-700 duration-300 z-10 ",
   {
     variants: {
       variant: {
@@ -72,7 +64,7 @@ const overlayVariants = cva(
 );
 
 const sideMenuVariants = cva(
-  "bg-slate-50 border-r dark:bg-black dark:border-slate-700 w-3/4 h-[200vh] px-8 pt-6 flex flex-col overflow-auto duration-300",
+  "bg-slate-50 border-r dark:bg-slate-950 dark:border-slate-700 w-3/4 h-[200vh] px-8 pt-6 flex flex-col overflow-auto duration-300",
   {
     variants: {
       variant: {
@@ -143,7 +135,7 @@ export const NavBar = () => {
               <Button
                 variant="outline"
                 size="icon"
-                className="w-5 h-5 absolute right-2 top-2"
+                className="w-5 h-5 absolute right-3 top-3 border-2"
                 onClick={setClose}
               >
                 <Cross2Icon className="h-4 w-4 rotate-0 scale-100 transition-all fill-white" />
@@ -157,6 +149,18 @@ export const NavBar = () => {
                   priority
                 />
               </Link>
+              <ul className="pl-4 pt-6 list-none flex flex-col space-y-5">
+                {linksList.map((e) => (
+                  <Link
+                    href={e.href}
+                    key={e.href}
+                    className="text-lg font-medium"
+                    onClick={setClose}
+                  >
+                    {e.name}
+                  </Link>
+                ))}
+              </ul>
             </div>
           </div>
         </div>

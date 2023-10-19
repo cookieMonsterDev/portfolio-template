@@ -32,12 +32,11 @@ export const About = () => {
   }, []);
 
   return (
-    <section className="relative w-full h-[100vh] flex items-center justify-center overflow-hidden" id='about'>
-      <div className="absolute top-0 left-0 w-full flex justify-center">
-  
-      </div>
-      <div className="container flex items-center justify-center">About</div>
-      <div className="absolute bottom-0">test2</div>
+    <section
+      className="section flex items-center justify-center overflow-hidden"
+      id="about"
+    >
+      test
     </section>
   );
 };

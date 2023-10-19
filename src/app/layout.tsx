@@ -22,7 +22,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={poppins.className}>
-      <body className="relative bg-slate-50 dark:bg-black">
+      <body className="relative bg-slate-50 dark:bg-slate-950">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
