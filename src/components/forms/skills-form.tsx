@@ -69,23 +69,24 @@ export const SkillsForm: React.FC<SkillsFormProps> = ({ initialData }) => {
     <div className="w-full flex flex-col gap-2 overflow-hidden p-[0.3rem]">
       <Heading title={"Skills, Tools & Technologies"} />
       <h2 className="text-sm">Skils:</h2>
-      <div className="flex-1 flex items-start flex-wrap gap-2 border border-slate-200 rounded-md p-2 dark:border-slate-800">
+      <div className="flex items-start flex-wrap gap-2 border border-slate-200 rounded-md p-2 dark:border-slate-800">
         {initialData.length === 0 && <span className="opacity-50 text-medium text-slate-200">The are no skills yet.</span>}
         {initialData.map((e) => (
           <span
             key={e.id}
-            className="max-w-full max-h-6 overflow-hidden text-ellipsis bg-slate-950 text-slate-50 dark:bg-slate-50 dark:text-slate-950 rounded-xl px-4 flex items-center justify-between"
+            className="max-w-full max-h-6 bg-slate-950 text-slate-50 dark:bg-slate-50 dark:text-slate-950 rounded-xl px-4 flex items-center justify-between gap-2"
           >
-            {e.title}
+
+            <p className="overflow-hidden text-ellipsis flex-1">{e.title}</p>
             <Delete
-              className="ml-2 cursor-pointer flex-1"
+              className="min-h-6 min-w-6 cursor-pointer"
               onClick={() => onDelete(e.id)}
             />
           </span>
         ))}
       </div>
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="flex items-end">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="flex items-end mt-auto">
           <FormField
             control={form.control}
             name="title"
