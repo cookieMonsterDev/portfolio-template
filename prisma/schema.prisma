@@ -10,9 +10,16 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Bio {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  text      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
 model Skill {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  name      String
+  title     String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }

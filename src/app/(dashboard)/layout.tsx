@@ -1,4 +1,6 @@
 "use client";
+import { Footer } from "@/components/footer";
+import { NavBar } from "@/components/navbar";
 import { useAuthStore } from "@/hooks/use-auth-store";
 import { redirect } from "next/navigation";
 import React from "react";
@@ -10,7 +12,13 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
     redirect("/sign-in");
   }
 
-  return <>{children}</>;
+  return (
+    <>
+      <NavBar />
+      {children}
+      <Footer />
+    </>
+  );
 };
 
 export default DashboardLayout;

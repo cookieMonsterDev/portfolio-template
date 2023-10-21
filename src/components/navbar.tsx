@@ -14,24 +14,12 @@ import { Button } from "./ui/button";
 import { HamburgerMenuIcon, Cross2Icon } from "@radix-ui/react-icons";
 import { useSideMenuStore } from "@/hooks/use-side-menu-store";
 
-const linksList = [
-  {
-    name: "About",
-    href: "/#about",
-  },
-  {
-    name: "Contact",
-    href: "/#contact",
-  },
-  {
-    name: "Projects",
-    href: "/projects",
-  },
-  {
-    name: "Blog",
-    href: "/blog",
-  },
-];
+interface NavBarProps {
+  linksList?: {
+    name: string;
+    href: string;
+  }[];
+}
 
 const navbarVariants = cva(
   "sticky top-0 w-full bg-slate-50 border-b border-slate-300 dark:bg-slate-950 dark:border-slate-700 duration-300 z-10 ",
@@ -64,7 +52,7 @@ const overlayVariants = cva(
 );
 
 const sideMenuVariants = cva(
-  "bg-slate-50 border-r dark:bg-slate-950 dark:border-slate-700 w-3/4 h-[200vh] px-8 pt-6 flex flex-col overflow-auto duration-300",
+  "bg-slate-50 border-r dark:bg-slate-950 dark:border-slate-700 w-3/4 h-[100vh] px-8 pt-6 flex flex-col overflow-auto duration-300",
   {
     variants: {
       variant: {
@@ -78,7 +66,7 @@ const sideMenuVariants = cva(
   }
 );
 
-export const NavBar = () => {
+export const NavBar: React.FC<NavBarProps> = ({ linksList = [] }) => {
   const prevScrollpos = useRef(isBrowser() ? window.screenY : 0);
   const [isShow, setShow] = useState(true);
   const { theme } = useTheme();
