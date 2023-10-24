@@ -20,7 +20,7 @@ const ProjectPage = async ({ params }: ProjectPageProps) => {
   }
 
   return (
-    <main className="container">
+    <main className="container min-h-[calc(100vh-110px)]">
       <ProjectForm initialData={project} />
     </main>
   );

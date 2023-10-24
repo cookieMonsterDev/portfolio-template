@@ -21,6 +21,7 @@ import axios from "axios";
 import { useRouter } from "next/navigation";
 import { toast } from "react-hot-toast";
 import { Input } from "../ui/input";
+import { SelectMulti } from "../ui/select-multi";
 
 interface ProjectFormProps {
   initialData: null | Project;
@@ -32,7 +33,7 @@ const formSchema = z.object({
   desc: z.string().optional(),
   github_url: z.string().url().optional(),
   deployment_url: z.string().url().optional(),
-  // tags: z.string().array(),
+  tags: z.string().array(),
   image_url: z.string().url().optional(),
 });
 
@@ -69,7 +70,7 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({ initialData }) => {
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="flex flex-col lg:grid gap-4"
+          className="flex flex-col auto-cols-fr lg:grid gap-4"
         >
           <FormField
             control={form.control}
@@ -152,23 +153,24 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({ initialData }) => {
               )}
             />
           </div>
-          <FormField
-            control={form.control}
-            name="tags"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Tags</FormLabel>
-                <FormControl>
-                  <Input
-                    placeholder="Deployment URL"
-                    {...field}
-                    disabled={loading}
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+          <div className="col-span-1">
+            <FormField
+              control={form.control}
+              name="tags"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Tags</FormLabel>
+                  <FormControl>
+                    <SelectMulti
+                      list={field.value ? field.value : []}
+                      onChange={(url) => field.onChange(url)}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
           <FormField
             control={form.control}
             name="image_url"
