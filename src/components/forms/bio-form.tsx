@@ -54,7 +54,6 @@ export const BioForm: React.FC<SkillsFormProps> = ({ initialData }) => {
       toast.success(
         initialData ? "Bio has been updated!" : "Bio has been added!"
       );
-      form.reset();
     } catch (error) {
       toast.error("Something went wrong.");
     } finally {
@@ -97,5 +96,3 @@ export const BioForm: React.FC<SkillsFormProps> = ({ initialData }) => {
     </div>
   );
 };
-
-

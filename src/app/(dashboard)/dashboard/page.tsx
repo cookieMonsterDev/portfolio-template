@@ -1,4 +1,5 @@
 import { BioForm } from "@/components/forms/bio-form";
+import { ProjectForm } from "@/components/forms/project-form";
 import { SkillsForm } from "@/components/forms/skills-form";
 import { Heading } from "@/components/ui/heading";
 import { Separator } from "@/components/ui/separator";
@@ -15,8 +16,7 @@ const DashboardPage = async () => {
       <div className="grid lg:grid-cols-2 gap-4">
         <BioForm initialData={bio} />
         <SkillsForm initialData={skills || null} />
-        <div className="w-full h-full bg-red-500">yes</div>
-        <div className="w-full h-full bg-red-500">yes</div>
+        {/* <ProjectForm initialData={null} /> */}
       </div>
     </main>
   );

@@ -23,8 +23,6 @@ export const POST = async (req: Request) => {
       return new NextResponse("Validation error", { status: 409 });
     }
 
-    
-
     const res = await prismadb.skill.create({
       data: {
         ...body,

@@ -30,7 +30,6 @@ const formSchema = z.object({
 });
 
 export const SkillsForm: React.FC<SkillsFormProps> = ({ initialData }) => {
-  console.log(initialData);
   const router = useRouter();
 
   const [loading, setLoading] = useState(false);
