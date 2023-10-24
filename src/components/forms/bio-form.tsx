@@ -50,6 +50,7 @@ export const BioForm: React.FC<SkillsFormProps> = ({ initialData }) => {
         await axios.patch(`/api/bio/${initialData.id}`, { ...values });
       }
 
+      router.push("/dashboard");
       router.refresh();
       toast.success(
         initialData ? "Bio has been updated!" : "Bio has been added!"
