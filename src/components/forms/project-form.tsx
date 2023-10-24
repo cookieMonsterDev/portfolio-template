@@ -68,7 +68,9 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({ initialData }) => {
         await axios.post(`/api/projects/`, values);
       }
 
-      window.location.assign(`/dashboard/projects`);
+      
+      router.push(`/dashboard/projects`);
+      router.refresh();
       toast.success(successToast);
     } catch (error) {
       toast.error("Something went wrong.");

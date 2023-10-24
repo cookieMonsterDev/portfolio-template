@@ -33,7 +33,7 @@ const ProjectsPage = async () => {
           </Button>
         </Link>
       </div>
-      <DataTable columns={columns} data={formatedProjects} isSearch={false}/>
+      <DataTable columns={columns} data={formatedProjects} searchKey="title" isSearch={false}/>
     </>
   );
 };
