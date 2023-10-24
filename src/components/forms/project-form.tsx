@@ -31,17 +31,19 @@ interface ProjectFormProps {
 const formSchema = z.object({
   title: z.string().min(1).max(100),
   owner: z.string().min(1).max(100),
-  desc: z.string().optional(),
-  github_url: z.string().url().optional(),
-  deployment_url: z.string().url().optional(),
+  desc: z.string().nullable(),
+  github_url: z.string().url().nullable(),
+  deployment_url: z.string().url().nullable(),
   tags: z.string().array(),
-  image_url: z.string().url().optional(),
+  image_url: z.string().url().nullable(),
 });
 
 export const ProjectForm: React.FC<ProjectFormProps> = ({ initialData }) => {
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const router = useRouter();
+
+  console.log(initialData);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -66,7 +68,7 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({ initialData }) => {
         await axios.post(`/api/projects/`, values);
       }
 
-      router.push("/dashboard/projects");
+      window.location.assign(`/dashboard/projects`);
       toast.success(successToast);
     } catch (error) {
       toast.error("Something went wrong.");
@@ -161,6 +163,7 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({ initialData }) => {
                     <Input
                       placeholder="Github URL"
                       {...field}
+                      value={field.value || ""}
                       disabled={loading}
                     />
                   </FormControl>
@@ -178,6 +181,7 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({ initialData }) => {
                     <Input
                       placeholder="Deployment URL"
                       {...field}
+                      value={field.value || ""}
                       disabled={loading}
                     />
                   </FormControl>
@@ -196,6 +200,7 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({ initialData }) => {
                       <Textarea
                         placeholder="Description"
                         {...field}
+                        value={field.value || ""}
                         disabled={loading}
                         rows={10}
                         className="resize-none"
@@ -234,6 +239,7 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({ initialData }) => {
                     <Input
                       placeholder="Image URL"
                       {...field}
+                      value={field.value || ""}
                       disabled={loading}
                     />
                   </FormControl>

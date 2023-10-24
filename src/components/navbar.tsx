@@ -7,8 +7,6 @@ import Image from "next/image";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { cva } from "class-variance-authority";
 import { cn } from "@/lib/utils";
-import darkLogo from "../../public/logo_2023_hex_letter_dark.svg";
-import lightLogo from "../../public/logo_2023_hex_letter_light.svg";
 import { useTheme } from "next-themes";
 import { Button } from "./ui/button";
 import { HamburgerMenuIcon, Cross2Icon } from "@radix-ui/react-icons";
@@ -95,7 +93,11 @@ export const NavBar: React.FC<NavBarProps> = ({ linksList = [] }) => {
         <div>
           <Link href="/" className="hidden lg:block">
             <Image
-              src={theme === "dark" ? darkLogo.src : lightLogo.src}
+              src={
+                theme === "dark"
+                  ? "/logo_2023_hex_letter_dark.svg"
+                  : "/logo_2023_hex_letter_light.svg"
+              }
               width={36}
               height={36}
               alt={"my-logo"}
@@ -128,9 +130,13 @@ export const NavBar: React.FC<NavBarProps> = ({ linksList = [] }) => {
               >
                 <Cross2Icon className="h-4 w-4 rotate-0 scale-100 transition-all fill-white" />
               </Button>
-              <Link href="/" className="self-center">
+              <Link href="/" className="self-center" onClick={setClose}>
                 <Image
-                  src={theme === "dark" ? darkLogo.src : lightLogo.src}
+                  src={
+                    theme === "dark"
+                      ? "/logo_2023_hex_letter_dark.svg"
+                      : "/logo_2023_hex_letter_light.svg"
+                  }
                   width={40}
                   height={40}
                   alt={"my-logo"}
