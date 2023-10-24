@@ -64,7 +64,7 @@ export const SelectMulti: React.FC<SelectMultiProps> = ({ list, onChange }) => {
         ))}
         <div className="box-border flex-auto">
           <input
-            className="outline-none min-w-[2px] bg-transparent"
+            className="outline-none w-full min-w-[2px] bg-transparent"
             value={text}
             onChange={(e) => setText(e.target.value)}
           />

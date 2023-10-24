@@ -32,7 +32,7 @@ model Project {
   github_url     String   @default("")
   deployment_url String   @default("")
   tags           String[]
-  image_url      String
+  image_url      String   @default("")
   createdAt      DateTime @default(now())
   updatedAt      DateTime @updatedAt
 }

@@ -10,7 +10,7 @@ const DashboardPage = async () => {
   const bio = await prismadb.bio.findFirst();
 
   return (
-    <main className="container min-h-[calc(100vh-110px)]">
+    <>
       <Heading title="Dashboard" description="Manage your profile!" />
       <Separator />
       <div className="grid lg:grid-cols-2 gap-4">
@@ -18,7 +18,7 @@ const DashboardPage = async () => {
         <SkillsForm initialData={skills || null} />
         {/* <ProjectForm initialData={null} /> */}
       </div>
-    </main>
+    </>
   );
 };
 

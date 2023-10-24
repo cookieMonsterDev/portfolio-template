@@ -37,7 +37,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <NavBar linksList={linksList} />
-      {children}
+      <main className="container min-h-[calc(100vh-110px)]">{children}</main>
       <Footer />
     </>
   );

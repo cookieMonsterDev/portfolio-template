@@ -24,6 +24,7 @@ export const POST = async (req: Request) => {
 
     return NextResponse.json(res);
   } catch (error) {
+    console.log(error)
     console.error("POST_PROJECTS");
     return new NextResponse("Internal error", { status: 500 });
   }
