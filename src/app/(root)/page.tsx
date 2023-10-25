@@ -11,13 +11,13 @@ const Home = async () => {
 
   const res = await fetch(`${base}/api/skills`);
 
-  const data = await res.json()
+
 
   return (
     <main className="w-full flex flex-col relative">
       <Hero />
       <About />
-      <Contact data={data}/>
+      <Contact data={res}/>
     </main>
   );
 };
