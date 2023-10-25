@@ -7,7 +7,7 @@ export const Contact = () => {
 
   console.log(`https://${process.env}`)
 
-  console.log(process.env)
+  console.log(process.env.NEXT_PUBLIC_VERCEL_URL)
 
   return (
     <section className="section flex items-center justify-center" id="contact">
