@@ -5,7 +5,7 @@ import { Button } from "../ui/button";
 
 export const Contact = () => {
 
-  console.log(`https://${process.env.VERCEL_URL!}`)
+  console.log(`https://${process.env}`)
 
   return (
     <section className="section flex items-center justify-center" id="contact">
