@@ -9,15 +9,15 @@ const Home = async () => {
       ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
       : process.env.NEXT_PUBLIC_SITE_URL;
 
-  const res = await axios.get(`${base}/api/skills`);
+  const res = await fetch(`${base}/api/skills`);
 
-  console.log(res)
+  const data = await res.json()
 
   return (
     <main className="w-full flex flex-col relative">
       <Hero />
       <About />
-      <Contact data={res}/>
+      <Contact data={data}/>
     </main>
   );
 };
