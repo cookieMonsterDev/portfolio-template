@@ -3,11 +3,13 @@ import Link from "next/link";
 import React from "react";
 import { Button } from "../ui/button";
 
-export const Contact = () => {
+export const Contact = ({ data }: {data: any}) => {
   console.log(
     process.env.NODE_ENV === "production"
       ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
       : process.env.NEXT_PUBLIC_SITE_URL)
+
+  console.log(data)
 
   return (
     <section className="section flex items-center justify-center" id="contact">

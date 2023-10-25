@@ -17,7 +17,7 @@ const Home = async () => {
     <main className="w-full flex flex-col relative">
       <Hero />
       <About />
-      <Contact />
+      <Contact data={data}/>
       <div>{JSON.stringify(data)}</div>
     </main>
   );
