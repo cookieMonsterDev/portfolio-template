@@ -1,5 +1,4 @@
 import { BioForm } from "@/components/forms/bio-form";
-import { ProjectForm } from "@/components/forms/project-form";
 import { SkillsForm } from "@/components/forms/skills-form";
 import { Heading } from "@/components/ui/heading";
 import { Separator } from "@/components/ui/separator";
