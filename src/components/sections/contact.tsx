@@ -1,8 +1,12 @@
+'use client'
 import Link from "next/link";
 import React from "react";
 import { Button } from "../ui/button";
 
 export const Contact = () => {
+
+  console.log(`https://${process.env.VERCEL_URL!}`)
+
   return (
     <section className="section flex items-center justify-center" id="contact">
       <div className="container flex flex-col items-center space-y-6">
