@@ -7,6 +7,8 @@ export const Contact = () => {
 
   console.log(`https://${process.env}`)
 
+  console.log(process.env)
+
   return (
     <section className="section flex items-center justify-center" id="contact">
       <div className="container flex flex-col items-center space-y-6">
