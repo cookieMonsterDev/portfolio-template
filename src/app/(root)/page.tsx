@@ -11,6 +11,8 @@ const Home = async () => {
 
   const { data } = await axios.get(`${base}/api/skills`);
 
+  console.log(data)
+
   return (
     <main className="w-full flex flex-col relative">
       <Hero />
