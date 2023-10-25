@@ -9,9 +9,9 @@ const Home = async () => {
       ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
       : process.env.NEXT_PUBLIC_SITE_URL;
 
-  const res = await fetch(`${base}/api/skills`);
+  const res = await axios.get(`${base}/api/skills`);
 
-
+  
 
   return (
     <main className="w-full flex flex-col relative">
