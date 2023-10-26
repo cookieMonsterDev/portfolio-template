@@ -6,11 +6,14 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { Bio, Skill } from "@prisma/client";
 
-export const About = async () => {
-  const bio = await prismadb.bio.findFirst();
-  const skills = await prismadb.skill.findMany();
+interface AboutProps {
+  bio: Bio | null;
+  skills: Skill[];
+}
 
+export const About: React.FC<AboutProps> = ({ bio, skills }) => {
   return (
     <section
       className="section flex items-center justify-center overflow-hidden"
@@ -50,5 +53,3 @@ export const About = async () => {
     </section>
   );
 };
-
-

@@ -4,25 +4,21 @@ import { Heading } from "@/components/ui/heading";
 import { Separator } from "@/components/ui/separator";
 import prismadb from "@/lib/prismadb";
 import { ProjectColumn, columns } from "./projects/components/columns";
-import { format } from "date-fns";
+import { format, parseISO } from "date-fns";
 import { DataTable } from "@/components/ui/data-table";
+import { innerApi } from "@/lib/axios";
 
 const DashboardPage = async () => {
-  const skills = await prismadb.skill.findMany();
-  const bio = await prismadb.bio.findFirst();
+  const { data: skills } = await innerApi.get("/api/skills");
+  const { data: bio } = await innerApi.get("/api/bio");
+  const { data: projects } = await innerApi.get("/api/projects");
 
-  const projects = await prismadb.project.findMany({
-    orderBy: {
-      createdAt: "desc",
-    },
-  });
-
-  const formatedProjects: ProjectColumn[] = projects.map((e) => ({
+  const formatedProjects: ProjectColumn[] = projects.map((e: any) => ({
     id: e.id,
     title: e.title,
     owner: e.owner,
-    createdAt: format(e.createdAt, "h:mma dd/MM/yyyy"),
-    updatedAt: format(e.updatedAt, "h:mma dd/MM/yyyy"),
+    createdAt: format(parseISO(e.createdAt), "h:mma dd/MM/yyyy"),
+    updatedAt: format(parseISO(e.updatedAt), "h:mma dd/MM/yyyy"),
   }));
 
   return (

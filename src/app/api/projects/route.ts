@@ -3,7 +3,11 @@ import { NextResponse } from "next/server";
 
 export const GET = async (_req: Request) => {
   try {
-    const res = await prismadb.project.findMany();
+    const res = await prismadb.project.findMany({
+      orderBy: {
+        createdAt: "desc",
+      },
+    });
 
     return NextResponse.json(res);
   } catch (error) {
@@ -24,7 +28,7 @@ export const POST = async (req: Request) => {
 
     return NextResponse.json(res);
   } catch (error) {
-    console.log(error)
+    console.log(error);
     console.error("POST_PROJECTS");
     return new NextResponse("Internal error", { status: 500 });
   }
