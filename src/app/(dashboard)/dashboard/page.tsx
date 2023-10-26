@@ -2,16 +2,29 @@ import { BioForm } from "@/components/forms/bio-form";
 import { SkillsForm } from "@/components/forms/skills-form";
 import { Heading } from "@/components/ui/heading";
 import { Separator } from "@/components/ui/separator";
-import prismadb from "@/lib/prismadb";
 import { ProjectColumn, columns } from "./projects/components/columns";
 import { format, parseISO } from "date-fns";
 import { DataTable } from "@/components/ui/data-table";
-import { innerApi } from "@/lib/axios";
+import axios from "axios";
+import { headers, cookies } from "next/headers";
 
 const DashboardPage = async () => {
-  const { data: skills } = await innerApi.get("/api/skills");
-  const { data: bio } = await innerApi.get("/api/bio");
-  const { data: projects } = await innerApi.get("/api/projects");
+  const baseURL =
+    process.env.NODE_ENV === "production"
+      ? `https://${headers().get("Host")}`
+      : process.env.NEXT_PUBLIC_SITE_URL;
+
+  const h = { cookie: cookies().toString() };
+
+  const { data: skills } = await axios.get(`${baseURL}/api/skills`, {
+    headers: h,
+  });
+  const { data: bio } = await axios.get(`${baseURL}/api/bio`, {
+    headers: h,
+  });
+  const { data: projects } = await axios.get(`${baseURL}/api/projects`, {
+    headers: h,
+  });
 
   const formatedProjects: ProjectColumn[] = projects.map((e: any) => ({
     id: e.id,
