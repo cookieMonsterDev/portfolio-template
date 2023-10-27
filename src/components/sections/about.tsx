@@ -26,7 +26,7 @@ export const About: React.FC<AboutProps> = ({ bio, skills }) => {
           <h4 className="font-bold text-xl mb-2">
             Here are some of my skills:
           </h4>
-          <ul className="list-none grid md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-1">
+          <ul className="list-none grid  md:grid-cols-3 lg:grid-cols-4 gap-x-20 gap-y-1">
             {skills.map((e) => (
               <TooltipProvider key={e.id}>
                 <Tooltip>

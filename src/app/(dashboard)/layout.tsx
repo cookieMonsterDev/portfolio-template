@@ -15,8 +15,8 @@ const linksList = [
     href: "/dashboard/projects",
   },
   {
-    name: "Posts",
-    href: "/dashboard/posts",
+    name: "Blog",
+    href: "/dashboard/blog",
   },
 ];
 
@@ -37,7 +37,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <NavBar linksList={linksList} />
-      <main className="container min-h-[calc(100vh-110px)]">{children}</main>
+      <main className="container min-h-[calc(100vh-150px)]">{children}</main>
       <Footer />
     </>
   );

@@ -25,7 +25,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <NavBar linksList={linksList} />
-      {children}
+      <main className="container min-h-[calc(100vh-150px)]">{children}</main>
       <Footer />
     </>
   );

@@ -1,29 +1,31 @@
-"use client";
 import { ProjectCard } from "@/components/project-card";
-import { Button } from "@/components/ui/button";
+import { Project } from "@prisma/client";
 import axios from "axios";
+import { cookies, headers } from "next/headers";
 import Link from "next/link";
 
-const ProjectsPage = () => {
+const ProjectsPage = async () => {
+  const baseURL =
+    process.env.NODE_ENV === "production"
+      ? `https://${headers().get("Host")}`
+      : process.env.NEXT_PUBLIC_SITE_URL;
+
+  const h = { cookie: cookies().toString() };
+
+  const { data: projects } = await axios.get(`${baseURL}/api/projects`, {
+    headers: h,
+  });
+
   return (
-    <main className="container">
+    <div className="pt-[52px]">
       <div className="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4">
-        <Button
-          onClick={async () => {
-            try {
-              axios.post("/api/skills", {
-                name: "1",
-                test: "1234",
-              });
-            } catch (error) {
-              console.log(error);
-            }
-          }}
-        >
-          etst
-        </Button>
+        {projects.map((e: Project) => (
+          <Link href={`/projects/${e.id}`}>
+            <ProjectCard title={e.title} description={e.desc} />
+          </Link>
+        ))}
       </div>
-    </main>
+    </div>
   );
 };
 
