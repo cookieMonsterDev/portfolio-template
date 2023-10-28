@@ -2,12 +2,12 @@ import React, { useMemo, useRef } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import "./quill.css";
+import { uploadImage } from "@/lib/firebase";
 
 interface QuillProps {
   value: string;
   onChange: (item: string) => void;
 }
-
 
 const Quill: React.FC<QuillProps> = ({ value, onChange }) => {
   const editorRef = useRef<any>(null);
@@ -21,25 +21,14 @@ const Quill: React.FC<QuillProps> = ({ value, onChange }) => {
 
     input.onchange = async () => {
       const file: File | null = input.files ? input.files[0] : null;
-      const formData = new FormData();
 
       if (!file) return;
 
-      formData.append("image", file);
-      const fileName = file.name;
+      const url = await uploadImage(file.name, file);
 
-      const reader = new FileReader();
+      if (!url) return;
 
-      reader.onload = (e) => {
-        if (e.target) {
-          const imageUrl: string | null = e.target.result as string;
-          if (imageUrl) {
-            insertToEditor(imageUrl);
-          }
-        }
-      };
-
-      reader.readAsDataURL(file);
+      insertToEditor(url);
     };
   };
 
