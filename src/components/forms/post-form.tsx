@@ -17,9 +17,7 @@ import {
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { Save } from "lucide-react";
-
-import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css";
+import Quill from "../quill/quill";
 
 interface SkillsFormProps {
   initialData: Post | null;
@@ -101,13 +99,16 @@ export const PostForm: React.FC<SkillsFormProps> = ({ initialData }) => {
               <FormItem>
                 <FormLabel>Content*</FormLabel>
                 <FormControl>
-                  <ReactQuill theme="snow" {...field} className="rounded-full" />
+                  <Quill
+                    value={field.value}
+                    onChange={(e) => field.onChange(e)}
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
             )}
           />
-          <div className="pt-6 space-x-2 flex items-center justify-end w-full">
+          <div className="pt-4 pb-4 space-x-2 flex items-center justify-end w-full">
             <Button type="submit" disabled={loading}>
               <Save className="w-4 h-4 mr-2" />
               {buttonText}
