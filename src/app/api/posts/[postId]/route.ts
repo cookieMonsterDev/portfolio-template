@@ -7,6 +7,23 @@ interface Params {
   };
 }
 
+export const GET = async (req: Request, { params }: Params) => {
+  try {
+    if (params.postId === "new") return NextResponse.json(null);
+
+    const res = await prismadb.post.findUnique({
+      where: {
+        id: params.postId,
+      },
+    });
+
+    return NextResponse.json(res);
+  } catch (error) {
+    console.error("GET_POST");
+    return new NextResponse("Internal error", { status: 500 });
+  }
+};
+
 export const PATCH = async (req: Request, { params }: Params) => {
   try {
     const body = await req.json();
@@ -37,7 +54,7 @@ export const DELETE = async (_req: Request, { params }: Params) => {
 
     return NextResponse.json(res);
   } catch (error) {
-    console.error("PATCH_POST");
+    console.error("DELETE_POST");
     return new NextResponse("Internal error", { status: 500 });
   }
 };

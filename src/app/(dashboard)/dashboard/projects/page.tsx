@@ -1,25 +1,32 @@
-import prismadb from "@/lib/prismadb";
 import { ProjectColumn, columns } from "./components/columns";
 import { Heading } from "@/components/ui/heading";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
 import { DataTable } from "@/components/ui/data-table";
-import { format } from "date-fns";
+import { format, parseISO } from "date-fns";
+import { cookies, headers } from "next/headers";
+import axios from "axios";
+import { Project } from "@prisma/client";
 
 const ProjectsPage = async () => {
-  const projects = await prismadb.project.findMany({
-    orderBy: {
-      createdAt: "desc",
-    },
+  const baseURL =
+    process.env.NODE_ENV === "production"
+      ? `https://${headers().get("Host")}`
+      : process.env.NEXT_PUBLIC_SITE_URL;
+
+  const h = { cookie: cookies().toString() };
+
+  const { data: projects } = await axios.get(`${baseURL}/api/projects`, {
+    headers: h,
   });
 
-  const formatedProjects: ProjectColumn[] = projects.map((e) => ({
+  const formatedProjects: ProjectColumn[] = projects.map((e: any) => ({
     id: e.id,
     title: e.title,
     owner: e.owner,
-    createdAt: format(e.createdAt, "h:mma dd/MM/yyyy"),
-    updatedAt: format(e.updatedAt, "h:mma dd/MM/yyyy"),
+    createdAt: format(parseISO(e.createdAt), "h:mma dd/MM/yyyy"),
+    updatedAt: format(parseISO(e.updatedAt), "h:mma dd/MM/yyyy"),
   }));
 
   return (
@@ -33,7 +40,12 @@ const ProjectsPage = async () => {
           </Button>
         </Link>
       </div>
-      <DataTable columns={columns} data={formatedProjects} searchKey="title" isSearch={false}/>
+      <DataTable
+        columns={columns}
+        data={formatedProjects}
+        searchKey="title"
+        isSearch={false}
+      />
     </>
   );
 };

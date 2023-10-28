@@ -9,6 +9,8 @@ interface Params {
 
 export const GET = async (_req: Request, { params }: Params) => {
   try {
+    if (params.projectId === "new") return NextResponse.json(null);
+
     const res = await prismadb.project.findMany({
       where: {
         id: params.projectId,

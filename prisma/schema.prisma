@@ -28,11 +28,11 @@ model Project {
   id             String   @id @default(auto()) @map("_id") @db.ObjectId
   title          String
   owner          String
-  desc           String? 
-  github_url     String?   
-  deployment_url String?  
+  desc           String?
+  github_url     String?
+  deployment_url String?
   tags           String[]
-  image_url      String?   
+  image_url      String?
   createdAt      DateTime @default(now())
   updatedAt      DateTime @updatedAt
 }
@@ -40,6 +40,7 @@ model Project {
 model Post {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   title     String
+  desc      String
   content   String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

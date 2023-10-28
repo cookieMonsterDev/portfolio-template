@@ -1,5 +1,7 @@
 import { ProjectForm } from "@/components/forms/project-form";
 import prismadb from "@/lib/prismadb";
+import axios from "axios";
+import { cookies, headers } from "next/headers";
 import React from "react";
 
 interface ProjectPageProps {
@@ -9,15 +11,19 @@ interface ProjectPageProps {
 }
 
 const ProjectPage = async ({ params }: ProjectPageProps) => {
-  let project = null;
+  const baseURL =
+    process.env.NODE_ENV === "production"
+      ? `https://${headers().get("Host")}`
+      : process.env.NEXT_PUBLIC_SITE_URL;
 
-  if (params.projectId.length > 12) {
-    project = await prismadb.project.findUnique({
-      where: {
-        id: params.projectId,
-      },
-    });
-  }
+  const h = { cookie: cookies().toString() };
+
+  const { data: project } = await axios.get(
+    `${baseURL}/api/projects/${params.projectId}`,
+    {
+      headers: h,
+    }
+  );
 
   return <ProjectForm initialData={project} />;
 };
