@@ -28,9 +28,9 @@ interface SkillsFormProps {
 }
 
 const formSchema = z.object({
-  title: z.string().min(10),
-  desc: z.string().min(50),
-  content: z.string().min(100),
+  title: z.string().min(1),
+  desc: z.string().min(10),
+  content: z.string().min(50),
 });
 
 export const PostForm: React.FC<SkillsFormProps> = ({ initialData }) => {
