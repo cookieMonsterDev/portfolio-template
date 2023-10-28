@@ -20,8 +20,8 @@ const ProjectsPage = async () => {
     <div className="pt-[52px]">
       <div className="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4">
         {projects.map((e: Project) => (
-          <Link href={`/projects/${e.id}`}>
-            <ProjectCard title={e.title} description={e.desc} />
+          <Link href={`/projects/${e.id}`} key={e.id}>
+            <ProjectCard title={e.title} description={e.desc || ""} />
           </Link>
         ))}
       </div>
