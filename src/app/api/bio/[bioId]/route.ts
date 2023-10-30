@@ -29,7 +29,6 @@ export const PATCH = async (req: Request, { params }: Params) => {
 
     return NextResponse.json(res);
   } catch (error) {
-    console.log(error);
     console.error("PATCH_BIO");
     return new NextResponse("Internal error", { status: 500 });
   }

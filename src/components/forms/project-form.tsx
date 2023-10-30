@@ -23,6 +23,7 @@ import { toast } from "react-hot-toast";
 import { Input } from "../ui/input";
 import { SelectMulti } from "@/components/ui/select-multi";
 import { AlertModal } from "@/components/modals/alert-modal";
+import ImageUpload from "../ui/image-uploda";
 
 interface ProjectFormProps {
   initialData: null | Project;
@@ -31,19 +32,17 @@ interface ProjectFormProps {
 const formSchema = z.object({
   title: z.string().min(1).max(100),
   owner: z.string().min(1).max(100),
-  desc: z.string().nullable(),
-  github_url: z.string().url().nullable(),
-  deployment_url: z.string().url().nullable(),
+  desc: z.string().nullable().optional(),
+  github_url: z.string().url().nullable().optional(),
+  deployment_url: z.string().url().nullable().optional(),
   tags: z.string().array(),
-  image_url: z.string().url().nullable(),
+  image_url: z.string().url().nullable().optional(),
 });
 
 export const ProjectForm: React.FC<ProjectFormProps> = ({ initialData }) => {
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const router = useRouter();
-
-  console.log(initialData);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -68,7 +67,6 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({ initialData }) => {
         await axios.post(`/api/projects/`, values);
       }
 
-      
       router.push(`/dashboard/projects`);
       router.refresh();
       toast.success(successToast);
@@ -238,9 +236,9 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({ initialData }) => {
                 <FormItem>
                   <FormLabel>Image URL</FormLabel>
                   <FormControl>
-                    <Input
-                      placeholder="Image URL"
-                      {...field}
+                    <ImageUpload
+                      onChange={(url) => field.onChange(url)}
+                      onRemove={() => field.onChange(null)}
                       value={field.value || ""}
                       disabled={loading}
                     />

@@ -11,7 +11,7 @@ export const GET = async (_req: Request, { params }: Params) => {
   try {
     if (params.projectId === "new") return NextResponse.json(null);
 
-    const res = await prismadb.project.findMany({
+    const res = await prismadb.project.findUnique({
       where: {
         id: params.projectId,
       },

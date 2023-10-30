@@ -16,17 +16,24 @@ const app = initializeApp(firebaseConfig);
 
 export const fireStore = getStorage(app);
 
-export const uploadImage = async (imageName: string, image: File) => {
+export const uploadImage = async (
+  imageName: string,
+  image: File
+): Promise<string | null> => {
   try {
     const imageRef = ref(
       fireStore,
       `images/${imageName + crypto.randomUUID()}`
     );
+
     await uploadBytes(imageRef, image);
+
     const url = await getDownloadURL(imageRef);
+
     return url;
   } catch (error) {
     toast.error("Something went wrong!");
     console.error(error);
+    return null;
   }
 };

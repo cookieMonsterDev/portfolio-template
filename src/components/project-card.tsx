@@ -5,27 +5,64 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import Image from "next/image";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import { cn } from "@/lib/utils";
+
+import { Project } from "@prisma/client";
+import { Image } from "lucide-react";
+import NextImage from "next/image";
 
 interface ProjectCardProps {
-  title: string;
-  description: string;
-  imgUrl?: string;
+  data: Project;
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({
-  title,
-  description,
-  imgUrl,
+  data: { title, owner, image_url },
 }) => {
   return (
     <Card>
-      <CardContent>
-        <Image src={""} alt="project-img" width={10} height={10} className="" />
+      <CardContent className="pt-6 relative w-full aspect-video rounded-md overflow-hidden flex justify-center items-center">
+        <NextImage
+          src={image_url || "/no_image.jpg"}
+          alt="project-img"
+          width={500}
+          height={500}
+          className={cn(
+            "w-full h-full object-cover",
+            !image_url ? "object-contain" : ""
+          )}
+        />
       </CardContent>
       <CardHeader>
-        <CardTitle>{title}</CardTitle>
-        <CardDescription>{description}</CardDescription>
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger>
+              <CardTitle className="text-xl overflow-hidden text-ellipsis text-left">
+                {title}
+              </CardTitle>
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>{title}</p>
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger>
+              <CardDescription className="text-sm overflow-hidden text-ellipsis text-left">
+                {owner}
+              </CardDescription>
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>{owner}</p>
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
       </CardHeader>
     </Card>
   );
