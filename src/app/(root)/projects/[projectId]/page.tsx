@@ -1,10 +1,9 @@
 import { Heading } from "@/components/ui/heading";
-import { cn } from "@/lib/utils";
+import { ImageLazy } from "@/components/ui/image-lazy";
 import { ProjectTag } from "@prisma/client";
 import axios from "axios";
 import { GanttChartSquare, Github, ImageOff } from "lucide-react";
 import { cookies, headers } from "next/headers";
-import Image from "next/image";
 import Link from "next/link";
 
 interface ProjectPageProps {
@@ -46,15 +45,11 @@ const ProjectPage = async ({ params }: ProjectPageProps) => {
       </div>
       <div className="hidden lg:flex">
         {project.image_url ? (
-          <Image
+          <ImageLazy
             src={project.image_url || "/no_image.jpg"}
             alt="project-img"
             width={500}
             height={500}
-            className={cn(
-              "lg:flex w-full h-full object-cover rounded-lg",
-              !project.image_url ? "object-contain" : ""
-            )}
           />
         ) : (
           <div className="hidden w-full h-full lg:flex justify-center items-center border rounded-lg dark:border-slate-800">

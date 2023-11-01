@@ -11,11 +11,10 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { cn } from "@/lib/utils";
 
 import { Project } from "@prisma/client";
 import { ImageOff } from "lucide-react";
-import NextImage from "next/image";
+import { ImageLazy } from "./ui/image-lazy";
 
 interface ProjectCardProps {
   data: Project;
@@ -28,15 +27,12 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
     <Card>
       <CardContent className="pt-4 pb-0 px-4 relative w-full aspect-video rounded-md overflow-hidden flex justify-center items-center">
         {image_url ? (
-          <NextImage
+          <ImageLazy
             src={image_url || "/no_image.jpg"}
             alt="project-img"
             width={500}
             height={500}
-            className={cn(
-              "w-full h-full object-cover rounded-lg",
-              !image_url ? "object-contain" : ""
-            )}
+            loading="lazy"
           />
         ) : (
           <div className="w-full h-full flex justify-center items-center border rounded-lg dark:border-slate-800">
