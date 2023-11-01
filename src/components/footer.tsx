@@ -4,7 +4,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { Github, Linkedin, Send } from "lucide-react";
+import { AtSign, Github, Linkedin, Send } from "lucide-react";
 import Link from "next/link";
 
 const socials = [
@@ -23,6 +23,11 @@ const socials = [
     label: "Telegram",
     icon: <Send className="w-6 h-6" />,
   },
+  {
+    href: "mailto: mykhailo.toporkov@gmail.com",
+    label: "Gmail",
+    icon: <AtSign className="w-6 h-6" />,
+  },
 ];
 
 export const Footer = () => {
@@ -34,7 +39,12 @@ export const Footer = () => {
             <TooltipProvider key={e.href}>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <Link href={e.href} className="opacity-50 hover:opacity-100 transition-opacity duration-300">{e.icon}</Link>
+                  <Link
+                    href={e.href}
+                    className="opacity-50 hover:opacity-100 transition-opacity duration-300"
+                  >
+                    {e.icon}
+                  </Link>
                 </TooltipTrigger>
                 <TooltipContent>
                   <p>{e.label}</p>

@@ -15,8 +15,11 @@ export const GET = async (_req: Request, { params }: Params) => {
       where: {
         id: params.projectId,
       },
+      include: {
+        tags: true,
+      },
     });
-    
+
     return NextResponse.json(res);
   } catch (error) {
     console.error("GET_PROJECT");

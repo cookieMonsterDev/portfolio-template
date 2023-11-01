@@ -31,7 +31,7 @@ const ProjectsPage = async () => {
   return (
     <>
       <div className="flex items-center justify-between p-8 pt-6">
-        <Heading title={`Projects: (${formatedProjects.length})`} />
+        <Heading title={`Projects: (${formatedProjects.length})`} description="Manage your projects here!"/>
         <Link href="/dashboard/projects/new">
           <Button>
             <Plus className="w-4 h-4 mr-2" />

@@ -37,8 +37,6 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
 
       if (!url) return;
 
-      console.log(url);
-
       onChange(url);
     } catch (error) {
       toast.error("Something went wrong!");

@@ -25,16 +25,27 @@ model Skill {
 }
 
 model Project {
-  id             String   @id @default(auto()) @map("_id") @db.ObjectId
+  id             String       @id @default(auto()) @map("_id") @db.ObjectId
   title          String
   owner          String
   desc           String?
   github_url     String?
   deployment_url String?
-  tags           String[]
+  tags           ProjectTag[] @relation("TagToProject")
   image_url      String?
-  createdAt      DateTime @default(now())
-  updatedAt      DateTime @updatedAt
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+}
+
+model ProjectTag {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  title     String
+  projectId String   @db.ObjectId
+  project   Project  @relation("TagToProject", fields: [projectId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([projectId])
 }
 
 model Post {

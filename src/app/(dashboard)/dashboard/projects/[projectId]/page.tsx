@@ -1,5 +1,4 @@
 import { ProjectForm } from "@/components/forms/project-form";
-import prismadb from "@/lib/prismadb";
 import axios from "axios";
 import { cookies, headers } from "next/headers";
 import React from "react";
@@ -25,7 +24,14 @@ const ProjectPage = async ({ params }: ProjectPageProps) => {
     }
   );
 
-  return <ProjectForm initialData={project} />;
+  const { data: tags } = await axios.get(
+    `${baseURL}/api/project-tags?projectId=${params.projectId}`,
+    {
+      headers: h,
+    }
+  );
+
+  return <ProjectForm initialProject={project} initialTags={tags} />;
 };
 
 export default ProjectPage;

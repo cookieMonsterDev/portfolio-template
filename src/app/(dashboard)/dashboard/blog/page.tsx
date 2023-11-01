@@ -30,7 +30,7 @@ const BlogPage = async () => {
   return (
     <>
       <div className="flex items-center justify-between p-8 pt-6">
-        <Heading title={`Posts: (${posts.length})`} />
+        <Heading title={`Posts: (${posts.length})`} description="Manage your posts here!"/>
         <Link href="/dashboard/blog/new">
           <Button>
             <Plus className="w-4 h-4 mr-2" />

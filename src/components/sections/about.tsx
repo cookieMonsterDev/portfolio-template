@@ -1,4 +1,3 @@
-import prismadb from "@/lib/prismadb";
 import { Circle } from "lucide-react";
 import {
   Tooltip,
@@ -22,11 +21,11 @@ export const About: React.FC<AboutProps> = ({ bio, skills }) => {
       <div className="container flex flex-col space-y-4 items-center md:max-w-[60rem] lg:max-w-[60rem]">
         <h3 className="text-center text-5xl font-bold mb-6">About Me</h3>
         <p className="md:max-w-[60rem] lg:max-w-[60rem]">{bio?.text}</p>
-        <div className="self-start">
+        <div className="self-start w-full">
           <h4 className="font-bold text-xl mb-2">
             Here are some of my skills:
           </h4>
-          <ul className="list-none grid  md:grid-cols-3 lg:grid-cols-4 gap-x-20 gap-y-1">
+          <ul className="w-full list-none grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-1">
             {skills.map((e) => (
               <TooltipProvider key={e.id}>
                 <Tooltip>

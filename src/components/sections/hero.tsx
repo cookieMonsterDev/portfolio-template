@@ -11,9 +11,7 @@ export const Hero = () => {
             aria-label="Hi, I’m  Mykhailo, JavaScript engineer"
             className="text-4xl font-extrabold space-y-3 mb-6 lg:text-7xl"
           >
-            <p aria-hidden className="">
-              Hi,
-            </p>
+            <p aria-hidden>Hi,</p>
             <p aria-hidden>I&apos;m Mykhailo,</p>
             <p aria-hidden>Full-Stack Engineer</p>
           </h1>
@@ -26,7 +24,6 @@ export const Hero = () => {
             </Link>
           </div>
         </div>
-        <div className="hidden flex-1 lg:flex pt-40 justify-center">test 2</div>
       </div>
     </section>
   );

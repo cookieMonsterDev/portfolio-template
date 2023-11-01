@@ -15,18 +15,19 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "../ui/button";
 import { Heading } from "@/components/ui/heading";
 import { Save, Trash } from "lucide-react";
-import { Project } from "@prisma/client";
+import { Project, ProjectTag } from "@prisma/client";
 import { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { toast } from "react-hot-toast";
 import { Input } from "../ui/input";
-import { SelectMulti } from "@/components/ui/select-multi";
 import { AlertModal } from "@/components/modals/alert-modal";
 import ImageUpload from "../ui/image-uploda";
+import { ProjectTags } from "./project-tags";
 
 interface ProjectFormProps {
-  initialData: null | Project;
+  initialProject: null | Project;
+  initialTags: null | ProjectTag[];
 }
 
 const formSchema = z.object({
@@ -35,25 +36,27 @@ const formSchema = z.object({
   desc: z.string().nullable().optional(),
   github_url: z.string().url().nullable().optional(),
   deployment_url: z.string().url().nullable().optional(),
-  tags: z.string().array(),
   image_url: z.string().url().nullable().optional(),
 });
 
-export const ProjectForm: React.FC<ProjectFormProps> = ({ initialData }) => {
+export const ProjectForm: React.FC<ProjectFormProps> = ({
+  initialProject,
+  initialTags,
+}) => {
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
-    defaultValues: initialData || {
+    defaultValues: initialProject || {
       title: "",
       owner: "",
     },
   });
 
-  const buttonText = initialData ? "Save Changes" : "Create Project";
-  const successToast = initialData
+  const buttonText = initialProject ? "Save Changes" : "Create Project";
+  const successToast = initialProject
     ? "Project has been updated."
     : "Project has been created.";
 
@@ -61,8 +64,8 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({ initialData }) => {
     try {
       setLoading(true);
 
-      if (initialData) {
-        await axios.patch(`/api/projects/${initialData.id}`, values);
+      if (initialProject) {
+        await axios.patch(`/api/projects/${initialProject.id}`, values);
       } else {
         await axios.post(`/api/projects/`, values);
       }
@@ -79,11 +82,11 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({ initialData }) => {
 
   const onDelete = async () => {
     try {
-      if (!initialData) return;
+      if (!initialProject) return;
 
       setLoading(true);
 
-      await axios.delete(`/api/projects/${initialData.id}`);
+      await axios.delete(`/api/projects/${initialProject.id}`);
 
       router.refresh();
       router.push("/dashboard/projects");
@@ -110,7 +113,7 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({ initialData }) => {
             title="Project"
             description="Manage your project data here!"
           />
-          {initialData && (
+          {initialProject && (
             <Button
               disabled={loading}
               variant="destructive"
@@ -211,24 +214,15 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({ initialData }) => {
                 )}
               />
             </div>
-            <div className="col-span-1">
-              <FormField
-                control={form.control}
-                name="tags"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Tags</FormLabel>
-                    <FormControl>
-                      <SelectMulti
-                        list={field.value ? field.value : []}
-                        onChange={(url) => field.onChange(url)}
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-            </div>
+            {initialProject && (
+              <div className="col-span-1">
+                <ProjectTags
+                  data={initialTags || []}
+                  disabled={loading}
+                  projectId={initialProject.id}
+                />
+              </div>
+            )}
             <FormField
               control={form.control}
               name="image_url"
