@@ -14,7 +14,7 @@ import {
 import { cn } from "@/lib/utils";
 
 import { Project } from "@prisma/client";
-import { Image } from "lucide-react";
+import { ImageOff } from "lucide-react";
 import NextImage from "next/image";
 
 interface ProjectCardProps {
@@ -26,17 +26,23 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
 }) => {
   return (
     <Card>
-      <CardContent className="pt-6 relative w-full aspect-video rounded-md overflow-hidden flex justify-center items-center">
-        <NextImage
-          src={image_url || "/no_image.jpg"}
-          alt="project-img"
-          width={500}
-          height={500}
-          className={cn(
-            "w-full h-full object-cover",
-            !image_url ? "object-contain" : ""
-          )}
-        />
+      <CardContent className="pt-4 pb-0 px-4 relative w-full aspect-video rounded-md overflow-hidden flex justify-center items-center">
+        {image_url ? (
+          <NextImage
+            src={image_url || "/no_image.jpg"}
+            alt="project-img"
+            width={500}
+            height={500}
+            className={cn(
+              "w-full h-full object-cover rounded-lg",
+              !image_url ? "object-contain" : ""
+            )}
+          />
+        ) : (
+          <div className="w-full h-full flex justify-center items-center border rounded-lg dark:border-slate-800">
+            <ImageOff className="w-20 h-20" />
+          </div>
+        )}
       </CardContent>
       <CardHeader>
         <TooltipProvider>

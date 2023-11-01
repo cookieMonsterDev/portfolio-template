@@ -1,12 +1,22 @@
 import prismadb from "@/lib/prismadb";
 import { NextResponse } from "next/server";
 
-export const GET = async (_req: Request) => {
+export const GET = async (req: Request) => {
   try {
+    const { searchParams } = new URL(req.url);
+    const title = searchParams.get("title") || undefined;
+
     const res = await prismadb.project.findMany({
       orderBy: {
         createdAt: "desc",
       },
+      where: title ? {
+        tags: {
+          some: {
+            title: title
+          }
+        }
+      } : {},
       include: {
         tags: true
       }

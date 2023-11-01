@@ -36,7 +36,6 @@ export const ProjectTags: React.FC<ProjectTagsProps> = ({
   disabled,
   projectId,
 }) => {
-  console.log(data);
   const router = useRouter();
   const [title, setTitle] = useState("");
   const [focus, setFocus] = useState(false);
