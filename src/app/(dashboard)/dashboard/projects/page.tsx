@@ -7,7 +7,6 @@ import { DataTable } from "@/components/ui/data-table";
 import { format, parseISO } from "date-fns";
 import { cookies, headers } from "next/headers";
 import axios from "axios";
-import { Project } from "@prisma/client";
 
 const ProjectsPage = async () => {
   const baseURL =

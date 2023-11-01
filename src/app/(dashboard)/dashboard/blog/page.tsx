@@ -1,9 +1,12 @@
 import { Button } from "@/components/ui/button";
+import { DataTable } from "@/components/ui/data-table";
 import { Heading } from "@/components/ui/heading";
 import axios from "axios";
 import { Plus } from "lucide-react";
 import { cookies, headers } from "next/headers";
 import Link from "next/link";
+import { columns } from "./components/columns";
+import { format, parseISO } from "date-fns";
 
 const BlogPage = async () => {
   const baseURL =
@@ -17,6 +20,13 @@ const BlogPage = async () => {
     headers: h,
   });
 
+  const formatedPosts = posts.map((e: any) => ({
+    id: e.id,
+    title: e.title,
+    createdAt: format(parseISO(e.createdAt), "h:mma dd/MM/yyyy"),
+    updatedAt: format(parseISO(e.updatedAt), "h:mma dd/MM/yyyy"),
+  }));
+
   return (
     <>
       <div className="flex items-center justify-between p-8 pt-6">
@@ -28,12 +38,12 @@ const BlogPage = async () => {
           </Button>
         </Link>
       </div>
-      {/* <DataTable
+      <DataTable
         columns={columns}
-        data={formatedProjects}
+        data={formatedPosts}
         searchKey="title"
         isSearch={false}
-      /> */}
+      />
     </>
   );
 };

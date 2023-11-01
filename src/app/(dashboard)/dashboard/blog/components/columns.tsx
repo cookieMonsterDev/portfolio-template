@@ -1,7 +1,6 @@
 "use client";
-
 import { ColumnDef } from "@tanstack/react-table";
-import { Project as PrismaProject } from "@prisma/client";
+import { Post } from "@prisma/client";
 import { CellAction } from "./cell-action";
 
 import {
@@ -11,12 +10,12 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 
-export type ProjectColumn = Pick<PrismaProject, "id" | "title" | "owner"> & {
+export type PostColumn = Pick<Post, "id" | "title" > & {
   createdAt: string;
   updatedAt: string;
 };
 
-export const columns: ColumnDef<ProjectColumn>[] = [
+export const columns: ColumnDef<PostColumn>[] = [
   {
     accessorKey: "title",
     header: "Title",
@@ -31,26 +30,6 @@ export const columns: ColumnDef<ProjectColumn>[] = [
             </TooltipTrigger>
             <TooltipContent>
               <p>{title}</p>
-            </TooltipContent>
-          </Tooltip>
-        </TooltipProvider>
-      );
-    },
-  },
-  {
-    accessorKey: "owner",
-    header: "Owner",
-    cell: ({ row }) => {
-      const owner = row.original.owner;
-
-      return (
-        <TooltipProvider>
-          <Tooltip>
-            <TooltipTrigger className="max-w-[20rem] overflow-hidden text-ellipsis">
-              {owner}
-            </TooltipTrigger>
-            <TooltipContent>
-              <p>{owner}</p>
             </TooltipContent>
           </Tooltip>
         </TooltipProvider>

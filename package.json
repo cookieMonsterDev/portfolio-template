@@ -27,7 +27,7 @@
     "encoding": "^0.1.13",
     "firebase": "^10.5.2",
     "lucide-react": "^0.287.0",
-    "next": "13.5.4",
+    "next": "^14.0.1",
     "next-themes": "^0.2.1",
     "npm": "^10.2.0",
     "quill-image-resize-module-ts": "^3.0.3",

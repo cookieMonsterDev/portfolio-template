@@ -44,7 +44,7 @@ export const Footer = () => {
           ))}
         </div>
         <p className="opacity-50 text-sm">
-          Designed & Build by Mykhailo Toporkov
+          &copy; Designed & Build by Mykhailo Toporkov 2023
         </p>
       </div>
     </footer>
