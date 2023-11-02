@@ -1,5 +1,4 @@
-import { type ClassValue, clsx } from "clsx";
-import { NextResponse } from "next/server";
+import { type ClassValue, clsx } from "clsx";;
 import { twMerge } from "tailwind-merge";
 import { ZodSchema } from "zod";
 
