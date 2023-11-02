@@ -57,7 +57,7 @@ const ProjectPage = async ({ params }: ProjectPageProps) => {
           </div>
         )}
       </div>
-      <div className="col-span-2 flex">
+      <div className="col-span-2 flex gap-2">
         {project.github_url && (
           <Link
             href={project.github_url}
