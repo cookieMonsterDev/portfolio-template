@@ -1,0 +1,7 @@
+.quill > .ql-toolbar {
+  @apply rounded-t-md border border-slate-200 dark:border-slate-800;
+}
+
+.quill > .ql-container {
+  @apply rounded-b-md border border-slate-200 dark:border-slate-800 min-h-[25rem];
+}

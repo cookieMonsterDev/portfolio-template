@@ -1,0 +1,7 @@
+.quill > .ql-container {
+  border: none;
+}
+
+.quill .ql-editor {
+  padding: 0;
+}

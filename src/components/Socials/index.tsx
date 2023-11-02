@@ -1,1 +1,0 @@
-export { SocialsComponent as Socials } from './Socials.component';
