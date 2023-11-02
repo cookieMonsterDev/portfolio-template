@@ -3,7 +3,7 @@ import { ref, getStorage, uploadBytes, getDownloadURL } from "firebase/storage";
 import { toast } from "react-hot-toast";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDAzs6eo-sUHTF9xfdx3J1V0w297MFkA4Q",
+  apiKey: process.env.NEXT_PUBLIC_API_KEY,
   authDomain: "portfolio-template-c4db5.firebaseapp.com",
   projectId: "portfolio-template-c4db5",
   storageBucket: "portfolio-template-c4db5.appspot.com",
