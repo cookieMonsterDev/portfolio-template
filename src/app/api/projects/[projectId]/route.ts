@@ -57,7 +57,7 @@ export const DELETE = async (_req: Request, { params }: Params) => {
 
     return NextResponse.json(res);
   } catch (error) {
-    console.error("PATCH_PROJECT");
+    console.error("DELETE_PROJECT");
     return new NextResponse("Internal error", { status: 500 });
   }
 };

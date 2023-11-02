@@ -31,7 +31,7 @@ model Project {
   desc           String?
   github_url     String?
   deployment_url String?
-  tags           ProjectTag[] @relation("TagToProject")
+  tags           ProjectTag[] @relation("TagToProject") 
   image_url      String?
   createdAt      DateTime     @default(now())
   updatedAt      DateTime     @updatedAt
@@ -41,7 +41,7 @@ model ProjectTag {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   title     String
   projectId String   @db.ObjectId
-  project   Project  @relation("TagToProject", fields: [projectId], references: [id])
+  project   Project  @relation("TagToProject", fields: [projectId], references: [id], onDelete: Cascade)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
