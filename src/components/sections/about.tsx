@@ -20,7 +20,7 @@ export const About: React.FC<AboutProps> = ({ bio, skills }) => {
     >
       <div className="container flex flex-col space-y-4 items-center md:max-w-[60rem] lg:max-w-[60rem]">
         <h3 className="text-center text-5xl font-bold mb-6">About Me</h3>
-        <p className="md:max-w-[60rem] lg:max-w-[60rem]">{bio?.text}</p>
+        <p className="md:max-w-[60rem] lg:max-w-[60rem] text-justify">{bio?.text}</p>
         <div className="self-start w-full">
           <h4 className="font-bold text-xl mb-2">
             Here are some of my skills:

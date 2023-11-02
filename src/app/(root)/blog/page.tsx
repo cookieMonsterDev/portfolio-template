@@ -43,6 +43,11 @@ const BlogPage = async () => {
           </Link>
         </article>
       ))}
+      {posts.length === 0 && (
+        <p className="w-full text-center opacity-50 pt-12">
+          There are no posts yet.
+        </p>
+      )}
     </section>
   );
 };
