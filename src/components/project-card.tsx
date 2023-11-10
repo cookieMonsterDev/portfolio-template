@@ -24,7 +24,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   data: { title, owner, image_url },
 }) => {
   return (
-    <Card>
+    <Card className="h-full">
       <CardContent className="pt-4 pb-0 px-4 relative w-full aspect-video rounded-md overflow-hidden flex justify-center items-center">
         {image_url ? (
           <ImageLazy

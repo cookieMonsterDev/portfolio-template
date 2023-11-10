@@ -15,7 +15,7 @@ interface AboutProps {
 export const About: React.FC<AboutProps> = ({ bio, skills }) => {
   return (
     <section
-      className="section flex items-center justify-center overflow-hidden"
+      className="section flex items-center justify-center"
       id="about"
     >
       <div className="container flex flex-col space-y-4 items-center md:max-w-[60rem] lg:max-w-[60rem]">

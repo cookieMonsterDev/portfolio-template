@@ -7,5 +7,5 @@
 }
 
 .section {
-  @apply w-full h-screen relative;
+  @apply w-full min-h-screen relative;
 }
