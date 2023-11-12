@@ -29,7 +29,7 @@ const ProjectPage = async ({ params }: ProjectPageProps) => {
 
   return (
     <div className="py-4 grid lg:grid-cols-2 gap-4">
-      <div className="p-4 rounded-lg border dark:border-slate-800">
+      <div className="w-full p-4 rounded-lg border dark:border-slate-800 col-span-2 lg:col-span-1">
         <Heading title={project.title} className="pt-0" />
         <p className="font-light">{project.desc}</p>
         <div className="flex items-center flex-wrap py-4 gap-2">
@@ -43,7 +43,7 @@ const ProjectPage = async ({ params }: ProjectPageProps) => {
           ))}
         </div>
       </div>
-      <div className="hidden lg:flex">
+      <div className="flex border dark:border-slate-800 rounded-lg order-first col-span-2 lg:col-span-1 lg:order-none">
         {project.image_url ? (
           <ImageLazy
             src={project.image_url || "/no_image.jpg"}
@@ -52,26 +52,26 @@ const ProjectPage = async ({ params }: ProjectPageProps) => {
             height={500}
           />
         ) : (
-          <div className="hidden w-full h-full lg:flex justify-center items-center border rounded-lg dark:border-slate-800">
+          <div className="w-full h-full flex justify-center items-center border dark:border-slate-800 rounded-lg col-span-2 lg:col-span-1">
             <ImageOff className="w-20 h-20" />
           </div>
         )}
       </div>
-      <div className="col-span-2 flex gap-2">
+      <div className="col-span-2 flex gap-2 flex-wrap">
         {project.github_url && (
           <Link
             href={project.github_url}
-            className="py-8 px-12 border rounded-lg dark:border-slate-800 hover:border-slate-500 hover:dark:border-slate-300 transition-colors duration-300"
+            className="p-4 flex items-center justify-center border rounded-lg dark:border-slate-800 hover:border-slate-500 hover:dark:border-slate-300 transition-colors duration-300"
           >
-            <Github className="h-24 w-24" />
+            <Github className="h-8 w-8 md:h-16 md:w-16 lg:h-24 lg:w-24" />
           </Link>
         )}
         {project.deployment_url && (
           <Link
             href={project.deployment_url}
-            className="py-8 px-12 border rounded-lg dark:border-slate-800 hover:border-slate-500 hover:dark:border-slate-300 transition-colors duration-300"
+            className="p-4 flex items-center justify-center border rounded-lg dark:border-slate-800 hover:border-slate-500 hover:dark:border-slate-300 transition-colors duration-300"
           >
-            <GanttChartSquare className="h-24 w-24" />
+            <GanttChartSquare className="h-8 w-8 md:h-16 md:w-16 lg:h-24 lg:w-24" />
           </Link>
         )}
       </div>

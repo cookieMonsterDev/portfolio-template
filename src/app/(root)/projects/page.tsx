@@ -38,7 +38,7 @@ const ProjectsPage = async ({ searchParams }: ProjectsPageProps) => {
   ].sort() as string[];
 
   return (
-    <div className=" overflow-hidden">
+    <div className="overflow-hidden pb-6">
       <div className="flex my-4 mb-6 gap-x-4 gap-y-3 flex-wrap">
         <Link
           href={{ pathname: "/projects", query: {} }}
