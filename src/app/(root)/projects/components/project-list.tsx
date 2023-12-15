@@ -4,7 +4,6 @@ import { cookies, headers } from "next/headers";
 import { Project } from "@prisma/client";
 import Link from "next/link";
 import { ProjectCard } from "@/components/project-card";
-import { Skeleton } from "@/components/ui/skeleton";
 
 const ProjectList = async ({
   searchParams,

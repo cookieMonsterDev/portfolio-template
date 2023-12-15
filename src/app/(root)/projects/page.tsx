@@ -14,11 +14,9 @@ const ProjectsPage = async ({ searchParams }: ProjectsPageProps) => {
   return (
     <div className="overflow-hidden pb-6">
       <Suspense fallback={<LoadingTags />}>
-        {/* @ts-expect-error Server Component */}
-        <Tags />
+        <Tags title={searchParams.title} />
       </Suspense>
       <Suspense fallback={<LoadingProjects />}>
-        {/* @ts-expect-error Server Component */}
         <ProjectList searchParams={searchParams}/>
       </Suspense>
     </div>
