@@ -3,17 +3,6 @@ import { validator } from "@/lib/utils";
 import { NextResponse } from "next/server";
 import skillSchema from "./schema";
 
-export const GET = async (_req: Request) => {
-  try {
-    const res = await prismadb.skill.findMany();
-
-    return NextResponse.json(res);
-  } catch (error) {
-    console.error("GET_SKILLS");
-    return new NextResponse("Internal error", { status: 500 });
-  }
-};
-
 export const POST = async (req: Request) => {
   try {
     const body = await req.json();

@@ -15,10 +15,6 @@ const linksList = [
     name: "Projects",
     href: "/projects",
   },
-  {
-    name: "Blog",
-    href: "/blog",
-  },
 ];
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {

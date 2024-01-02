@@ -1,20 +1,10 @@
 import Link from "next/link";
-import { cookies, headers } from "next/headers";
-import axios from "axios";
 import { ProjectTag } from "@prisma/client";
 import { cn } from "@/lib/utils";
+import { getTags } from "@/actions/get-tags";
 
 const Tags = async ({ title }: { title: string }) => {
-  const baseURL =
-    process.env.NODE_ENV === "production"
-      ? `https://${headers().get("Host")}`
-      : process.env.NEXT_PUBLIC_SITE_URL;
-
-  const h = { cookie: cookies().toString() };
-
-  const { data: tags } = await axios.get(`${baseURL}/api/project-tags`, {
-    headers: h,
-  });
+  const tags = await getTags({ title });
 
   const formatedTags: string[] = [
     ...new Set(tags.map((e: ProjectTag) => e.title)),
@@ -46,7 +36,7 @@ const Tags = async ({ title }: { title: string }) => {
           )}
         >
           {e}
-        </Link>   
+        </Link>
       ))}
     </div>
   );

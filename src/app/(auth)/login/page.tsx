@@ -4,13 +4,8 @@ import { useAuthStore } from "@/hooks/use-auth-store";
 import { redirect } from "next/navigation";
 import { useEffect } from "react";
 
-const SignInPage = () => {
-  const { isAuthenticated, updateAuth } = useAuthStore();
-
-  const fn = () => {
-    updateAuth(true);
-    redirect("/");
-  };
+const LoginPage = () => {
+  const { isAuthenticated } = useAuthStore();
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -25,4 +20,4 @@ const SignInPage = () => {
   );
 };
 
-export default SignInPage;
+export default LoginPage;
