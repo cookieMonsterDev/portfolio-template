@@ -31,7 +31,7 @@ model Project {
   desc           String?
   github_url     String?
   deployment_url String?
-  tags           ProjectTag[] @relation("TagToProject") 
+  tags           ProjectTag[] @relation("TagToProject")
   image_url      String?
   createdAt      DateTime     @default(now())
   updatedAt      DateTime     @updatedAt
@@ -46,13 +46,4 @@ model ProjectTag {
   updatedAt DateTime @updatedAt
 
   @@index([projectId])
-}
-
-model Post {
-  id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  title     String
-  desc      String
-  content   String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
 }

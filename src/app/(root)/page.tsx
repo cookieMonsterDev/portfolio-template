@@ -18,6 +18,8 @@ const Home = async () => {
   });
   const { data: bio } = await axios.get(`${baseURL}/api/bio`, { headers: h });
 
+  // throw new Error('test')
+
   return (
     <>
       <Hero />
