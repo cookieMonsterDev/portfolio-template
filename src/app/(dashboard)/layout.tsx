@@ -14,10 +14,6 @@ const linksList = [
     name: "Projects",
     href: "/dashboard/projects",
   },
-  {
-    name: "Blog",
-    href: "/dashboard/blog",
-  },
 ];
 
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
