@@ -5,22 +5,20 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { Bio, Skill } from "@prisma/client";
+import { getBio } from "@/actions/get-bio";
+import { getSkills } from "@/actions/get-skills";
 
-interface AboutProps {
-  bio: Bio | null;
-  skills: Skill[];
-}
+export const About = async () => {
+  const bio = await getBio();
+  const skills = await getSkills();
 
-export const About: React.FC<AboutProps> = ({ bio, skills }) => {
   return (
-    <section
-      className="section flex items-center justify-center"
-      id="about"
-    >
+    <section className="section flex items-center justify-center" id="about">
       <div className="container flex flex-col space-y-4 items-center md:max-w-[60rem] lg:max-w-[60rem]">
         <h3 className="text-center text-5xl font-bold mb-6">About Me</h3>
-        <p className="md:max-w-[60rem] lg:max-w-[60rem] text-justify">{bio?.text}</p>
+        <p className="md:max-w-[60rem] lg:max-w-[60rem] text-justify">
+          {bio?.text}
+        </p>
         <div className="self-start w-full">
           <h4 className="font-bold text-xl mb-2">
             Here are some of my skills:

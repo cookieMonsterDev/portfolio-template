@@ -11,6 +11,7 @@ export interface ImageLazyProps extends ImageProps {
 export const ImageLazy: React.FC<ImageLazyProps> = ({
   wrapperClassName,
   className,
+  alt,
   ...rest
 }) => {
   const [isLoaded, setLoaded] = useState(false);
@@ -21,6 +22,7 @@ export const ImageLazy: React.FC<ImageLazyProps> = ({
         {...rest}
         className={cn("w-full h-full object-cover rounded-lg", className)}
         onLoad={() => setLoaded(true)}
+        alt={alt + crypto.randomUUID()}
       />
       {!isLoaded && (
         <Skeleton
