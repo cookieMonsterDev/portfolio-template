@@ -1,9 +1,8 @@
 import React from "react";
-import axios from "axios";
-import { cookies, headers } from "next/headers";
 import { Project } from "@prisma/client";
 import Link from "next/link";
 import { ProjectCard } from "@/components/project-card";
+import { getProjects } from "@/actions/get-projects";
 
 const ProjectList = async ({
   searchParams,
@@ -12,22 +11,7 @@ const ProjectList = async ({
     title: string;
   };
 }) => {
-  const baseURL =
-    process.env.NODE_ENV === "production"
-      ? `https://${headers().get("Host")}`
-      : process.env.NEXT_PUBLIC_SITE_URL;
-
-  const h = { cookie: cookies().toString() };
-
-  const url = new URL(`${baseURL}/api/projects`);
-
-  if (searchParams.title) {
-    url.searchParams.append("title", searchParams.title);
-  }
-
-  const { data: projects } = await axios.get(url.toString(), {
-    headers: h,
-  });
+  const projects = await getProjects(searchParams.title);
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4">

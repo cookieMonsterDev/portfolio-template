@@ -2,7 +2,7 @@ import { Suspense } from "react";
 import LoadingTags from "./components/loading-tags";
 import Tags from "./components/tags";
 import ProjectList from "./components/project-list";
-import LoadingProjects from "./components/loading-projects";
+import LoadingProjects from "./components/loading-projects-list";
 
 interface ProjectsPageProps {
   searchParams: {

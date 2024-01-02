@@ -7,26 +7,6 @@ interface Params {
   };
 }
 
-export const GET = async (_req: Request, { params }: Params) => {
-  try {
-    if (params.projectId === "new") return NextResponse.json(null);
-
-    const res = await prismadb.project.findUnique({
-      where: {
-        id: params.projectId,
-      },
-      include: {
-        tags: true,
-      },
-    });
-
-    return NextResponse.json(res);
-  } catch (error) {
-    console.error("GET_PROJECT");
-    return new NextResponse("Internal error", { status: 500 });
-  }
-};
-
 export const PATCH = async (req: Request, { params }: Params) => {
   try {
     const body = await req.json();

@@ -1,9 +1,8 @@
+import { getProject } from "@/actions/get-project";
 import { Heading } from "@/components/ui/heading";
 import { ImageLazy } from "@/components/ui/image-lazy";
 import { ProjectTag } from "@prisma/client";
-import axios from "axios";
 import { GanttChartSquare, Github, ImageOff } from "lucide-react";
-import { cookies, headers } from "next/headers";
 import Link from "next/link";
 
 interface ProjectPageProps {
@@ -13,19 +12,9 @@ interface ProjectPageProps {
 }
 
 const ProjectPage = async ({ params }: ProjectPageProps) => {
-  const h = { cookie: cookies().toString() };
+  const project = await getProject(params.projectId)
 
-  const baseURL =
-    process.env.NODE_ENV === "production"
-      ? `https://${headers().get("Host")}`
-      : process.env.NEXT_PUBLIC_SITE_URL;
-
-  const { data: project } = await axios.get(
-    `${baseURL}/api/projects/${params.projectId}`,
-    {
-      headers: h,
-    }
-  );
+  if(!project) return null;
 
   return (
     <div className="py-4 grid lg:grid-cols-2 gap-4">

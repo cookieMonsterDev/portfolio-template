@@ -1,12 +1,10 @@
-import { baseURL } from "@/lib/utils";
-import { Bio } from "@prisma/client";
-import axios from "axios";
+import prismadb from "@/lib/prismadb";
 
 export const getBio = async () => {
   try {
-    const { data } = await axios.get(`${baseURL}/api/bio`);
+    const bio = await prismadb.bio.findFirst();
 
-    return data as Bio;
+    return bio;
   } catch (error) {
     throw error;
   }

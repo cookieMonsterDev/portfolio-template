@@ -1,12 +1,10 @@
-import { baseURL } from "@/lib/utils";
-import { Skill } from "@prisma/client";
-import axios from "axios";
+import prismadb from "@/lib/prismadb";
 
 export const getSkills = async () => {
   try {
-    const { data } = await axios.get(`${baseURL}/api/skills`);
+    const skills = await prismadb.skill.findMany();
 
-    return data as Skill[];
+    return skills;
   } catch (error) {
     throw error;
   }

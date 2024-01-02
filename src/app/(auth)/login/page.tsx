@@ -5,12 +5,7 @@ import { redirect } from "next/navigation";
 import { useEffect } from "react";
 
 const LoginPage = () => {
-  const { isAuthenticated, updateAuth } = useAuthStore();
-
-  const fn = () => {
-    updateAuth(true);
-    redirect("/");
-  };
+  const { isAuthenticated } = useAuthStore();
 
   useEffect(() => {
     if (isAuthenticated) {
