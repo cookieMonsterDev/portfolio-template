@@ -35,7 +35,7 @@ export const Footer = () => {
   const formatter = new Intl.DateTimeFormat("en-US", { year: "numeric" });
 
   return (
-    <footer className="w-full border-t border-slate-300 dark:border-slate-700">
+    <footer className="w-full border-t-2">
       <div className="container flex flex-col justify-center items-center py-4">
         <div className="pb-4 flex gap-x-6">
           {socials.map((e) => (
