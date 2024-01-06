@@ -5,8 +5,8 @@ import { Button } from "@/components/ui/button";
 import { TrashIcon } from "lucide-react";
 import Image from "next/image";
 import { Input } from "./input";
-import { uploadImage } from "@/lib/firebase";
 import { toast } from "react-hot-toast";
+import fileStore from "@/lib/file-store";
 
 interface ImageUploadProps {
   disabled?: boolean;
@@ -33,12 +33,12 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
 
       if (!file) return;
 
-      const url = await uploadImage(file.name, file);
+      const { fileURL, fileName } = await fileStore.uploadFile(file);
 
-      if (!url) return;
-
-      onChange(url);
+      onChange(fileURL);
     } catch (error) {
+      console.log(error);
+
       toast.error("Something went wrong!");
     }
   };

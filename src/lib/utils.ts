@@ -31,8 +31,3 @@ export const validator = <T>(obj: T, schema: ZodSchema) => {
 
   return errors;
 };
-
-export const baseURL =
-  process.env.NODE_ENV === "production"
-    ? process.env.VERCEL_URL
-    : "http://localhost:3000";
