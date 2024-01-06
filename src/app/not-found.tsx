@@ -1,7 +1,9 @@
+import React from "react";
+
 const NotFound = () => {
   return (
     <div className="w-screen h-screen grid place-content-center p-4">
-      <section className="p-6 lg:p-8 border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-950 grid gap-2 rounded-md">
+      <section className="p-6 lg:p-8 border grid gap-2 rounded-md">
         <h2 className="text-center font-bold text-7xl md:text-8xl lg:text-9xl">
           404
         </h2>

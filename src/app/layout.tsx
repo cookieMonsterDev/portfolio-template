@@ -1,8 +1,7 @@
-import { ToasterProvider } from "@/providers/toast-provider";
-import { ThemeProvider } from "@/providers/theme-provider";
-import "./globals.css";
+import { ThemeProvider } from "@/components/theme-provider";
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
+import "./globals.css";
 
 const poppins = Poppins({
   weight: "400",
@@ -25,18 +24,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={poppins.className}>
-      <body
-        className="relative bg-slate-50 dark:bg-slate-950"
-        suppressHydrationWarning={true}
-      >
+    <html lang="en">
+      <body className={poppins.className}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="light"
+          defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          <ToasterProvider />
           {children}
         </ThemeProvider>
       </body>

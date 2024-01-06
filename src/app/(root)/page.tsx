@@ -1,15 +1,10 @@
-import { About } from "@/components/sections/about";
-import { Contact } from "@/components/sections/contact";
-import { Hero } from "@/components/sections/hero";
 
-const Home = async () => {
+import React from 'react'
+
+const Home = () => {
   return (
-    <>
-      <Hero />
-      <About />
-      <Contact />
-    </>
-  );
-};
+    <div>Home</div>
+  )
+}
 
-export default Home;
+export default Home
