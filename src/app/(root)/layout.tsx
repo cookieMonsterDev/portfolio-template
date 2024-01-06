@@ -20,12 +20,8 @@ const linksList = [
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
-      {/* <NavBar linksList={linksList} /> */}
-      {/* <main className="container min-h-[calc(100vh-150px)]">{children}</main> */}
-      {/* <Footer /> */}
-
       <NavBar linksList={linksList} />
-      <main className="pt-24">{children}</main>
+      <main className="container pt-16">{children}</main>
       <Footer />
     </>
   );

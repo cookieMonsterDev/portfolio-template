@@ -44,7 +44,7 @@ export const Footer = () => {
                 <TooltipTrigger asChild>
                   <Link
                     href={e.href}
-                    className="opacity-50 hover:opacity-100 transition-opacity duration-300"
+                    className="opacity-50 hover:opacity-100 transition-opacity duration-200"
                   >
                     {e.icon}
                   </Link>
