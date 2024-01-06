@@ -12,6 +12,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useTheme } from "next-themes";
 import { Separator } from "./ui/separator";
+import { Logo } from "./logo";
 
 type SideMenuProps = {
   linksList?: {
@@ -36,17 +37,7 @@ export const SideMenu: React.FC<SideMenuProps> = ({ linksList = [] }) => {
             href="/"
             className={buttonVariants({ size: "icon", variant: "ghost" })}
           >
-            <Image
-              src={
-                theme === "dark"
-                  ? "/logo_2023_hex_letter_dark.svg"
-                  : "/logo_2023_hex_letter_light.svg"
-              }
-              width={40}
-              height={40}
-              alt={"my-logo"}
-              priority
-            />
+            <Logo />
           </Link>
         </SheetHeader>
         <Separator />

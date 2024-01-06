@@ -57,3 +57,16 @@
     @apply bg-background text-foreground;
   }
 }
+
+* {
+  scroll-behavior: smooth;
+}
+
+.first-section {
+  min-height: calc(100svh - 64px);
+}
+
+.last-section {
+  min-height: calc(100svh - 94px);
+}
+

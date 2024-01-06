@@ -1,6 +1,5 @@
 import { Footer } from "@/components/footer";
 import { NavBar } from "@/components/navbar";
-import React from "react";
 
 const linksList = [
   {
@@ -21,7 +20,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <NavBar linksList={linksList} />
-      <main className="container pt-16">{children}</main>
+      <main className="last-section container pt-16">{children}</main>
       <Footer />
     </>
   );

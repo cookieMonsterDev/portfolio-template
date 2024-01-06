@@ -6,9 +6,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { cn } from "@/lib/utils";
-import { useTheme } from "next-themes";
 import { buttonVariants } from "./ui/button";
 import { SideMenu } from "./side-menu";
+import { Logo } from "./logo";
 
 interface NavBarProps {
   linksList?: {
@@ -20,7 +20,6 @@ interface NavBarProps {
 export const NavBar: React.FC<NavBarProps> = ({ linksList = [] }) => {
   const prevScrollpos = useRef(isBrowser() ? window.screenY : 0);
   const [isShow, setShow] = useState(true);
-  const { theme } = useTheme();
   // const { isOpen, setOpen, setClose } = useSideMenuStore();
 
   const handleScroll = () => {
@@ -38,23 +37,15 @@ export const NavBar: React.FC<NavBarProps> = ({ linksList = [] }) => {
   // }, [isOpen]);
 
   return (
-    <header className={cn("fixed top-0 left-0 w-full h-16 border-b-2")}>
+    <header
+      className={cn("fixed top-0 left-0 w-full h-16 border-b-2 bg-background z-50")}
+    >
       <div className="container h-full flex items-center justify-between">
         <Link
           href="/"
           className={buttonVariants({ size: "icon", variant: "ghost" })}
         >
-          <Image
-            src={
-              theme === "dark"
-                ? "/logo_2023_hex_letter_dark.svg"
-                : "/logo_2023_hex_letter_light.svg"
-            }
-            width={40}
-            height={40}
-            alt={"my-logo"}
-            priority
-          />
+          <Logo />
         </Link>
 
         <div className="hidden md:flex lg:flex">
