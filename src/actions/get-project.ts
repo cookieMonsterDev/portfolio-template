@@ -10,6 +10,6 @@ export const getProject = async (id: string) => {
     });
     return project;
   } catch (error) {
-    throw error;
+    throw new Error('project');
   }
 };

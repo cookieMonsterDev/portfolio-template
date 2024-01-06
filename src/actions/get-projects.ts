@@ -21,6 +21,6 @@ export const getProjects = async (title?: string) => {
     });
     return projects;
   } catch (error) {
-    throw error;
+    throw new Error("projects");
   }
 };

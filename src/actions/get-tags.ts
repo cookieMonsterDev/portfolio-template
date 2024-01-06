@@ -16,6 +16,6 @@ export const getTags = async ({ projectId, title }: GetTagsProps) => {
 
     return tags;
   } catch (error) {
-    throw error;
+    throw new Error("tags");
   }
 };

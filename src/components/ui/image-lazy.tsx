@@ -17,7 +17,7 @@ export const ImageLazy: React.FC<ImageLazyProps> = ({
   const [isLoaded, setLoaded] = useState(false);
 
   return (
-    <div className={cn("w-full h-full rounded-lg relative -z-10", wrapperClassName)}>
+    <div className={cn("w-full h-full rounded-lg relative", wrapperClassName)}>
       <Image
         {...rest}
         className={cn("w-full h-full object-cover rounded-lg", className)}
