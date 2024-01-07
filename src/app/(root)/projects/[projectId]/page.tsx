@@ -1,7 +1,6 @@
 import { getProject } from "@/actions/get-project";
 import { Heading } from "@/components/ui/heading";
 import { ImageLazy } from "@/components/ui/image-lazy";
-import { ProjectTag } from "@prisma/client";
 import { ExternalLink, Github, ImageOff } from "lucide-react";
 import Link from "next/link";
 
@@ -22,7 +21,7 @@ const ProjectPage = async ({ params }: ProjectPageProps) => {
         <Heading title={project.title} className="pt-0" />
         <p className="font-light">{project.desc}</p>
         <div className="flex items-center flex-wrap py-4 gap-2">
-          {project.tags.map((e: ProjectTag) => (
+          {project.tags.map((e) => (
             <span
               key={e.id}
               className="border border-slate-800 px-3 py-1 rounded-3xl bg-slate-950 text-slate-50 dark:bg-slate-50 dark:text-slate-950"
@@ -33,9 +32,9 @@ const ProjectPage = async ({ params }: ProjectPageProps) => {
         </div>
       </div>
       <div className="flex border dark:border-slate-800 rounded-lg order-first col-span-2 lg:col-span-1 lg:order-none">
-        {project.image_url ? (
+        {project.image ? (
           <ImageLazy
-            src={project.image_url || "/no_image.jpg"}
+            src={project.image.url || "/no_image.jpg"}
             alt="project-img"
             width={500}
             height={500}

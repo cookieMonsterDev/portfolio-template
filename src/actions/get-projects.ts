@@ -17,6 +17,7 @@ export const getProjects = async (title?: string) => {
         : {},
       include: {
         tags: true,
+        image: true,
       },
     });
     return projects;

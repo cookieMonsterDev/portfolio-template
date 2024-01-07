@@ -12,23 +12,23 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 
-import { Project } from "@prisma/client";
+import { Image, Project, Tag } from "@prisma/client";
 import { ImageOff } from "lucide-react";
 import { ImageLazy } from "./ui/image-lazy";
 
 interface ProjectCardProps {
-  data: Project;
+  data: Project & { image: Image | null; tags: Tag[] };
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({
-  data: { title, owner, image_url },
+  data: { title, owner, image },
 }) => {
   return (
     <Card className="h-full shadow-lg">
       <CardContent className="pt-4 pb-0 px-4 relative w-full aspect-video rounded-md overflow-hidden flex justify-center items-center">
-        {image_url ? (
+        {image ? (
           <ImageLazy
-            src={image_url || "/no_image.jpg"}
+            src={image.url || "/no_image.jpg"}
             alt="project-img"
             width={500}
             height={500}

@@ -8,6 +8,7 @@ export const getProject = async (id: string) => {
       where: { id },
       include: {
         tags: true,
+        image: true,
       },
     });
 

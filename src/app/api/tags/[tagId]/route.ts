@@ -3,15 +3,15 @@ import { NextResponse } from "next/server";
 
 interface Params {
   params: {
-    "project-tag-id": string;
+    tagId: string;
   };
 }
 
 export const DELETE = async (_req: Request, { params }: Params) => {
   try {
-    const res = await prismadb.projectTag.deleteMany({
+    const res = await prismadb.tag.deleteMany({
       where: {
-        id: params["project-tag-id"],
+        id: params.tagId,
       },
     });
 
