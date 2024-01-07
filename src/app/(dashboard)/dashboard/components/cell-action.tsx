@@ -11,20 +11,22 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Edit, MoreHorizontal, TrashIcon } from "lucide-react";
-// import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import { useState } from "react";
+import { useToast } from "@/components/ui/use-toast";
+import { dateTimeFormatter } from "@/lib/utils";
 // import { AlertModal } from "@/components/modals/alert-modal";
 
 type CellActionProps = {
   data: ProjectColumn;
-}
+};
 
 export const CellAction: React.FC<CellActionProps> = ({ data }) => {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(false);
+  const { toast } = useToast();
 
   const onUpdate = () => {
     router.push(`/dashboard/projects/${data.id}`);
@@ -38,9 +40,16 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
 
       router.refresh();
       router.push("/dashboard/projects");
-      // toast.success("Project has been deleted.");
-    } catch (error: any) {
-      // toast.error("Something went wrong.");
+      toast({
+        title: "Project successfully deleted.",
+        description: dateTimeFormatter.format(new Date()),
+      });
+    } catch (error) {
+      toast({
+        title: "Project is not deleted!",
+        description: "Something went wrong during deleting project.",
+        variant: "destructive",
+      });
     } finally {
       setLoading(false);
       setOpen(false);

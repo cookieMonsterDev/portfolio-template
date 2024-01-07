@@ -18,11 +18,13 @@ import { Delete, Plus } from "lucide-react";
 import { Skill } from "@prisma/client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-
+import axios from "axios";
+import { useToast } from "../ui/use-toast";
+import { dateTimeFormatter } from "@/lib/utils";
 
 type SkillsFormProps = {
   initialData: Skill[];
-}
+};
 
 const formSchema = z.object({
   title: z.string().min(1),
@@ -30,8 +32,8 @@ const formSchema = z.object({
 
 export const SkillsForm: React.FC<SkillsFormProps> = ({ initialData }) => {
   const router = useRouter();
-
   const [loading, setLoading] = useState(false);
+  const { toast } = useToast();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -41,26 +43,41 @@ export const SkillsForm: React.FC<SkillsFormProps> = ({ initialData }) => {
   });
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    // try {
-    //   setLoading(true);
-    //   await axios.post("/api/skills", { ...values });
-    //   router.refresh();
-    //   toast.success("Skill has been added!");
-    //   form.reset();
-    // } catch (error) {
-    //   toast.error("Something went wrong.");
-    // } finally {
-    //   setLoading(false);
-    // }
+    try {
+      setLoading(true);
+      await axios.post("/api/skills", { ...values });
+      router.refresh();
+      toast({
+        title: "Skill successfully added.",
+        description: dateTimeFormatter.format(new Date()),
+      });
+      form.reset();
+    } catch (error) {
+      toast({
+        title: "Skill is not added!",
+        description: "Something went wrong during adding skill.",
+        variant: "destructive",
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   const onDelete = async (skillId: string) => {
-    // try {
-    //   await axios.delete(`/api/skills/${skillId}`);
-    //   router.refresh();
-    // } catch (error) {
-    //   toast.error("Something went wrong.");
-    // }
+    try {
+      await axios.delete(`/api/skills/${skillId}`);
+      router.refresh();
+      toast({
+        title: "Skill successfully deleted.",
+        description: dateTimeFormatter.format(new Date()),
+      });
+    } catch (error) {
+      toast({
+        title: "Skill is not deleted!",
+        description: "Something went wrong during deleting skill.",
+        variant: "destructive",
+      });
+    }
   };
 
   return (
@@ -68,13 +85,16 @@ export const SkillsForm: React.FC<SkillsFormProps> = ({ initialData }) => {
       <Heading title={"Skills, Tools & Technologies"} />
       <h2 className="text-sm">Skils:</h2>
       <div className="flex items-start flex-wrap gap-2 border border-slate-200 rounded-md p-2 dark:border-slate-800">
-        {initialData.length === 0 && <span className="opacity-50 text-medium text-slate-200">The are no skills yet.</span>}
+        {initialData.length === 0 && (
+          <span className="opacity-50 text-medium text-slate-200">
+            The are no skills yet.
+          </span>
+        )}
         {initialData.map((e) => (
           <span
             key={e.id}
             className="max-w-full max-h-6 bg-slate-950 text-slate-50 dark:bg-slate-50 dark:text-slate-950 rounded-xl px-4 flex items-center justify-between gap-2"
           >
-
             <p className="overflow-hidden text-ellipsis flex-1">{e.title}</p>
             <Delete
               className="min-h-6 min-w-6 cursor-pointer"
@@ -84,7 +104,10 @@ export const SkillsForm: React.FC<SkillsFormProps> = ({ initialData }) => {
         ))}
       </div>
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="flex items-end mt-auto">
+        <form
+          onSubmit={form.handleSubmit(onSubmit)}
+          className="flex items-end mt-auto"
+        >
           <FormField
             control={form.control}
             name="title"

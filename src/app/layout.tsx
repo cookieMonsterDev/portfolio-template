@@ -1,7 +1,9 @@
 import { ThemeProvider } from "@/components/theme-provider";
+import { Toaster } from "@/components/ui/toaster";
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
+import { Alert } from "@/components/alert-provider";
 
 const poppins = Poppins({
   weight: "400",
@@ -33,6 +35,8 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {children}
+          <Toaster />
+          <Alert />
         </ThemeProvider>
       </body>
     </html>

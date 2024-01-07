@@ -18,10 +18,13 @@ import { Save } from "lucide-react";
 import { Bio } from "@prisma/client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { useToast } from "../ui/use-toast";
+import axios from "axios";
+import { dateTimeFormatter } from "@/lib/utils";
 
 type SkillsFormProps = {
   initialData: Bio | null;
-}
+};
 
 const formSchema = z.object({
   text: z.string().min(50),
@@ -31,6 +34,8 @@ export const BioForm: React.FC<SkillsFormProps> = ({ initialData }) => {
   const router = useRouter();
 
   const [loading, setLoading] = useState(false);
+
+  const { toast } = useToast();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -42,15 +47,24 @@ export const BioForm: React.FC<SkillsFormProps> = ({ initialData }) => {
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       setLoading(true);
-      // if (!initialData) {
-      //   await axios.post("/api/bio", { ...values });
-      // } else {
-      //   await axios.patch(`/api/bio/${initialData.id}`, { ...values });
-      // }
+      if (!initialData) {
+        await axios.post("/api/bio", { ...values });
+      } else {
+        await axios.patch(`/api/bio/${initialData.id}`, { ...values });
+      }
 
       router.push("/dashboard");
       router.refresh();
+      toast({
+        title: "Bio successfully updated.",
+        description: dateTimeFormatter.format(new Date()),
+      });
     } catch (error) {
+      toast({
+        title: "Bio is not updated!",
+        description: "Something went wrong during updating bio.",
+        variant: "destructive",
+      });
     } finally {
       setLoading(false);
     }
