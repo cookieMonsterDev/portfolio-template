@@ -3,13 +3,10 @@ import { cn } from "@/lib/utils";
 import { getTags } from "@/actions/get-tags";
 
 type TagsProps = {
-  searchParams: {
-    title: string;
-  };
+  title: string;
 };
 
-const Tags = async ({ searchParams }: TagsProps) => {
-  const { title } = searchParams;
+const Tags = async ({ title }: TagsProps) => {
   const tags = await getTags({ title });
 
   const formatedTags: string[] = [...new Set(tags.map((e) => e.title))].sort();

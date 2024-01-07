@@ -4,13 +4,11 @@ import { ProjectCard } from "@/components/project-card";
 import { getProjects } from "@/actions/get-projects";
 
 type ProjectsProps = {
-  searchParams: {
-    title: string;
-  };
+  title: string;
 };
 
-const Projects = async ({ searchParams }: ProjectsProps) => {
-  const projects = await getProjects(searchParams.title);
+const Projects = async ({ title }: ProjectsProps) => {
+  const projects = await getProjects(title);
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4">

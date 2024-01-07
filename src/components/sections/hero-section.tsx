@@ -3,7 +3,7 @@ import { buttonVariants } from "../ui/button";
 
 const HeroSection = () => {
   return (
-    <section className="first-section w-full grid place-content-center">
+    <section className="min-h-[calc(100svh-64px)] w-full grid place-content-center">
       <div className="flex flex-col">
         <h1
           aria-label="Hi, I’m  Mykhailo, JavaScript engineer"

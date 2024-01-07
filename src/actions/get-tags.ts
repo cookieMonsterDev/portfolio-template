@@ -7,6 +7,8 @@ type GetTagsProps = {
 
 export const getTags = async ({ projectId, title }: GetTagsProps) => {
   try {
+    if (projectId === "new") return null;
+
     const tags = await prismadb.projectTag.findMany({
       where: {
         projectId,

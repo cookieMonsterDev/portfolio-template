@@ -5,7 +5,7 @@ import { SOCIALS } from "@/config/socials";
 export const ContactSection = () => {
   return (
     <section
-      className="last-section flex items-center justify-center"
+      className="min-h-[calc(100svh-94px)] flex items-center justify-center"
       id="contact"
     >
       <div className="container flex flex-col items-center space-y-6">

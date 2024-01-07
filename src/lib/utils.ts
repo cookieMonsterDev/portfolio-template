@@ -14,3 +14,12 @@ export const debounse = (fn: Function, ms: number) => {
     timer = setTimeout(() => fn.apply(this, args), ms);
   };
 };
+
+export const dateTimeFormatter = new Intl.DateTimeFormat("en-US", {
+  hour: "numeric",
+  minute: "2-digit",
+  hour12: true,
+  day: "2-digit",
+  month: "2-digit",
+  year: "numeric",
+});
