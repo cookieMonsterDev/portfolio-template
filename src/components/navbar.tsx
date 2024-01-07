@@ -1,9 +1,7 @@
 "use client";
-
 import { useState, useEffect, useRef } from "react";
 import { isBrowser } from "@/lib/utils";
 import Link from "next/link";
-import Image from "next/image";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "./ui/button";
@@ -20,7 +18,6 @@ interface NavBarProps {
 export const NavBar: React.FC<NavBarProps> = ({ linksList = [] }) => {
   const prevScrollpos = useRef(isBrowser() ? window.screenY : 0);
   const [isShow, setShow] = useState(true);
-  // const { isOpen, setOpen, setClose } = useSideMenuStore();
 
   const handleScroll = () => {
     const currentScrollPos = window.scrollY;
@@ -28,17 +25,20 @@ export const NavBar: React.FC<NavBarProps> = ({ linksList = [] }) => {
     prevScrollpos.current = currentScrollPos;
   };
 
-  // useEffect(() => {
-  //   window.addEventListener("scroll", handleScroll);
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
 
-  //   return () => {
-  //     window.removeEventListener("scroll", handleScroll);
-  //   };
-  // }, [isOpen]);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <header
-      className={cn("fixed top-0 left-0 w-full h-16 border-b-2 bg-background z-50")}
+      className={cn(
+        "fixed top-0 left-0 w-full h-16 border-b-2 bg-background z-50 transition-all duration-300",
+        !isShow && "-translate-y-full"
+      )}
     >
       <div className="container h-full flex items-center justify-between">
         <Link

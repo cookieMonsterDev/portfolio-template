@@ -26,7 +26,7 @@ export const columns: ColumnDef<ProjectColumn>[] = [
       return (
         <TooltipProvider>
           <Tooltip>
-            <TooltipTrigger className="max-w-[15rem] overflow-hidden text-ellipsis text-left">
+            <TooltipTrigger className="max-w-[15rem] overflow-hidden text-ellipsis text-left cursor-default">
               {title}
             </TooltipTrigger>
             <TooltipContent>
@@ -46,7 +46,7 @@ export const columns: ColumnDef<ProjectColumn>[] = [
       return (
         <TooltipProvider>
           <Tooltip>
-            <TooltipTrigger className="max-w-[15rem] overflow-hidden text-ellipsis text-left">
+            <TooltipTrigger className="max-w-[15rem] overflow-hidden text-ellipsis text-left cursor-default">
               {owner}
             </TooltipTrigger>
             <TooltipContent>

@@ -20,14 +20,16 @@ import { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { Input } from "../ui/input";
-// import { AlertModal } from "@/components/modals/alert-modal";
+import { useAlert } from "@/hooks/use-alert";
+import { ProjectTags } from "../project-tags";
+import ImageUpload from "../ui/image-uploda";
 // import ImageUpload from "../ui/image-uploda";
 // import { ProjectTags } from "./project-tags";
 
 type ProjectFormProps = {
   initialProject: null | Project;
   initialTags: null | ProjectTag[];
-}
+};
 
 const formSchema = z.object({
   title: z.string().min(1).max(100),
@@ -42,9 +44,9 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({
   initialProject,
   initialTags,
 }) => {
-  const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const router = useRouter();
+  const { onOpen } = useAlert();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -71,9 +73,7 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({
 
       router.push(`/dashboard/projects`);
       router.refresh();
-    
     } catch (error) {
- 
     } finally {
       setLoading(false);
     }
@@ -89,23 +89,14 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({
 
       router.refresh();
       router.push("/dashboard/projects");
-    
     } catch (error: any) {
-   
     } finally {
       setLoading(false);
-      setOpen(false);
     }
   };
 
   return (
     <>
-      {/* <AlertModal
-        isOpen={open}
-        onClose={() => setOpen(false)}
-        onConfirm={onDelete}
-        loading={loading}
-      /> */}
       <div className="p-[0.3rem]">
         <div className="flex justify-between items-center">
           <Heading
@@ -117,7 +108,13 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({
               disabled={loading}
               variant="destructive"
               size="sm"
-              onClick={() => setOpen(true)}
+              onClick={() =>
+                onOpen({
+                  title: "The action can not be undone!",
+                  description: "Are you sure that want to delete project?",
+                  action: onDelete,
+                })
+              }
             >
               <Trash className="h-4 w-4" />
             </Button>
@@ -213,7 +210,7 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({
                 )}
               />
             </div>
-            {/* {initialProject && (
+            {initialProject && (
               <div className="col-span-1">
                 <ProjectTags
                   data={initialTags || []}
@@ -221,8 +218,8 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({
                   projectId={initialProject.id}
                 />
               </div>
-            )} */}
-            {/* <FormField
+            )}
+            <FormField
               control={form.control}
               name="image_url"
               render={({ field }) => (
@@ -239,7 +236,7 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({
                   <FormMessage />
                 </FormItem>
               )}
-            /> */}
+            />
             <div className="col-span-2 flex justify-center mb-6 mt-4">
               <Button type="submit" disabled={loading}>
                 <Save className="w-4 h-4 mr-2" />

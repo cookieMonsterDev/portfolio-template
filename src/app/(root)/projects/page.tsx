@@ -14,10 +14,10 @@ const ProjectsPage = ({ searchParams }: ProjectsPagseProps) => {
   return (
     <>
       <Suspense fallback={<LoadingTags />}>
-        <Tags searchParams={searchParams} />
+        <Tags title={searchParams.title} />
       </Suspense>
       <Suspense fallback={<LoadingProjects />}>
-        <Projects searchParams={searchParams} />
+        <Projects title={searchParams.title} />
       </Suspense>
     </>
   );

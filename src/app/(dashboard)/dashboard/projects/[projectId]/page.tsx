@@ -2,7 +2,7 @@ import { getProject } from "@/actions/get-project";
 import { getTags } from "@/actions/get-tags";
 import { ProjectForm } from "@/components/forms/project-form";
 
-interface ProjectPageProps {
+type ProjectPageProps = {
   params: {
     projectId: string;
   };

@@ -9,6 +9,8 @@ type TagsProps = {
 const Tags = async ({ title }: TagsProps) => {
   const tags = await getTags({ title });
 
+  if(!tags) return null
+
   const formatedTags: string[] = [...new Set(tags.map((e) => e.title))].sort();
 
   return (
