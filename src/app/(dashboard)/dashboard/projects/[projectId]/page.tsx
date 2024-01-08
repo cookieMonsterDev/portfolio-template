@@ -6,6 +6,8 @@ import Header from "./components/header";
 import { getImage } from "@/actions/get-image";
 import { ImageForm } from "@/components/forms/image-form";
 import { Separator } from "@/components/ui/separator";
+import { TagsForm } from "@/components/forms/tags-form";
+import { Tag } from "@prisma/client";
 
 type ProjectPageProps = {
   params: {
@@ -16,12 +18,14 @@ type ProjectPageProps = {
 const ProjectPage = async ({ params }: ProjectPageProps) => {
   let project;
   let image = null;
+  let tags: Tag[] = [];
 
   if (params.projectId === "new") {
     project = await createBlankProject();
   } else {
     project = await getProject(params.projectId);
     image = await getImage(params.projectId);
+    tags = await getTags({ projectId: params.projectId });
   }
 
   if (!project) return null;
@@ -32,6 +36,7 @@ const ProjectPage = async ({ params }: ProjectPageProps) => {
       <Separator />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4 mb-8">
         <ImageForm projectId={project.id} initialImage={image} />
+        <TagsForm projectId={project.id} initialTags={tags} />
       </div>
       <ProjectForm initialProject={project} />
     </div>

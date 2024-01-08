@@ -55,7 +55,6 @@ export const ImageForm: React.FC<ImageFormProps> = ({
       });
       router.refresh();
     } catch (error) {
-      console.log(error);
       toast({ title: "Something went wrong!", variant: "destructive" });
     }
   };

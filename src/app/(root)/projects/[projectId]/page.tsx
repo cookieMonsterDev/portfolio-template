@@ -20,11 +20,11 @@ const ProjectPage = async ({ params }: ProjectPageProps) => {
       <div className="w-full p-4 rounded-lg border dark:border-slate-800 col-span-2 lg:col-span-1">
         <Heading title={project.title} className="pt-0" />
         <p className="font-light">{project.desc}</p>
-        <div className="flex items-center flex-wrap py-4 gap-2">
+        <div className="flex items-center flex-wrap py-4 gap-2 overflow-hidden">
           {project.tags.map((e) => (
             <span
               key={e.id}
-              className="border border-slate-800 px-3 py-1 rounded-3xl bg-slate-950 text-slate-50 dark:bg-slate-50 dark:text-slate-950"
+              className="border border-slate-800 px-3 py-1 rounded-3xl bg-slate-950 text-slate-50 dark:bg-slate-50 dark:text-slate-950 overflow-hidden text-ellipsis"
             >
               {e.title}
             </span>
