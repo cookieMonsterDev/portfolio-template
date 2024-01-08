@@ -1,10 +1,10 @@
 import { create } from "zustand";
 import { persist, devtools, createJSONStorage } from "zustand/middleware";
 
-interface UseAuthStore {
+type UseAuthStore = {
   isAuthenticated: boolean;
   updateAuth: (state: boolean) => void;
-}
+};
 
 export const useAuthStore = create<UseAuthStore>()(
   devtools(

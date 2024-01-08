@@ -17,10 +17,11 @@ export const getProjects = async (title?: string) => {
         : {},
       include: {
         tags: true,
+        image: true,
       },
     });
     return projects;
   } catch (error) {
-    throw error;
+    throw new Error("projects");
   }
 };

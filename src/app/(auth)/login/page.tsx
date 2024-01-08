@@ -1,23 +1,7 @@
-"use client";
-import { AuthForm } from "@/components/forms/auth-form";
-import { useAuthStore } from "@/hooks/use-auth-store";
-import { redirect } from "next/navigation";
-import { useEffect } from "react";
+import { LoginForm } from "@/components/forms/login-from";
 
 const LoginPage = () => {
-  const { isAuthenticated } = useAuthStore();
-
-  useEffect(() => {
-    if (isAuthenticated) {
-      redirect("/dashboard");
-    }
-  }, [isAuthenticated]);
-
-  return (
-    <main className="w-full h-screen flex items-center justify-center px-auto">
-      <AuthForm />
-    </main>
-  );
+  return <LoginForm />;
 };
 
 export default LoginPage;

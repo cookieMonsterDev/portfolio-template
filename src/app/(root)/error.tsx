@@ -1,22 +1,13 @@
 "use client";
 
-import { ErrorModal } from "@/components/modals/error-modal";
-import { useEffect } from "react";
-
-export default function Error({
-  error,
-  reset,
-}: {
-  error: Error & { digest?: string };
-  reset: () => void;
-}) {
-  useEffect(() => {
-    console.error(error);
-  }, [error]);
-
+const RootError = ({ error }: { error: Error & { digest?: string } }) => {
   return (
-    <>
-      <ErrorModal description={error.message} retry={() => reset()} />
-    </>
+    <div className="h-[calc(100svh-225px)] mt-6 p-2 border grid place-content-center">
+      <h1 className="text-destructive">
+        Something went wrong during loading {error.message}!
+      </h1>
+    </div>
   );
-}
+};
+
+export default RootError;

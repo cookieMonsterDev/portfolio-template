@@ -1,15 +1,16 @@
-import { About } from "@/components/sections/about";
-import { Contact } from "@/components/sections/contact";
-import { Hero } from "@/components/sections/hero";
+import { AboutSection } from "@/components/sections/about-section";
+import { ContactSection } from "@/components/sections/contact-section";
+import HeroSection from "@/components/sections/hero-section";
+import React from "react";
 
-const Home = async () => {
+const HomePage = () => {
   return (
     <>
-      <Hero />
-      <About />
-      <Contact />
+      <HeroSection />
+      <AboutSection />
+      <ContactSection />
     </>
   );
 };
 
-export default Home;
+export default HomePage;

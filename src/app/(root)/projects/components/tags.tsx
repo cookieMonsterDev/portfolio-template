@@ -1,14 +1,17 @@
 import Link from "next/link";
-import { ProjectTag } from "@prisma/client";
 import { cn } from "@/lib/utils";
 import { getTags } from "@/actions/get-tags";
 
-const Tags = async ({ title }: { title: string }) => {
-  const tags = await getTags({ title });
+type TagsProps = {
+  title: string;
+};
 
-  const formatedTags: string[] = [
-    ...new Set(tags.map((e: ProjectTag) => e.title)),
-  ].sort() as string[];
+const Tags = async ({ title }: TagsProps) => {
+  const tags = await getTags({});
+
+  if (!tags) return null;
+
+  const formatedTags: string[] = [...new Set(tags.map((e) => e.title))].sort();
 
   return (
     <div className="flex my-4 mb-6 gap-x-4 gap-y-3 flex-wrap">

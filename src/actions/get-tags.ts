@@ -7,7 +7,8 @@ type GetTagsProps = {
 
 export const getTags = async ({ projectId, title }: GetTagsProps) => {
   try {
-    const tags = await prismadb.projectTag.findMany({
+
+    const tags = await prismadb.tag.findMany({
       where: {
         projectId,
         title,
@@ -16,6 +17,6 @@ export const getTags = async ({ projectId, title }: GetTagsProps) => {
 
     return tags;
   } catch (error) {
-    throw error;
+    throw new Error("tags");
   }
 };

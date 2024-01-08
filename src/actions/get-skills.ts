@@ -6,6 +6,6 @@ export const getSkills = async () => {
 
     return skills;
   } catch (error) {
-    throw error;
+    throw new Error('skills');
   }
 };

@@ -6,6 +6,6 @@ export const getBio = async () => {
 
     return bio;
   } catch (error) {
-    throw error;
+    throw new Error('bio');
   }
 };

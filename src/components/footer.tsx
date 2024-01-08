@@ -4,35 +4,38 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { SOCIALS } from "@/config/socials";
 import { AtSign, Github, Linkedin, Send } from "lucide-react";
 import Link from "next/link";
 
 const socials = [
   {
-    href: "https://github.com/cookieMonsterDev",
+    href: SOCIALS.github,
     label: "GitHub",
     icon: <Github className="w-6 h-6" />,
   },
   {
-    href: "https://www.linkedin.com/in/mykhailo-toporkov/",
+    href: SOCIALS.linkedin,
     label: "Linkedin",
     icon: <Linkedin className="w-6 h-6" />,
   },
   {
-    href: "https://t.me/Mykhailo_Toporkov",
+    href: SOCIALS.telegram,
     label: "Telegram",
     icon: <Send className="w-6 h-6" />,
   },
   {
-    href: "mailto: mykhailo.toporkov@gmail.com",
+    href: SOCIALS.email,
     label: "Gmail",
     icon: <AtSign className="w-6 h-6" />,
   },
 ];
 
 export const Footer = () => {
+  const formatter = new Intl.DateTimeFormat("en-US", { year: "numeric" });
+
   return (
-    <footer className="w-full border-t border-slate-300 dark:border-slate-700">
+    <footer className="w-full border-t-2">
       <div className="container flex flex-col justify-center items-center py-4">
         <div className="pb-4 flex gap-x-6">
           {socials.map((e) => (
@@ -41,7 +44,7 @@ export const Footer = () => {
                 <TooltipTrigger asChild>
                   <Link
                     href={e.href}
-                    className="opacity-50 hover:opacity-100 transition-opacity duration-300"
+                    className="opacity-50 hover:opacity-100 transition-opacity duration-200"
                   >
                     {e.icon}
                   </Link>
@@ -54,7 +57,8 @@ export const Footer = () => {
           ))}
         </div>
         <p className="opacity-50 text-sm">
-          &copy; Designed & Build by Mykhailo Toporkov 2023
+          &copy; Designed & Build by Mykhailo Toporkov{" "}
+          {formatter.format(new Date())}
         </p>
       </div>
     </footer>

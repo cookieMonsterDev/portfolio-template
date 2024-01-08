@@ -25,25 +25,35 @@ model Skill {
 }
 
 model Project {
-  id             String       @id @default(auto()) @map("_id") @db.ObjectId
-  title          String
-  owner          String
-  desc           String?
+  id             String   @id @default(auto()) @map("_id") @db.ObjectId
+  title          String   @default("Project title...")
+  owner          String   @default("Mykhailo Toporkov")
+  desc           String   @default("Project description...")
   github_url     String?
   deployment_url String?
-  tags           ProjectTag[] @relation("TagToProject")
-  image_url      String?
-  createdAt      DateTime     @default(now())
-  updatedAt      DateTime     @updatedAt
+  tags           Tag[]
+  image          Image?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
 }
 
-model ProjectTag {
+model Tag {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   title     String
   projectId String   @db.ObjectId
-  project   Project  @relation("TagToProject", fields: [projectId], references: [id], onDelete: Cascade)
+  project   Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
   @@index([projectId])
+}
+
+model Image {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  url       String
+  name      String
+  projectId String   @unique @db.ObjectId
+  project   Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }

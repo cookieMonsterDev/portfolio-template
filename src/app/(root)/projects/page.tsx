@@ -1,25 +1,25 @@
 import { Suspense } from "react";
-import LoadingTags from "./components/loading-tags";
 import Tags from "./components/tags";
-import ProjectList from "./components/project-list";
-import LoadingProjects from "./components/loading-projects-list";
+import LoadingTags from "./components/loading-tags";
+import Projects from "./components/projects";
+import LoadingProjects from "./components/loading-projects";
 
-interface ProjectsPageProps {
+type ProjectsPagseProps = {
   searchParams: {
     title: string;
   };
-}
+};
 
-const ProjectsPage = async ({ searchParams }: ProjectsPageProps) => {
+const ProjectsPage = ({ searchParams }: ProjectsPagseProps) => {
   return (
-    <div className="overflow-hidden pb-6">
+    <>
       <Suspense fallback={<LoadingTags />}>
         <Tags title={searchParams.title} />
       </Suspense>
       <Suspense fallback={<LoadingProjects />}>
-        <ProjectList searchParams={searchParams}/>
+        <Projects title={searchParams.title} />
       </Suspense>
-    </div>
+    </>
   );
 };
 
