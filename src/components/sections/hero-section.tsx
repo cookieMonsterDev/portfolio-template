@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { buttonVariants } from "../ui/button";
+import { TypingEffect } from "../typing-effect";
 
 const HeroSection = () => {
   return (
@@ -12,6 +13,8 @@ const HeroSection = () => {
           <p aria-hidden>Hi,</p>
           <p aria-hidden>I&apos;m Mykhailo,</p>
           <p aria-hidden>Full-Stack Engineer</p>
+
+          {/* <TypingEffect text="Full-Stack Engineer"/> */}
         </h1>
         <span className="text-xl text-gray-500">
           Front-End React Developer / Back-End NodeJS Developer
